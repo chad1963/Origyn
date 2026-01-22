@@ -1,0 +1,6 @@
+# netlify.toml
+[build]
+# remove or set to a relative path inside the repo, e.g.:
+# base = "frontend"    # if your site files live in a subfolder named "frontend"
+# or just omit the base entirely to use the repo root
+publish = "dist"        # keep your publish directory as appropriate
