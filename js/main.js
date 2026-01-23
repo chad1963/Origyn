@@ -56,8 +56,9 @@ function initHeader() {
 // ============================================
 
 function initMobileMenu() {
-  const menuToggle = document.getElementById('menu-toggle');
-  const navLinks = document.querySelector('.header__nav-links');
+  // Support both .header and .nav navigation systems
+  const menuToggle = document.getElementById('menu-toggle') || document.getElementById('navToggle');
+  const navLinks = document.querySelector('.header__nav-links') || document.querySelector('.nav-links');
 
   if (!menuToggle || !navLinks) return;
 
@@ -73,7 +74,11 @@ function initMobileMenu() {
 
   // Close menu when clicking outside
   document.addEventListener('click', (e) => {
-    if (state.isMenuOpen && !e.target.closest('.header__nav') && !e.target.closest('.header__menu-toggle')) {
+    const navContainer = document.querySelector('.header__nav') || document.querySelector('.nav');
+    const toggleButton = document.querySelector('.header__menu-toggle') || document.querySelector('.nav-toggle');
+
+    if (state.isMenuOpen && !e.target.closest('.header__nav') && !e.target.closest('.nav') &&
+        !e.target.closest('.header__menu-toggle') && !e.target.closest('.nav-toggle')) {
       state.isMenuOpen = false;
       menuToggle.classList.remove('is-active');
       navLinks.classList.remove('is-open');
