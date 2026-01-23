@@ -1,0 +1,68 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .tree-fill { fill: #2D5F4F; }
+    </style>
+  </defs>
+  
+  <!-- Tree with roots - exact design from image -->
+  <g class="tree-fill">
+    <!-- Root system -->
+    <path d="M400,450 Q350,500 300,550 Q280,570 250,600 Q230,620 200,650 L205,655 Q235,625 255,605 Q285,575 305,555 Q355,505 400,460 Z"/>
+    <path d="M400,450 Q370,490 340,530 Q320,550 290,580 Q270,600 240,630 L245,635 Q275,605 295,585 Q325,555 345,535 Q375,495 400,460 Z"/>
+    <path d="M400,450 Q380,500 360,550 L365,553 Q385,503 400,460 Z"/>
+    <path d="M400,450 Q410,490 420,530 L415,533 Q405,493 400,460 Z"/>
+    <path d="M400,450 Q420,500 440,550 L435,553 Q415,503 400,460 Z"/>
+    <path d="M400,450 Q430,490 460,530 Q480,550 510,580 Q530,600 560,630 L555,635 Q525,605 505,585 Q475,555 455,535 Q425,495 400,460 Z"/>
+    <path d="M400,450 Q450,500 500,550 Q520,570 550,600 Q570,620 600,650 L595,655 Q565,625 545,605 Q515,575 495,555 Q445,505 400,460 Z"/>
+    
+    <!-- Trunk -->
+    <ellipse cx="400" cy="430" rx="25" ry="35"/>
+    
+    <!-- Lower canopy layer -->
+    <ellipse cx="250" cy="350" rx="50" ry="65"/>
+    <ellipse cx="300" cy="370" rx="55" ry="60"/>
+    <ellipse cx="350" cy="380" rx="60" ry="55"/>
+    <ellipse cx="400" cy="385" rx="70" ry="50"/>
+    <ellipse cx="450" cy="380" rx="60" ry="55"/>
+    <ellipse cx="500" cy="370" rx="55" ry="60"/>
+    <ellipse cx="550" cy="350" rx="50" ry="65"/>
+    
+    <!-- Middle canopy layer -->
+    <ellipse cx="270" cy="310" rx="45" ry="58"/>
+    <ellipse cx="320" cy="325" rx="50" ry="55"/>
+    <ellipse cx="360" cy="335" rx="55" ry="52"/>
+    <ellipse cx="400" cy="340" rx="65" ry="48"/>
+    <ellipse cx="440" cy="335" rx="55" ry="52"/>
+    <ellipse cx="480" cy="325" rx="50" ry="55"/>
+    <ellipse cx="530" cy="310" rx="45" ry="58"/>
+    
+    <!-- Upper canopy layer -->
+    <ellipse cx="290" cy="270" rx="40" ry="50"/>
+    <ellipse cx="330" cy="285" rx="45" ry="48"/>
+    <ellipse cx="370" cy="295" rx="50" ry="45"/>
+    <ellipse cx="400" cy="300" rx="60" ry="42"/>
+    <ellipse cx="430" cy="295" rx="50" ry="45"/>
+    <ellipse cx="470" cy="285" rx="45" ry="48"/>
+    <ellipse cx="510" cy="270" rx="40" ry="50"/>
+    
+    <!-- Top canopy layer -->
+    <ellipse cx="310" cy="240" rx="35" ry="42"/>
+    <ellipse cx="350" cy="250" rx="40" ry="40"/>
+    <ellipse cx="400" cy="255" rx="50" ry="38"/>
+    <ellipse cx="450" cy="250" rx="40" ry="40"/>
+    <ellipse cx="490" cy="240" rx="35" ry="42"/>
+    
+    <!-- Crown -->
+    <ellipse cx="330" cy="215" rx="30" ry="35"/>
+    <ellipse cx="370" cy="220" rx="35" ry="33"/>
+    <ellipse cx="400" cy="222" rx="42" ry="32"/>
+    <ellipse cx="430" cy="220" rx="35" ry="33"/>
+    <ellipse cx="470" cy="215" rx="30" ry="35"/>
+    
+    <!-- Top -->
+    <ellipse cx="360" cy="195" rx="25" ry="28"/>
+    <ellipse cx="400" cy="190" rx="32" ry="26"/>
+    <ellipse cx="440" cy="195" rx="25" ry="28"/>
+  </g>
+</svg>
