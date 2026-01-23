@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop ORIGYN premium storytelling apparel. Every purchase preserves a story.">
+  <title>Shop | ORIGYN</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">ORIG<span>Y</span>N</a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="stories.html" class="nav-link">Stories</a>
+        <a href="stories.html#culture" class="nav-link">Culture</a>
+        <a href="stories.html#history" class="nav-link">History</a>
+        <a href="community.html" class="nav-link">Community</a>
+        <a href="about.html" class="nav-link">About</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="nav-cart" id="cartBtn" aria-label="Shopping cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+          <span class="nav-cart-count" id="cartCount" style="display: none;">0</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Shop Header -->
+  <section class="shop-header">
+    <div class="container">
+      <p class="text-label mb-md">Shop</p>
+      <h1>Wear the Story</h1>
+      <p class="mt-md" style="max-width: 600px; margin-left: auto; margin-right: auto; color: var(--color-charcoal-light);">
+        Every purchase preserves a story. Premium quality, meaningful designs, and a QR code that unlocks the full experience.
+      </p>
+
+      <!-- Filters -->
+      <div class="shop-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="tees" id="tees">T-Shirts</button>
+        <button class="filter-btn" data-filter="hoodies" id="hoodies">Hoodies</button>
+        <button class="filter-btn" data-filter="hats" id="hats">Hats</button>
+        <button class="filter-btn" data-filter="florence">Florence Collection</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="shop-grid">
+        <!-- Product 1 -->
+        <a href="product.html" class="product-card" data-category="tees florence" data-animate>
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=Florence+Heritage+Tee" alt="Florence Heritage Tee">
+            <div class="product-card-quick-add">
+              <button class="btn btn-primary" style="width: 100%;" onclick="event.preventDefault(); event.stopPropagation(); alert('Added to cart!');">Quick Add</button>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>Florence Heritage Tee</h3>
+            <p class="product-card-price">$45</p>
+          </div>
+        </a>
+
+        <!-- Product 2 -->
+        <a href="product.html" class="product-card" data-category="hoodies florence" data-animate>
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=River+City+Hoodie" alt="River City Hoodie">
+            <div class="product-card-quick-add">
+              <button class="btn btn-primary" style="width: 100%;" onclick="event.preventDefault(); event.stopPropagation(); alert('Added to cart!');">Quick Add</button>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>River City Hoodie</h3>
+            <p class="product-card-price">$75</p>
+          </div>
+        </a>
+
+        <!-- Product 3 -->
+        <a href="product.html" class="product-card" data-category="tees florence" data-animate>
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=Est+1818+Tee" alt="Est. 1818 Tee">
+            <div class="product-card-quick-add">
+              <button class="btn btn-primary" style="width: 100%;" onclick="event.preventDefault(); event.stopPropagation(); alert('Added to cart!');">Quick Add</button>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>Est. 1818 Tee</h3>
+            <p class="product-card-price">$45</p>
+          </div>
+        </a>
+
+        <!-- Product 4 -->
+        <a href="product.html" class="product-card" data-category="hats florence" data-animate>
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=Coordinates+Cap" alt="Coordinates Cap">
+            <div class="product-card-quick-add">
+              <button class="btn btn-primary" style="width: 100%;" onclick="event.preventDefault(); event.stopPropagation(); alert('Added to cart!');">Quick Add</button>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>Coordinates Cap</h3>
+            <p class="product-card-price">$35</p>
+          </div>
+        </a>
+
+        <!-- Product 5 -->
+        <a href="product.html" class="product-card" data-category="tees florence" data-animate>
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=Long+Nights+Tee" alt="Long Nights Loud History Tee">
+            <div class="product-card-quick-add">
+              <button class="btn btn-primary" style="width: 100%;" onclick="event.preventDefault(); event.stopPropagation(); alert('Added to cart!');">Quick Add</button>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>Long Nights. Loud History.</h3>
+            <p class="product-card-price">$45</p>
+          </div>
+        </a>
+
+        <!-- Product 6 -->
+        <a href="product.html" class="product-card" data-category="hoodies florence" data-animate>
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=Shoals+Hoodie" alt="The Shoals Hoodie">
+            <div class="product-card-quick-add">
+              <button class="btn btn-primary" style="width: 100%;" onclick="event.preventDefault(); event.stopPropagation(); alert('Added to cart!');">Quick Add</button>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>The Shoals Hoodie</h3>
+            <p class="product-card-price">$75</p>
+          </div>
+        </a>
+
+        <!-- Product 7 -->
+        <a href="product.html" class="product-card" data-category="tees florence" data-animate>
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=River+Sings+Tee" alt="Where The River Sings Tee">
+            <div class="product-card-quick-add">
+              <button class="btn btn-primary" style="width: 100%;" onclick="event.preventDefault(); event.stopPropagation(); alert('Added to cart!');">Quick Add</button>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>Where The River Sings</h3>
+            <p class="product-card-price">$45</p>
+          </div>
+        </a>
+
+        <!-- Product 8 -->
+        <a href="product.html" class="product-card" data-category="hats florence" data-animate>
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=Heritage+Cap" alt="Florence Heritage Cap">
+            <div class="product-card-quick-add">
+              <button class="btn btn-primary" style="width: 100%;" onclick="event.preventDefault(); event.stopPropagation(); alert('Added to cart!');">Quick Add</button>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>Florence Heritage Cap</h3>
+            <p class="product-card-price">$35</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Props -->
+  <section class="section" style="background: var(--color-cream-dark);">
+    <div class="container">
+      <div class="grid grid-4 gap-xl text-center">
+        <div data-animate>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust)" stroke-width="1.5" style="margin: 0 auto var(--space-md);">
+            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+          <h4 style="font-size: var(--text-base); margin-bottom: var(--space-xs);">Quality Guarantee</h4>
+          <p style="font-size: var(--text-sm); color: var(--color-charcoal-light);">Premium materials built to last for years</p>
+        </div>
+        <div data-animate>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust)" stroke-width="1.5" style="margin: 0 auto var(--space-md);">
+            <path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <h4 style="font-size: var(--text-base); margin-bottom: var(--space-xs);">QR Story Access</h4>
+          <p style="font-size: var(--text-sm); color: var(--color-charcoal-light);">Every piece unlocks a full story experience</p>
+        </div>
+        <div data-animate>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust)" stroke-width="1.5" style="margin: 0 auto var(--space-md);">
+            <path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+          </svg>
+          <h4 style="font-size: var(--text-base); margin-bottom: var(--space-xs);">Secure Checkout</h4>
+          <p style="font-size: var(--text-sm); color: var(--color-charcoal-light);">Safe, encrypted payments via Shopify</p>
+        </div>
+        <div data-animate>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust)" stroke-width="1.5" style="margin: 0 auto var(--space-md);">
+            <path d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z"/>
+          </svg>
+          <h4 style="font-size: var(--text-base); margin-bottom: var(--space-xs);">Easy Returns</h4>
+          <p style="font-size: var(--text-sm); color: var(--color-charcoal-light);">30-day hassle-free returns</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section section">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Get Story Drops</h2>
+        <p>Be the first to know when we launch new places, new stories, and limited releases.</p>
+        <form class="newsletter-form" id="newsletterForm" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="newsletter">
+          <input type="hidden" name="bot-field">
+          <input type="email" name="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>ORIG<span>Y</span>N</h3>
+          <p>Every place has a story worth wearing. We're here to preserve them.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/origyn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@origyn" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+              </svg>
+            </a>
+            <a href="https://youtube.com/@origyn" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Stories</h4>
+          <ul>
+            <li><a href="stories.html">All Stories</a></li>
+            <li><a href="places/florence.html">Florence, AL</a></li>
+            <li><a href="community.html#request">Request a Town</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html#tees">T-Shirts</a></li>
+            <li><a href="shop.html#hoodies">Hoodies</a></li>
+            <li><a href="shop.html#hats">Hats</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 ORIGYN. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>Your Cart</h3>
+      <button class="cart-drawer-close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-drawer-content">
+      <p style="text-align: center; color: var(--color-charcoal-light); padding: var(--space-2xl) 0;">Your cart is empty</p>
+    </div>
+    <div class="cart-drawer-footer">
+      <p class="cart-message">Every purchase preserves a story.</p>
+      <a href="shop.html" class="btn btn-primary" style="width: 100%;">Continue Shopping</a>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+  <script>
+    // Simple filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active state
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        const products = document.querySelectorAll('.product-card');
+
+        products.forEach(product => {
+          if (filter === 'all') {
+            product.style.display = 'block';
+          } else {
+            const categories = product.dataset.category || '';
+            if (categories.includes(filter)) {
+              product.style.display = 'block';
+            } else {
+              product.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

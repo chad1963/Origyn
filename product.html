@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Florence Heritage Tee - Premium storytelling apparel from ORIGYN. Every piece includes a QR code that unlocks the full story.">
+  <title>Florence Heritage Tee | ORIGYN</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">ORIG<span>Y</span>N</a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="stories.html" class="nav-link">Stories</a>
+        <a href="stories.html#culture" class="nav-link">Culture</a>
+        <a href="stories.html#history" class="nav-link">History</a>
+        <a href="community.html" class="nav-link">Community</a>
+        <a href="about.html" class="nav-link">About</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="nav-cart" id="cartBtn" aria-label="Shopping cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+          <span class="nav-cart-count" id="cartCount" style="display: none;">0</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="container" style="padding-top: 100px;">
+    <nav style="font-size: var(--text-sm); color: var(--color-charcoal-light); padding: var(--space-md) 0;">
+      <a href="index.html" style="color: var(--color-charcoal-light);">Home</a>
+      <span style="margin: 0 var(--space-sm);">/</span>
+      <a href="shop.html" style="color: var(--color-charcoal-light);">Shop</a>
+      <span style="margin: 0 var(--space-sm);">/</span>
+      <span style="color: var(--color-charcoal);">Florence Heritage Tee</span>
+    </nav>
+  </div>
+
+  <!-- Product Page -->
+  <section class="product-page">
+    <div class="container">
+      <div class="product-layout">
+        <!-- Product Gallery -->
+        <div class="product-gallery">
+          <div class="product-main-image">
+            <img src="https://placehold.co/600x600/E8E2D9/5C4033?text=Florence+Heritage+Tee" alt="Florence Heritage Tee - Front" id="mainProductImage">
+          </div>
+          <div class="product-thumbnails">
+            <button class="product-thumbnail active" onclick="changeImage(this, 'https://placehold.co/600x600/E8E2D9/5C4033?text=Front')">
+              <img src="https://placehold.co/80x80/E8E2D9/5C4033?text=Front" alt="Front view">
+            </button>
+            <button class="product-thumbnail" onclick="changeImage(this, 'https://placehold.co/600x600/E8E2D9/5C4033?text=Back')">
+              <img src="https://placehold.co/80x80/E8E2D9/5C4033?text=Back" alt="Back view">
+            </button>
+            <button class="product-thumbnail" onclick="changeImage(this, 'https://placehold.co/600x600/E8E2D9/5C4033?text=Detail')">
+              <img src="https://placehold.co/80x80/E8E2D9/5C4033?text=Detail" alt="Detail view">
+            </button>
+            <button class="product-thumbnail" onclick="changeImage(this, 'https://placehold.co/600x600/E8E2D9/5C4033?text=Lifestyle')">
+              <img src="https://placehold.co/80x80/E8E2D9/5C4033?text=Model" alt="Lifestyle shot">
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+          <p class="product-collection">The Shoals Collection</p>
+          <h1 class="product-title">Florence Heritage Tee</h1>
+          <p class="product-price">$45</p>
+
+          <p class="product-description">
+            A tribute to Florence, Alabama - where the Tennessee River shaped a city and a sound that changed music forever. This premium tee features our heritage design with coordinates and a subtle map element that celebrates the place where W.C. Handy was born and Frank Lloyd Wright left his mark.
+          </p>
+
+          <!-- Size Selection -->
+          <div class="product-options">
+            <p class="product-option-label">Size</p>
+            <div class="size-options">
+              <button class="size-btn" onclick="selectSize(this)">XS</button>
+              <button class="size-btn" onclick="selectSize(this)">S</button>
+              <button class="size-btn active" onclick="selectSize(this)">M</button>
+              <button class="size-btn" onclick="selectSize(this)">L</button>
+              <button class="size-btn" onclick="selectSize(this)">XL</button>
+              <button class="size-btn" onclick="selectSize(this)">2XL</button>
+            </div>
+            <button style="font-size: var(--text-sm); color: var(--color-rust); margin-top: var(--space-sm); text-decoration: underline; background: none; border: none; cursor: pointer;" onclick="showSizeGuide()">Size Guide</button>
+          </div>
+
+          <!-- Add to Cart -->
+          <div class="product-actions">
+            <div class="quantity-selector">
+              <button class="quantity-btn" onclick="decrementQty()">-</button>
+              <span class="quantity-value" id="qtyValue">1</span>
+              <button class="quantity-btn" onclick="incrementQty()">+</button>
+            </div>
+            <button class="btn btn-primary btn-lg add-to-cart-btn" onclick="addToCart()">Add to Cart - $45</button>
+          </div>
+
+          <!-- Story Preview -->
+          <div class="product-story-preview">
+            <h4>The Story Behind This Design</h4>
+            <p>Every ORIGYN piece includes a QR code that unlocks the full story. Scan to discover mini-documentaries, oral histories, archival photos, and the real stories behind Florence, Alabama.</p>
+            <a href="places/florence.html" class="btn btn-secondary btn-sm">Preview the Story</a>
+          </div>
+
+          <!-- Product Details Accordion -->
+          <div style="border-top: 1px solid var(--color-cream-dark); margin-top: var(--space-xl);">
+            <details style="border-bottom: 1px solid var(--color-cream-dark);">
+              <summary style="padding: var(--space-md) 0; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                Materials & Care
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.2s;">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </summary>
+              <div style="padding-bottom: var(--space-md); color: var(--color-charcoal-light); font-size: var(--text-sm);">
+                <p><strong>Materials:</strong> 55% Hemp, 45% Organic Cotton</p>
+                <p style="margin-top: var(--space-sm);"><strong>Weight:</strong> 6.0 oz (midweight)</p>
+                <p style="margin-top: var(--space-sm);"><strong>Care:</strong> Machine wash cold, tumble dry low. Hemp softens with each wash.</p>
+              </div>
+            </details>
+
+            <details style="border-bottom: 1px solid var(--color-cream-dark);">
+              <summary style="padding: var(--space-md) 0; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                Shipping & Returns
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.2s;">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </summary>
+              <div style="padding-bottom: var(--space-md); color: var(--color-charcoal-light); font-size: var(--text-sm);">
+                <p><strong>Shipping:</strong> Free shipping on orders over $75. Standard shipping 5-7 business days.</p>
+                <p style="margin-top: var(--space-sm);"><strong>Returns:</strong> 30-day hassle-free returns. Items must be unworn with tags attached.</p>
+              </div>
+            </details>
+
+            <details style="border-bottom: 1px solid var(--color-cream-dark);">
+              <summary style="padding: var(--space-md) 0; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                About the QR Code
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.2s;">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </summary>
+              <div style="padding-bottom: var(--space-md); color: var(--color-charcoal-light); font-size: var(--text-sm);">
+                <p>Every ORIGYN garment includes a QR code on the hang tag and inside label. Scan it with your phone camera to access:</p>
+                <ul style="margin-top: var(--space-sm); padding-left: var(--space-lg); list-style: disc;">
+                  <li>Mini-documentary clips</li>
+                  <li>Oral history audio</li>
+                  <li>Archival photos</li>
+                  <li>Local legends and hidden history</li>
+                  <li>Sources and citations</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="section" style="background: var(--color-cream-dark);">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <h2>You May Also Like</h2>
+      </div>
+      <div class="grid grid-4 gap-xl">
+        <a href="product.html" class="product-card">
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=River+City+Hoodie" alt="River City Hoodie">
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>River City Hoodie</h3>
+            <p class="product-card-price">$75</p>
+          </div>
+        </a>
+        <a href="product.html" class="product-card">
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=Est+1818+Tee" alt="Est. 1818 Tee">
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>Est. 1818 Tee</h3>
+            <p class="product-card-price">$45</p>
+          </div>
+        </a>
+        <a href="product.html" class="product-card">
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=Coordinates+Cap" alt="Coordinates Cap">
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>Coordinates Cap</h3>
+            <p class="product-card-price">$35</p>
+          </div>
+        </a>
+        <a href="product.html" class="product-card">
+          <div class="product-card-image">
+            <img src="https://placehold.co/400x400/E8E2D9/5C4033?text=Long+Nights+Tee" alt="Long Nights Loud History Tee">
+          </div>
+          <div class="product-card-content">
+            <p class="product-card-collection">The Shoals Collection</p>
+            <h3>Long Nights. Loud History.</h3>
+            <p class="product-card-price">$45</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>ORIG<span>Y</span>N</h3>
+          <p>Every place has a story worth wearing. We're here to preserve them.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/origyn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@origyn" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+              </svg>
+            </a>
+            <a href="https://youtube.com/@origyn" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Stories</h4>
+          <ul>
+            <li><a href="stories.html">All Stories</a></li>
+            <li><a href="places/florence.html">Florence, AL</a></li>
+            <li><a href="community.html#request">Request a Town</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html#tees">T-Shirts</a></li>
+            <li><a href="shop.html#hoodies">Hoodies</a></li>
+            <li><a href="shop.html#hats">Hats</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 ORIGYN. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>Your Cart</h3>
+      <button class="cart-drawer-close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-drawer-content" id="cartContent">
+      <p style="text-align: center; color: var(--color-charcoal-light); padding: var(--space-2xl) 0;">Your cart is empty</p>
+    </div>
+    <div class="cart-drawer-footer">
+      <p class="cart-message">Every purchase preserves a story.</p>
+      <a href="shop.html" class="btn btn-primary" style="width: 100%;">Continue Shopping</a>
+    </div>
+  </div>
+
+  <!-- Size Guide Modal -->
+  <div id="sizeGuideModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="background: white; max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto; border-radius: var(--radius-lg); padding: var(--space-xl);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg);">
+        <h3>Size Guide</h3>
+        <button onclick="closeSizeGuide()" style="font-size: 24px; background: none; border: none; cursor: pointer;">&times;</button>
+      </div>
+      <table style="width: 100%; border-collapse: collapse; font-size: var(--text-sm);">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--color-cream-dark);">
+            <th style="padding: var(--space-sm); text-align: left;">Size</th>
+            <th style="padding: var(--space-sm); text-align: center;">Chest (in)</th>
+            <th style="padding: var(--space-sm); text-align: center;">Length (in)</th>
+            <th style="padding: var(--space-sm); text-align: center;">Sleeve (in)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--color-cream-dark);">
+            <td style="padding: var(--space-sm);">XS</td>
+            <td style="padding: var(--space-sm); text-align: center;">34-36</td>
+            <td style="padding: var(--space-sm); text-align: center;">27</td>
+            <td style="padding: var(--space-sm); text-align: center;">8</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-cream-dark);">
+            <td style="padding: var(--space-sm);">S</td>
+            <td style="padding: var(--space-sm); text-align: center;">36-38</td>
+            <td style="padding: var(--space-sm); text-align: center;">28</td>
+            <td style="padding: var(--space-sm); text-align: center;">8.25</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-cream-dark);">
+            <td style="padding: var(--space-sm);">M</td>
+            <td style="padding: var(--space-sm); text-align: center;">38-40</td>
+            <td style="padding: var(--space-sm); text-align: center;">29</td>
+            <td style="padding: var(--space-sm); text-align: center;">8.5</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-cream-dark);">
+            <td style="padding: var(--space-sm);">L</td>
+            <td style="padding: var(--space-sm); text-align: center;">40-42</td>
+            <td style="padding: var(--space-sm); text-align: center;">30</td>
+            <td style="padding: var(--space-sm); text-align: center;">8.75</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-cream-dark);">
+            <td style="padding: var(--space-sm);">XL</td>
+            <td style="padding: var(--space-sm); text-align: center;">42-44</td>
+            <td style="padding: var(--space-sm); text-align: center;">31</td>
+            <td style="padding: var(--space-sm); text-align: center;">9</td>
+          </tr>
+          <tr>
+            <td style="padding: var(--space-sm);">2XL</td>
+            <td style="padding: var(--space-sm); text-align: center;">44-46</td>
+            <td style="padding: var(--space-sm); text-align: center;">32</td>
+            <td style="padding: var(--space-sm); text-align: center;">9.25</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size: var(--text-sm); color: var(--color-charcoal-light); margin-top: var(--space-md);">
+        Measurements are approximate. When in doubt, size up - our hemp blend softens and relaxes with wear.
+      </p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+  <script>
+    let quantity = 1;
+    let selectedSize = 'M';
+
+    function changeImage(thumb, src) {
+      document.querySelectorAll('.product-thumbnail').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+      document.getElementById('mainProductImage').src = src;
+    }
+
+    function selectSize(btn) {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSize = btn.textContent;
+    }
+
+    function incrementQty() {
+      quantity++;
+      document.getElementById('qtyValue').textContent = quantity;
+      updatePrice();
+    }
+
+    function decrementQty() {
+      if (quantity > 1) {
+        quantity--;
+        document.getElementById('qtyValue').textContent = quantity;
+        updatePrice();
+      }
+    }
+
+    function updatePrice() {
+      const total = 45 * quantity;
+      document.querySelector('.add-to-cart-btn').textContent = `Add to Cart - $${total}`;
+    }
+
+    function addToCart() {
+      // Simulate adding to cart
+      alert(`Added to cart: Florence Heritage Tee (Size: ${selectedSize}, Qty: ${quantity})`);
+
+      // Update cart drawer
+      const cartContent = document.getElementById('cartContent');
+      cartContent.innerHTML = `
+        <div class="cart-item">
+          <div class="cart-item-image">
+            <img src="https://placehold.co/80x80/E8E2D9/5C4033?text=Tee" alt="Florence Heritage Tee">
+          </div>
+          <div class="cart-item-details">
+            <h4 class="cart-item-title">Florence Heritage Tee</h4>
+            <p class="cart-item-variant">Size: ${selectedSize}</p>
+            <p class="cart-item-price">$${45 * quantity}</p>
+            <button class="cart-item-remove" onclick="removeFromCart()">Remove</button>
+          </div>
+        </div>
+      `;
+
+      // Show cart drawer
+      document.getElementById('cartDrawer').classList.add('active');
+      document.getElementById('cartBackdrop').classList.add('active');
+
+      // Update cart count
+      const cartCount = document.getElementById('cartCount');
+      cartCount.textContent = quantity;
+      cartCount.style.display = 'flex';
+    }
+
+    function removeFromCart() {
+      const cartContent = document.getElementById('cartContent');
+      cartContent.innerHTML = `<p style="text-align: center; color: var(--color-charcoal-light); padding: var(--space-2xl) 0;">Your cart is empty</p>`;
+      document.getElementById('cartCount').style.display = 'none';
+    }
+
+    function showSizeGuide() {
+      document.getElementById('sizeGuideModal').style.display = 'flex';
+    }
+
+    function closeSizeGuide() {
+      document.getElementById('sizeGuideModal').style.display = 'none';
+    }
+
+    // Close modal on background click
+    document.getElementById('sizeGuideModal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('sizeGuideModal')) {
+        closeSizeGuide();
+      }
+    });
+  </script>
+</body>
+</html>

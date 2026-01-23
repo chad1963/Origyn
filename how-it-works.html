@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how ORIGYN works - scan the QR code on your garment to unlock stories, photos, audio, and video about real places.">
+  <title>How It Works | ORIGYN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">ORIG<span>Y</span>N</a>
+      <div class="nav-links" id="navLinks">
+        <a href="stories.html" class="nav-link">Stories</a>
+        <a href="stories.html#culture" class="nav-link">Culture</a>
+        <a href="stories.html#history" class="nav-link">History</a>
+        <a href="community.html" class="nav-link">Community</a>
+        <a href="about.html" class="nav-link">About</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-cart" id="cartBtn" aria-label="Shopping cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+          <span class="nav-cart-count" id="cartCount" style="display: none;">0</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="section" style="padding-top: 140px; background: var(--color-cream-dark);">
+    <div class="container text-center">
+      <p class="text-label mb-md">The Experience</p>
+      <h1>More Than a Shirt.<br>A <span style="color: var(--color-rust);">Story</span>.</h1>
+      <p class="mt-lg" style="max-width: 600px; margin-left: auto; margin-right: auto; font-size: var(--text-xl); color: var(--color-charcoal-light);">
+        Every ORIGYN piece comes with a QR code that unlocks the full story behind your garment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-xl);">
+        <div class="text-center" data-animate>
+          <div style="width: 100px; height: 100px; background: var(--color-rust); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-lg); font-family: var(--font-serif); font-size: var(--text-3xl); color: white; font-weight: 700;">1</div>
+          <h3>Choose Your Place</h3>
+          <p style="color: var(--color-charcoal-light); margin-top: var(--space-sm);">Pick a design that represents where you're from or a place that speaks to you.</p>
+        </div>
+        <div class="text-center" data-animate>
+          <div style="width: 100px; height: 100px; background: var(--color-rust); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-lg); font-family: var(--font-serif); font-size: var(--text-3xl); color: white; font-weight: 700;">2</div>
+          <h3>Get Your Garment</h3>
+          <p style="color: var(--color-charcoal-light); margin-top: var(--space-sm);">Premium quality apparel arrives with a QR code on the hang tag and inside label.</p>
+        </div>
+        <div class="text-center" data-animate>
+          <div style="width: 100px; height: 100px; background: var(--color-rust); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-lg); font-family: var(--font-serif); font-size: var(--text-3xl); color: white; font-weight: 700;">3</div>
+          <h3>Scan the Code</h3>
+          <p style="color: var(--color-charcoal-light); margin-top: var(--space-sm);">Point your phone camera at the QR code. No app needed - just tap the link.</p>
+        </div>
+        <div class="text-center" data-animate>
+          <div style="width: 100px; height: 100px; background: var(--color-rust); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-lg); font-family: var(--font-serif); font-size: var(--text-3xl); color: white; font-weight: 700;">4</div>
+          <h3>Discover the Story</h3>
+          <p style="color: var(--color-charcoal-light); margin-top: var(--space-sm);">Unlock the full experience - history, photos, audio, video, and sources.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <section class="section" style="background: var(--color-brown-dark);">
+    <div class="container">
+      <div class="text-center mb-3xl">
+        <p class="text-label mb-md" style="color: var(--color-rust-light);">What's Inside</p>
+        <h2 style="color: var(--color-cream);">The Story Experience</h2>
+        <p class="mt-md" style="color: var(--color-cream-dark); max-width: 600px; margin-left: auto; margin-right: auto;">
+          When you scan an ORIGYN QR code, you're not getting a basic product page. You're getting a real story.
+        </p>
+      </div>
+
+      <div class="grid grid-3 gap-xl">
+        <div style="background: rgba(255,255,255,0.1); padding: var(--space-xl); border-radius: var(--radius-lg); text-align: center;" data-animate>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust-light)" stroke-width="1.5" style="margin-bottom: var(--space-md);">
+            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          <h3 style="color: var(--color-cream); margin-bottom: var(--space-sm);">Researched History</h3>
+          <p style="color: var(--color-cream-dark); font-size: var(--text-sm);">Real stories written from primary sources, local archives, and community interviews.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: var(--space-xl); border-radius: var(--radius-lg); text-align: center;" data-animate>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust-light)" stroke-width="1.5" style="margin-bottom: var(--space-md);">
+            <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <h3 style="color: var(--color-cream); margin-bottom: var(--space-sm);">Archival Photos</h3>
+          <p style="color: var(--color-cream-dark); font-size: var(--text-sm);">Historical images from libraries, museums, and family collections with full attribution.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: var(--space-xl); border-radius: var(--radius-lg); text-align: center;" data-animate>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust-light)" stroke-width="1.5" style="margin-bottom: var(--space-md);">
+            <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+          </svg>
+          <h3 style="color: var(--color-cream); margin-bottom: var(--space-sm);">Oral Histories</h3>
+          <p style="color: var(--color-cream-dark); font-size: var(--text-sm);">Audio recordings from locals - the stories that never made it into textbooks.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: var(--space-xl); border-radius: var(--radius-lg); text-align: center;" data-animate>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust-light)" stroke-width="1.5" style="margin-bottom: var(--space-md);">
+            <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+          </svg>
+          <h3 style="color: var(--color-cream); margin-bottom: var(--space-sm);">Mini-Documentaries</h3>
+          <p style="color: var(--color-cream-dark); font-size: var(--text-sm);">Short video pieces that bring the place to life visually.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: var(--space-xl); border-radius: var(--radius-lg); text-align: center;" data-animate>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust-light)" stroke-width="1.5" style="margin-bottom: var(--space-md);">
+            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <h3 style="color: var(--color-cream); margin-bottom: var(--space-sm);">Key Landmarks</h3>
+          <p style="color: var(--color-cream-dark); font-size: var(--text-sm);">Important places to visit, with context about why they matter.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: var(--space-xl); border-radius: var(--radius-lg); text-align: center;" data-animate>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust-light)" stroke-width="1.5" style="margin-bottom: var(--space-md);">
+            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <h3 style="color: var(--color-cream); margin-bottom: var(--space-sm);">Sources & Credits</h3>
+          <p style="color: var(--color-cream-dark); font-size: var(--text-sm);">Full bibliography and contributor credits - we show our work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo -->
+  <section class="section">
+    <div class="container text-center">
+      <p class="text-label mb-md">Try It Now</p>
+      <h2>See It In Action</h2>
+      <p class="mt-md" style="max-width: 500px; margin-left: auto; margin-right: auto; color: var(--color-charcoal-light);">
+        Don't have a shirt yet? No problem. Click below to preview what the Florence story experience looks like.
+      </p>
+      <a href="places/florence.html" class="btn btn-primary btn-lg mt-xl">Preview the Florence Story</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background: var(--color-cream-dark);">
+    <div class="container">
+      <div class="text-center mb-3xl">
+        <p class="text-label mb-md">FAQ</p>
+        <h2>Common Questions</h2>
+      </div>
+
+      <div style="max-width: 700px; margin: 0 auto;">
+        <details style="background: var(--color-white); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+          <summary style="padding: var(--space-lg); cursor: pointer; font-weight: 600;">Do I need an app to scan the QR code?</summary>
+          <div style="padding: 0 var(--space-lg) var(--space-lg); color: var(--color-charcoal-light);">
+            No. Just open your phone's camera app and point it at the code. A link will appear that takes you directly to the story page in your browser.
+          </div>
+        </details>
+        <details style="background: var(--color-white); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+          <summary style="padding: var(--space-lg); cursor: pointer; font-weight: 600;">What if the QR code gets damaged?</summary>
+          <div style="padding: 0 var(--space-lg) var(--space-lg); color: var(--color-charcoal-light);">
+            Every garment has QR codes in two places: the hang tag and inside the collar label. Even if one gets damaged, the other should work. And the story pages are always accessible directly through our website.
+          </div>
+        </details>
+        <details style="background: var(--color-white); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+          <summary style="padding: var(--space-lg); cursor: pointer; font-weight: 600;">Will the story pages stay online?</summary>
+          <div style="padding: 0 var(--space-lg) var(--space-lg); color: var(--color-charcoal-light);">
+            Yes. We design our URLs to be permanent. Even if we redesign the website, the links will always work. That's important when you've printed physical QR codes.
+          </div>
+        </details>
+        <details style="background: var(--color-white); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+          <summary style="padding: var(--space-lg); cursor: pointer; font-weight: 600;">Do you track when I scan?</summary>
+          <div style="padding: 0 var(--space-lg) var(--space-lg); color: var(--color-charcoal-light);">
+            We track aggregate scan counts to understand which stories resonate, but we don't collect personal data. We don't know who you are - just that someone scanned a Florence code.
+          </div>
+        </details>
+        <details style="background: var(--color-white); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+          <summary style="padding: var(--space-lg); cursor: pointer; font-weight: 600;">Can I access stories without buying anything?</summary>
+          <div style="padding: 0 var(--space-lg) var(--space-lg); color: var(--color-charcoal-light);">
+            Yes. Our story pages are publicly accessible. You can browse them anytime at <a href="stories.html" style="color: var(--color-rust);">origyn.com/stories</a>. The QR code is just a convenient way to get there from your shirt.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="newsletter-section section">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Get Story Drops</h2>
+        <p>Be the first to know when we launch new places, new stories, and limited releases.</p>
+        <form class="newsletter-form" id="newsletterForm" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="newsletter">
+          <input type="hidden" name="bot-field">
+          <input type="email" name="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>ORIG<span>Y</span>N</h3>
+          <p>Every place has a story worth wearing. We're here to preserve them.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/origyn" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://tiktok.com/@origyn" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg></a>
+            <a href="https://youtube.com/@origyn" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-column"><h4>Stories</h4><ul><li><a href="stories.html">All Stories</a></li><li><a href="places/florence.html">Florence, AL</a></li><li><a href="community.html#request">Request a Town</a></li><li><a href="how-it-works.html">How It Works</a></li></ul></div>
+        <div class="footer-column"><h4>Shop</h4><ul><li><a href="shop.html">All Products</a></li><li><a href="shop.html#tees">T-Shirts</a></li><li><a href="shop.html#hoodies">Hoodies</a></li><li><a href="shop.html#hats">Hats</a></li></ul></div>
+        <div class="footer-column"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="community.html">Community</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 ORIGYN. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header"><h3>Your Cart</h3><button class="cart-drawer-close" id="cartClose">&times;</button></div>
+    <div class="cart-drawer-content"><p style="text-align: center; color: var(--color-charcoal-light); padding: var(--space-2xl) 0;">Your cart is empty</p></div>
+    <div class="cart-drawer-footer"><p class="cart-message">Every purchase preserves a story.</p><a href="shop.html" class="btn btn-primary" style="width: 100%;">Continue Shopping</a></div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
