@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frequently asked questions about ORIGYN clothing, QR codes, shipping, and our mission.">
+  <title>FAQ | ORIGYN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-bottom: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      font-family: var(--font-headline);
+      font-size: var(--text-xl);
+      color: var(--color-forest);
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+
+    .faq-question::before {
+      content: "Q:";
+      font-weight: 700;
+      color: var(--color-gold);
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      color: var(--color-gray);
+      line-height: 1.8;
+      padding-left: calc(var(--space-md) + 1.5rem);
+    }
+
+    .faq-answer p {
+      margin-bottom: var(--space-md);
+    }
+
+    .faq-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-category {
+      font-family: var(--font-headline);
+      font-size: var(--text-2xl);
+      color: var(--color-forest);
+      margin: var(--space-3xl) 0 var(--space-xl);
+      padding-bottom: var(--space-md);
+      border-bottom: 2px solid var(--color-gold);
+    }
+
+    .faq-category:first-of-type {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">ORIG<span>Y</span>N</a>
+      <div class="nav-links" id="navLinks">
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="stories.html" class="nav-link">Stories</a>
+        <a href="about.html" class="nav-link">About ORIGYN</a>
+        <a href="sustainability.html" class="nav-link">Sustainability</a>
+        <a href="community.html" class="nav-link">Community</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-cart" id="cartBtn" aria-label="Shopping cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+          <span class="nav-cart-count" id="cartCount" style="display: none;">0</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="section" style="padding-top: 140px; background: var(--color-cream);">
+    <div class="container text-center">
+      <h1>Frequently Asked Questions</h1>
+      <p class="mt-md" style="color: var(--color-gray); max-width: 600px; margin-left: auto; margin-right: auto;">
+        Everything you need to know about ORIGYN, our products, and how the QR experience works.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="section">
+    <div class="container">
+      <div class="faq-section">
+
+        <h2 class="faq-category">About ORIGYN</h2>
+
+        <div class="faq-item">
+          <h3 class="faq-question">What is ORIGYN?</h3>
+          <div class="faq-answer">
+            <p>ORIGYN is a storytelling apparel brand that connects people to place through clothing that carries real stories. Each piece represents a specific town or region and includes a QR code that unlocks oral history, archival photos, and mini-documentaries you won't find anywhere else.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Why is there a Y in ORIGYN?</h3>
+          <div class="faq-answer">
+            <p>The Y represents two things: <strong>You</strong> and <strong>Why</strong>. This isn't just about where a place comes from—it's about your connection to it and why these stories matter. Every origin is personal.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Where do the stories come from?</h3>
+          <div class="faq-answer">
+            <p>We work with local historians, archivists, community members, and primary sources to research and verify every story. All claims are sourced and credited. We don't make things up or rely on generic Wikipedia entries—we dig deeper.</p>
+          </div>
+        </div>
+
+        <h2 class="faq-category">Products & QR Codes</h2>
+
+        <div class="faq-item">
+          <h3 class="faq-question">How does the QR code work?</h3>
+          <div class="faq-answer">
+            <p>Every ORIGYN piece includes a QR code on the hangtag and inside label. Simply open your phone's camera app, point it at the code, and tap the notification that appears. No special app needed. You'll be taken to an immersive story page with photos, videos, audio, and historical timelines.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">What fabrics do you use?</h3>
+          <div class="faq-answer">
+            <p>We use a 60% organic cotton / 40% hemp blend for most of our apparel. Hemp is naturally durable, breathable, and has a lower environmental impact than conventional cotton. The fabric gets softer with every wash and is built to last years, not seasons.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">How do your products fit?</h3>
+          <div class="faq-answer">
+            <p>Our pieces are designed with a relaxed, classic fit. Check our <a href="size-guide.html" style="color: var(--color-forest); text-decoration: underline;">Size Guide</a> for detailed measurements. If you're between sizes, we recommend sizing up for a more comfortable fit.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">How should I care for my ORIGYN apparel?</h3>
+          <div class="faq-answer">
+            <p>Machine wash cold with like colors. Tumble dry low or hang dry. The hemp-cotton blend gets softer over time. Avoid bleach and harsh detergents. Iron on low heat if needed.</p>
+          </div>
+        </div>
+
+        <h2 class="faq-category">Shipping & Returns</h2>
+
+        <div class="faq-item">
+          <h3 class="faq-question">How long does shipping take?</h3>
+          <div class="faq-answer">
+            <p>Orders are processed within 1-3 business days. Standard shipping takes 5-7 business days. Expedited options are available at checkout. You'll receive a tracking number once your order ships.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Do you ship internationally?</h3>
+          <div class="faq-answer">
+            <p>Currently, we only ship within the United States. We're working on international shipping and will update this page when it's available.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">What's your return policy?</h3>
+          <div class="faq-answer">
+            <p>We offer free returns within 30 days of delivery. Items must be unworn, unwashed, and have all original tags attached. Visit our <a href="shipping.html" style="color: var(--color-forest); text-decoration: underline;">Shipping & Returns</a> page for details.</p>
+          </div>
+        </div>
+
+        <h2 class="faq-category">Community & Contributions</h2>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Can I submit a story about my hometown?</h3>
+          <div class="faq-answer">
+            <p>Absolutely! We rely on community members to help us tell stories accurately. Visit our <a href="community.html#submit" style="color: var(--color-forest); text-decoration: underline;">Community page</a> to submit stories, photos, or corrections.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">How do I request my town to be featured?</h3>
+          <div class="faq-answer">
+            <p>Use the <a href="community.html#request" style="color: var(--color-forest); text-decoration: underline;">Request Your Town</a> form on our Community page. Tell us why your place matters and we'll prioritize based on community interest and story potential.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Do you credit contributors?</h3>
+          <div class="faq-answer">
+            <p>Yes. Every contributor—whether they shared a photo, told a story, or provided historical context—is credited in our <a href="sources.html" style="color: var(--color-forest); text-decoration: underline;">Sources & Credits</a> page and on the relevant story pages.</p>
+          </div>
+        </div>
+
+        <h2 class="faq-category">Sustainability</h2>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Is ORIGYN sustainable?</h3>
+          <div class="faq-answer">
+            <p>We prioritize hemp blends because they have lower environmental impact than conventional cotton in lifecycle comparisons. We work with certified supply partners who meet audited standards. We're not perfect, but we're honest about what we use and why. Read our full approach on our <a href="sustainability.html" style="color: var(--color-forest); text-decoration: underline;">Sustainability page</a>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Where are your products made?</h3>
+          <div class="faq-answer">
+            <p>We manufacture with Hemp Fortex, a vertically integrated facility with certifications including GOTS, OCS, RCS, ISO 9001, and BSCI/Fair Trade. We prioritize audited standards and traceability throughout our supply chain.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Still Have Questions -->
+  <section class="section section--cream">
+    <div class="container text-center">
+      <h2>Still Have Questions?</h2>
+      <p class="mt-md" style="color: var(--color-gray); max-width: 500px; margin-left: auto; margin-right: auto;">
+        Can't find what you're looking for? Reach out and we'll get back to you within 24 hours.
+      </p>
+      <div style="margin-top: var(--space-xl);">
+        <a href="contact.html" class="btn btn--primary btn--large">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center" style="padding: var(--space-2xl) 0;">
+      <a href="index.html" style="display: inline-block; margin-bottom: var(--space-lg);">
+        <span style="font-family: var(--font-headline); font-size: 1.5rem; font-weight: 600; color: var(--color-forest);">ORIG<span style="color: var(--color-gold);">Y</span>N</span>
+      </a>
+      <p style="color: var(--color-gray); margin-bottom: var(--space-lg);">Every place has a story worth wearing.</p>
+      <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; font-size: var(--text-sm);">
+        <a href="about.html" style="color: var(--color-gray);">About</a>
+        <span style="color: var(--color-gray-light);">|</span>
+        <a href="shipping.html" style="color: var(--color-gray);">Shipping</a>
+        <span style="color: var(--color-gray-light);">|</span>
+        <a href="faq.html" style="color: var(--color-gray);">FAQ</a>
+        <span style="color: var(--color-gray-light);">|</span>
+        <a href="sources.html" style="color: var(--color-gray);">Sources</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

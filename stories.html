@@ -21,11 +21,12 @@
       <a href="index.html" class="nav-logo">ORIG<span>Y</span>N</a>
 
       <div class="nav-links" id="navLinks">
+        <a href="shop.html" class="nav-link">Shop</a>
         <a href="stories.html" class="nav-link active">Stories</a>
-        <a href="stories.html#culture" class="nav-link">Culture</a>
-        <a href="stories.html#history" class="nav-link">History</a>
+        <a href="about.html" class="nav-link">About ORIGYN</a>
+        <a href="sustainability.html" class="nav-link">Sustainability</a>
         <a href="community.html" class="nav-link">Community</a>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </div>
 
       <div class="nav-actions">
@@ -53,14 +54,25 @@
   </section>
 
   <!-- Category Filter -->
-  <section style="background: var(--color-cream); border-bottom: 1px solid var(--color-cream-dark);">
+  <section style="background: var(--color-cream); border-bottom: 1px solid #ddd;">
     <div class="container">
-      <div class="category-filter">
-        <button class="category-filter__btn active" data-filter="all">All</button>
-        <button class="category-filter__btn" data-filter="culture">Culture</button>
-        <button class="category-filter__btn" data-filter="history">History</button>
-        <button class="category-filter__btn" data-filter="community">Community</button>
-        <button class="category-filter__btn" data-filter="places">Places</button>
+      <div style="padding: var(--space-lg) 0;">
+        <p style="font-size: var(--text-sm); font-weight: 600; color: var(--color-gray); margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 0.05em;">Filter by Category</p>
+        <div class="category-filter">
+          <button class="category-filter__btn active" data-filter="all">All Stories</button>
+          <button class="category-filter__btn" data-filter="music">Music</button>
+          <button class="category-filter__btn" data-filter="landmarks">Landmarks</button>
+          <button class="category-filter__btn" data-filter="people">People</button>
+          <button class="category-filter__btn" data-filter="legends">Legends</button>
+        </div>
+
+        <p style="font-size: var(--text-sm); font-weight: 600; color: var(--color-gray); margin: var(--space-xl) 0 var(--space-md); text-transform: uppercase; letter-spacing: 0.05em;">Filter by Location</p>
+        <div class="category-filter">
+          <button class="category-filter__btn location-filter active" data-location="all">All Locations</button>
+          <button class="category-filter__btn location-filter" data-location="florence">Florence</button>
+          <button class="category-filter__btn location-filter" data-location="shoals">The Shoals</button>
+          <button class="category-filter__btn location-filter" data-location="alabama">North Alabama</button>
+        </div>
       </div>
     </div>
   </section>
