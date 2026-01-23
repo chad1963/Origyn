@@ -1009,13 +1009,29 @@ p {
 
 .us-map-container {
   position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1400px;
+  margin: 0 auto var(--space-3xl);
+  padding: var(--space-xl);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
 }
 
 .us-map {
   width: 100%;
   height: auto;
+  min-height: 500px;
+}
+
+@media (max-width: 768px) {
+  .us-map-container {
+    padding: var(--space-md);
+    max-width: 100%;
+  }
+
+  .us-map {
+    min-height: 300px;
+  }
 }
 
 .us-map path {
