@@ -1,0 +1,224 @@
+{
+  "id": "florence",
+  "name": "Florence",
+  "state": "Alabama",
+  "country": "USA",
+  "tagline": "Where the River Meets the Renaissance",
+  "coordinates": {
+    "lat": 34.7998,
+    "lng": -87.6772,
+    "display": "34.7998° N, 87.6772° W"
+  },
+  "founded": 1818,
+  "population": "40,184",
+  "heroImage": "images/florence/florence-hero.jpg",
+  "heroImageAlt": "Tennessee River flowing through Florence, Alabama at sunset",
+
+  "intro": {
+    "headline": "Welcome to Florence",
+    "subhead": "A small city with a soul that shaped the world",
+    "body": "Nestled along the banks of the Tennessee River, Florence is the kind of place that doesn't announce itself—it reveals itself. To outsiders, it's just another dot on the map of northern Alabama. To those who know, it's where some of the most important American music was born, where architectural masterpieces hide in plain sight, and where the river has been whispering stories for centuries."
+  },
+
+  "story": {
+    "sections": [
+      {
+        "type": "text",
+        "title": "The River That Built Everything",
+        "content": "Before Florence was Florence, it was the river. The Tennessee River carved this valley, fed the Chickasaw and Cherokee peoples who called it home, and eventually drew settlers who saw opportunity in its power. In 1818, the Cypress Land Company surveyed the area and laid out a town they named after the Italian city—a grand ambition for a wilderness outpost.\n\nBut Florence wasn't built on ambition alone. It was built on the shoals—the shallow, rocky stretches of river that forced boats to stop, unload, and portage around the rapids. That inconvenience became Florence's first gift: a reason for people to stay."
+      },
+      {
+        "type": "image",
+        "src": "images/florence/tennessee-river-1920s.jpg",
+        "alt": "Tennessee River near Florence, circa 1920s",
+        "caption": "The Tennessee River near Florence, circa 1920s. The shoals that gave the region its name forced travelers to stop—and many never left."
+      },
+      {
+        "type": "text",
+        "title": "The Father of the Blues Was Born Here",
+        "content": "On November 16, 1873, in a log cabin on the outskirts of Florence, William Christopher Handy came into the world. His father and grandfather were Methodist ministers who saw music as the devil's work. But young W.C. Handy heard something else in the spirituals, work songs, and folk melodies that filled the air around him.\n\nHe would go on to write 'St. Louis Blues,' 'Memphis Blues,' and dozens of other compositions that laid the foundation for jazz, rock and roll, and modern American music. The cabin where he was born still stands, preserved as a museum. But his real monument is everywhere—in every blues riff, every jazz improvisation, every rock song that traces its DNA back to Florence, Alabama."
+      },
+      {
+        "type": "quote",
+        "text": "The blues come from the need to live, from want, from desire. The blue notes—the flattened thirds and sevenths—that's the sound of longing.",
+        "attribution": "W.C. Handy",
+        "context": "Father of the Blues, born in Florence, 1873"
+      },
+      {
+        "type": "image",
+        "src": "images/florence/wc-handy-birthplace.jpg",
+        "alt": "W.C. Handy birthplace cabin in Florence, Alabama",
+        "caption": "The log cabin where W.C. Handy was born, now preserved as a museum in downtown Florence."
+      },
+      {
+        "type": "text",
+        "title": "Frank Lloyd Wright's Hidden Masterpiece",
+        "content": "In 1939, Stanley and Mildred Rosenbaum were newlyweds with a plot of land and a dream. They wrote a letter to the most famous architect in America—Frank Lloyd Wright—asking if he would design them a modest home. To their astonishment, he said yes.\n\nThe Rosenbaum House is the only Frank Lloyd Wright building in Alabama, and one of the purest examples of his Usonian vision: affordable, beautiful homes for middle-class Americans. The Rosenbaums lived there for over 60 years, raising their family in a space where every detail—from the built-in furniture to the way light enters through clerestory windows—was designed by Wright himself.\n\nToday, it's open to the public. Walking through it feels like stepping into a philosophy: that beauty and function aren't luxuries, they're rights."
+      },
+      {
+        "type": "image",
+        "src": "images/florence/rosenbaum-house.jpg",
+        "alt": "Rosenbaum House designed by Frank Lloyd Wright",
+        "caption": "The Rosenbaum House, designed by Frank Lloyd Wright in 1939. The only Wright building in Alabama."
+      },
+      {
+        "type": "text",
+        "title": "The Mound Builders Were Here First",
+        "content": "Long before European settlers arrived, the Tennessee Valley was home to a sophisticated civilization. The Mississippian culture built earthen mounds throughout the region—ceremonial structures, burial sites, and platforms for important buildings.\n\nFlorence's Indian Mound is one of the largest domiciliary mounds in the Tennessee Valley, standing 42 feet tall. It was built sometime between 100 and 500 AD, predating the Mississippian period. For over a thousand years, it has watched over the river, a reminder that this place has always been significant—that we are not the first to recognize what's special here."
+      },
+      {
+        "type": "audio",
+        "src": "audio/florence-oral-history-mound.mp3",
+        "title": "Local Voices: The Indian Mound",
+        "description": "Florence historian Margaret Anne Goldsmith shares what the mound means to the community.",
+        "duration": "3:42"
+      },
+      {
+        "type": "text",
+        "title": "A Town That Punches Above Its Weight",
+        "content": "Florence has always been small—never more than 40,000 people. But somehow, this little river town keeps producing things that matter.\n\nThe University of North Alabama, founded in 1830, was the first state-supported teacher's college south of the Ohio River. Pope's Tavern, built in 1811, served as a stagecoach stop, inn, and Civil War hospital. The Florence-Lauderdale Public Library was one of the first in Alabama.\n\nAnd then there's the music. Not just W.C. Handy, but the entire Muscle Shoals Sound that put this corner of Alabama on the map—more on that in the Muscle Shoals story. Florence was the starting point, the place where something in the water first made people want to sing."
+      },
+      {
+        "type": "text",
+        "title": "Why Florence Matters Now",
+        "content": "In an age of sameness—where every downtown looks like every other downtown, where chain stores have replaced local businesses, where places have lost their stories—Florence holds on.\n\nThe Court Street district still has locally-owned shops. The Shoals Theatre, built in 1936, still shows movies. The Tennessee River still flows past, unhurried and eternal. And people still gather on spring evenings to watch the sunset from McFarland Park, just like they've done for generations.\n\nFlorence isn't a museum. It's not frozen in time. It's a living place that has figured out how to honor its past while building its future. That's rare. That's worth knowing about. That's worth wearing."
+      }
+    ]
+  },
+
+  "landmarks": [
+    {
+      "name": "W.C. Handy Birthplace, Museum and Library",
+      "type": "Museum",
+      "description": "The log cabin where the 'Father of the Blues' was born in 1873, preserved with original artifacts and memorabilia.",
+      "address": "620 W College St, Florence, AL 35630",
+      "image": "images/florence/landmarks/wc-handy-museum.jpg"
+    },
+    {
+      "name": "Rosenbaum House",
+      "type": "Historic Home",
+      "description": "The only Frank Lloyd Wright building in Alabama. A masterpiece of Usonian architecture, open for tours.",
+      "address": "601 Riverview Dr, Florence, AL 35630",
+      "image": "images/florence/landmarks/rosenbaum-house.jpg"
+    },
+    {
+      "name": "Indian Mound and Museum",
+      "type": "Archaeological Site",
+      "description": "A 42-foot ceremonial mound built between 100-500 AD. One of the largest domiciliary mounds in the Tennessee Valley.",
+      "address": "1028 S Court St, Florence, AL 35630",
+      "image": "images/florence/landmarks/indian-mound.jpg"
+    },
+    {
+      "name": "Pope's Tavern Museum",
+      "type": "Historic Site",
+      "description": "Built in 1811 as a stagecoach stop and tavern. Served as a hospital during the Civil War.",
+      "address": "203 Hermitage Dr, Florence, AL 35630",
+      "image": "images/florence/landmarks/popes-tavern.jpg"
+    },
+    {
+      "name": "Wilson Dam",
+      "type": "Engineering Landmark",
+      "description": "One of the first dams built by the federal government, completed in 1924. Powers the region and tamed the shoals.",
+      "address": "Wilson Dam, Muscle Shoals, AL 35661",
+      "image": "images/florence/landmarks/wilson-dam.jpg"
+    },
+    {
+      "name": "Renaissance Tower",
+      "type": "Landmark",
+      "description": "The tallest building between Birmingham and Nashville. A symbol of Florence's ambition.",
+      "address": "1 Hightower Pl, Florence, AL 35630",
+      "image": "images/florence/landmarks/renaissance-tower.jpg"
+    }
+  ],
+
+  "timeline": [
+    { "year": "100-500 AD", "event": "Woodland period peoples construct the Indian Mound" },
+    { "year": "1818", "event": "Florence founded by the Cypress Land Company" },
+    { "year": "1830", "event": "LaGrange College (now UNA) established—first state teacher's college in the South" },
+    { "year": "1873", "event": "W.C. Handy born in Florence" },
+    { "year": "1911", "event": "W.C. Handy publishes 'Memphis Blues,' one of the first blues songs ever written" },
+    { "year": "1924", "event": "Wilson Dam completed, taming the Tennessee River shoals" },
+    { "year": "1939", "event": "Frank Lloyd Wright designs the Rosenbaum House" },
+    { "year": "1959", "event": "FAME Studios opens in Florence, launching the Muscle Shoals Sound" },
+    { "year": "2021", "event": "Florence celebrates its bicentennial" }
+  ],
+
+  "localVoices": [
+    {
+      "name": "Margaret Anne Goldsmith",
+      "role": "Local Historian",
+      "quote": "Florence taught me that small doesn't mean insignificant. Some of the biggest ideas in American history started in places just like this.",
+      "audioClip": "audio/florence-margaret-anne.mp3"
+    },
+    {
+      "name": "James 'Jimmy' Walker",
+      "role": "Third-generation Florence resident",
+      "quote": "My grandfather used to say the river was Florence's heartbeat. Even now, when I'm down by the water, I can feel it.",
+      "audioClip": "audio/florence-jimmy-walker.mp3"
+    }
+  ],
+
+  "gallery": [
+    {
+      "src": "images/florence/gallery/tennessee-river-sunset.jpg",
+      "alt": "Sunset over the Tennessee River in Florence",
+      "caption": "The Tennessee River at sunset, viewed from McFarland Park"
+    },
+    {
+      "src": "images/florence/gallery/court-street.jpg",
+      "alt": "Court Street in downtown Florence",
+      "caption": "Court Street, the heart of downtown Florence"
+    },
+    {
+      "src": "images/florence/gallery/una-campus.jpg",
+      "alt": "University of North Alabama campus",
+      "caption": "University of North Alabama, founded 1830"
+    },
+    {
+      "src": "images/florence/gallery/historic-downtown.jpg",
+      "alt": "Historic downtown Florence buildings",
+      "caption": "Historic architecture in downtown Florence"
+    },
+    {
+      "src": "images/florence/gallery/o-neal-bridge.jpg",
+      "alt": "O'Neal Bridge spanning the Tennessee River",
+      "caption": "O'Neal Bridge connecting Florence to Lauderdale County"
+    }
+  ],
+
+  "sources": [
+    {
+      "title": "Florence-Lauderdale County Tourism",
+      "url": "https://visitflorenceal.com"
+    },
+    {
+      "title": "Encyclopedia of Alabama: Florence",
+      "url": "http://encyclopediaofalabama.org/article/h-1580"
+    },
+    {
+      "title": "W.C. Handy Home, Museum and Library",
+      "url": "https://wchandymuseum.org"
+    },
+    {
+      "title": "Frank Lloyd Wright Foundation: Rosenbaum House",
+      "url": "https://franklloydwright.org/site/rosenbaum-house/"
+    },
+    {
+      "title": "National Register of Historic Places: Florence Historic District",
+      "url": "https://npgallery.nps.gov/NRHP"
+    }
+  ],
+
+  "relatedPlaces": [
+    { "id": "muscle-shoals", "name": "Muscle Shoals", "status": "coming-soon" },
+    { "id": "sheffield", "name": "Sheffield", "status": "coming-soon" },
+    { "id": "tuscumbia", "name": "Tuscumbia", "status": "coming-soon" }
+  ],
+
+  "products": [
+    { "id": "florence-heritage-tee", "featured": true },
+    { "id": "florence-coordinates-tee", "featured": true },
+    { "id": "florence-river-hoodie", "featured": false },
+    { "id": "florence-1818-cap", "featured": false }
+  ]
+}

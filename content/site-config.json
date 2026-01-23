@@ -1,0 +1,98 @@
+{
+  "brand": {
+    "name": "ORIGYN",
+    "tagline": "Every Place Has a Story Worth Wearing",
+    "description": "Premium storytelling apparel that connects people to place through clothing that carries real stories.",
+    "logo": {
+      "tree": "images/logo/origyn-tree.png",
+      "wordmark": "images/logo/origyn-wordmark.png",
+      "combined": "images/logo/origyn-logo-combined.png"
+    }
+  },
+  "colors": {
+    "primary": {
+      "forest": "#1B4332",
+      "forestLight": "#2D6A4F",
+      "forestDark": "#0D2818"
+    },
+    "accent": {
+      "gold": "#C4A052",
+      "goldLight": "#D4B76A",
+      "goldDark": "#A68A3C"
+    },
+    "neutral": {
+      "black": "#0A0A0A",
+      "charcoal": "#1A1A1A",
+      "gray": "#4A4A4A",
+      "lightGray": "#E5E5E5",
+      "cream": "#FEFAE0",
+      "offWhite": "#F8F6F0"
+    }
+  },
+  "fonts": {
+    "headline": "'Playfair Display', Georgia, serif",
+    "body": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    "accent": "'Cormorant Garamond', Georgia, serif"
+  },
+  "social": {
+    "instagram": "https://instagram.com/origyn",
+    "tiktok": "https://tiktok.com/@origyn",
+    "youtube": "https://youtube.com/@origyn",
+    "facebook": "https://facebook.com/origyn"
+  },
+  "contact": {
+    "email": "hello@origyn.com",
+    "press": "press@origyn.com",
+    "collaborations": "collab@origyn.com"
+  },
+  "navigation": {
+    "main": [
+      { "label": "Explore", "href": "/stories.html" },
+      { "label": "Stories", "href": "/stories.html" },
+      { "label": "Community", "href": "/community.html" },
+      { "label": "About", "href": "/about.html" },
+      { "label": "Sustainability", "href": "/sustainability.html" }
+    ],
+    "shop": { "label": "Shop", "href": "/shop.html" }
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Explore",
+        "links": [
+          { "label": "All Stories", "href": "/stories.html" },
+          { "label": "Florence, AL", "href": "/places/florence.html" },
+          { "label": "The Shoals", "href": "/collections/the-shoals.html" },
+          { "label": "Coming Soon", "href": "/coming-soon.html" }
+        ]
+      },
+      {
+        "title": "Shop",
+        "links": [
+          { "label": "All Products", "href": "/shop.html" },
+          { "label": "Tees", "href": "/shop.html?category=tees" },
+          { "label": "Hoodies", "href": "/shop.html?category=hoodies" },
+          { "label": "Hats", "href": "/shop.html?category=hats" }
+        ]
+      },
+      {
+        "title": "About",
+        "links": [
+          { "label": "Our Story", "href": "/about.html" },
+          { "label": "How It Works", "href": "/how-it-works.html" },
+          { "label": "Sustainability", "href": "/sustainability.html" },
+          { "label": "Community", "href": "/community.html" }
+        ]
+      },
+      {
+        "title": "Support",
+        "links": [
+          { "label": "Contact Us", "href": "/contact.html" },
+          { "label": "FAQ", "href": "/faq.html" },
+          { "label": "Shipping", "href": "/shipping.html" },
+          { "label": "Returns", "href": "/returns.html" }
+        ]
+      }
+    ]
+  }
+}

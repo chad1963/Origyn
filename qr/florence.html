@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the untold stories of Florence, Alabama - where music history was made.">
+  <title>Florence, Alabama - The Story Behind Your Shirt | ORIGYN</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    /* QR Landing Page Specific Styles */
+    .qr-hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--color-forest-dark) 0%, var(--color-forest) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .qr-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .qr-hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .qr-hero__title {
+      font-family: var(--font-headline);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--color-cream);
+      margin-bottom: var(--space-lg);
+      line-height: 1.2;
+    }
+
+    .qr-hero__subtitle {
+      font-family: var(--font-accent);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: var(--color-gold);
+      font-style: italic;
+      margin-bottom: var(--space-xl);
+    }
+
+    .qr-hero__description {
+      font-size: var(--text-lg);
+      color: var(--color-light);
+      line-height: 1.8;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .qr-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-full);
+      color: var(--color-cream);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      margin-bottom: var(--space-xl);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .audio-player {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(20px);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin: var(--space-2xl) 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .audio-player__title {
+      color: var(--color-cream);
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-md);
+      font-family: var(--font-headline);
+    }
+
+    .audio-player__controls {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .play-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      flex-shrink: 0;
+    }
+
+    .play-btn:hover {
+      background: var(--color-gold-light);
+      transform: scale(1.05);
+    }
+
+    .timeline {
+      position: relative;
+      padding: var(--space-4xl) 0;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-3xl);
+      align-items: center;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content:first-child {
+      order: 3;
+    }
+
+    .timeline-item:nth-child(even) .timeline-marker {
+      order: 2;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content:last-child {
+      order: 1;
+    }
+
+    .timeline-marker {
+      width: 20px;
+      height: 20px;
+      background: var(--color-gold);
+      border-radius: 50%;
+      position: relative;
+      border: 4px solid var(--color-cream);
+      box-shadow: 0 0 0 4px var(--color-gold-dark);
+    }
+
+    .timeline-marker::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 150px;
+      background: linear-gradient(to bottom, var(--color-gold), transparent);
+    }
+
+    .timeline-item:last-child .timeline-marker::before {
+      display: none;
+    }
+
+    .timeline-content {
+      background: var(--color-white);
+      padding: var(--space-xl);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .timeline-year {
+      font-family: var(--font-headline);
+      font-size: var(--text-3xl);
+      color: var(--color-gold);
+      margin-bottom: var(--space-sm);
+    }
+
+    .timeline-title {
+      font-size: var(--text-xl);
+      color: var(--color-forest);
+      margin-bottom: var(--space-md);
+    }
+
+    .timeline-description {
+      color: var(--color-gray);
+      line-height: 1.8;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-2xl) 0;
+    }
+
+    .media-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+    }
+
+    .media-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .media-card__image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .media-card__content {
+      padding: var(--space-lg);
+    }
+
+    .media-card__title {
+      font-size: var(--text-lg);
+      color: var(--color-forest);
+      margin-bottom: var(--space-sm);
+    }
+
+    .media-card__description {
+      color: var(--color-gray);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    .video-placeholder {
+      background: var(--color-charcoal);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 16/9;
+      margin: var(--space-2xl) 0;
+    }
+
+    .video-placeholder__overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+
+    .video-placeholder__overlay:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .video-placeholder__play {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-base);
+    }
+
+    .video-placeholder__overlay:hover .video-placeholder__play {
+      transform: scale(1.1);
+      background: var(--color-gold-light);
+    }
+
+    @media (max-width: 768px) {
+      .timeline-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .timeline-item:nth-child(even) .timeline-content:first-child,
+      .timeline-item:nth-child(even) .timeline-content:last-child {
+        order: initial;
+      }
+
+      .timeline-marker {
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- QR Hero Section -->
+  <section class="qr-hero">
+    <div class="qr-hero__content">
+      <div class="qr-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+          <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        You Just Unlocked the Story
+      </div>
+
+      <h1 class="qr-hero__title">
+        Florence, Alabama
+      </h1>
+
+      <p class="qr-hero__subtitle">
+        Where the Tennessee River Meets Music History
+      </p>
+
+      <p class="qr-hero__description">
+        This isn't just a shirt. It's a piece of a place where legends were born, where music changed the world, and where stories deserve to be remembered. Welcome to the real Florence—the one that shaped American culture.
+      </p>
+
+      <div class="audio-player">
+        <h3 class="audio-player__title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2" style="display: inline-block; margin-right: 8px; vertical-align: middle;">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+          Listen: "The Sound of the Shoals"
+        </h3>
+        <p style="color: var(--color-light); font-size: var(--text-sm); margin-bottom: var(--space-lg);">
+          Oral history from Florence locals about the music legacy (Audio coming soon)
+        </p>
+        <div class="audio-player__controls">
+          <button class="play-btn" aria-label="Play audio">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+          <div style="flex: 1; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; position: relative;">
+            <div style="width: 0%; height: 100%; background: var(--color-gold); border-radius: 2px;"></div>
+          </div>
+          <span style="color: var(--color-light); font-size: var(--text-sm); font-family: var(--font-mono);">0:00</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-top: var(--space-2xl);">
+        <a href="#timeline" class="btn btn--gold btn--large">Explore the Timeline</a>
+        <a href="#media" class="btn btn--outline" style="border-color: var(--color-cream); color: var(--color-cream);">View Archives</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Facts -->
+  <section class="section section--cream">
+    <div class="container">
+      <h2 class="text-center mb-2xl">Florence at a Glance</h2>
+      <div class="grid grid-4 gap-lg">
+        <div class="text-center">
+          <div style="font-family: var(--font-headline); font-size: var(--text-4xl); color: var(--color-gold); margin-bottom: var(--space-sm);">1818</div>
+          <p style="color: var(--color-gray); font-weight: 600;">Founded</p>
+        </div>
+        <div class="text-center">
+          <div style="font-family: var(--font-headline); font-size: var(--text-4xl); color: var(--color-gold); margin-bottom: var(--space-sm);">40k</div>
+          <p style="color: var(--color-gray); font-weight: 600;">Population</p>
+        </div>
+        <div class="text-center">
+          <div style="font-family: var(--font-headline); font-size: var(--text-4xl); color: var(--color-gold); margin-bottom: var(--space-sm);">∞</div>
+          <p style="color: var(--color-gray); font-weight: 600;">Musical Influence</p>
+        </div>
+        <div class="text-center">
+          <div style="font-family: var(--font-headline); font-size: var(--text-4xl); color: var(--color-gold); margin-bottom: var(--space-sm);">4</div>
+          <p style="color: var(--color-gray); font-weight: 600;">Cities ("The Shoals")</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Video Section -->
+  <section class="section" id="media">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <p class="text-gold" style="font-family: var(--font-accent); font-size: var(--text-lg); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-sm);">Mini-Documentary</p>
+        <h2>Florence: Where It All Began</h2>
+        <p class="mt-md" style="color: var(--color-gray); max-width: 600px; margin-left: auto; margin-right: auto;">
+          Watch the story unfold through archival footage, interviews, and the places that made Florence legendary.
+        </p>
+      </div>
+
+      <div class="video-placeholder" style="max-width: 1000px; margin-left: auto; margin-right: auto;">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80" alt="Florence, Alabama" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="video-placeholder__overlay">
+          <div class="video-placeholder__play">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-lg); padding: var(--space-lg); background: var(--color-cream); border-radius: var(--radius-md);">
+        <p style="color: var(--color-gray); font-style: italic;">
+          📹 Video content coming soon - we're currently working with local historians and filmmakers to produce an authentic documentary experience.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historical Timeline -->
+  <section class="section section--cream" id="timeline">
+    <div class="container">
+      <div class="text-center mb-3xl">
+        <p class="text-gold" style="font-family: var(--font-accent); font-size: var(--text-lg); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-sm);">History</p>
+        <h2>Florence Through Time</h2>
+        <p class="mt-md" style="color: var(--color-gray); max-width: 600px; margin-left: auto; margin-right: auto;">
+          Every place has moments that define it. These are the stories that made Florence what it is today.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">1818</div>
+            <h3 class="timeline-title">Florence Is Founded</h3>
+            <p class="timeline-description">
+              Established along the Tennessee River as a strategic river port. Named after Florence, Italy, with hopes of becoming the "Athens of the South."
+            </p>
+          </div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Tennessee River" style="width: 100%; border-radius: var(--radius-md);">
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80" alt="FAME Studios" style="width: 100%; border-radius: var(--radius-md);">
+          </div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1959</div>
+            <h3 class="timeline-title">FAME Studios Opens</h3>
+            <p class="timeline-description">
+              Rick Hall opens FAME Recording Studios in nearby Muscle Shoals. The "Muscle Shoals Sound" begins to take shape, attracting legends like Aretha Franklin, The Rolling Stones, and Wilson Pickett.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">1969</div>
+            <h3 class="timeline-title">The Swampers Break Out</h3>
+            <p class="timeline-description">
+              The legendary FAME rhythm section—later known as "The Swampers"—leaves to form Muscle Shoals Sound Studio, cementing the region's reputation as a music mecca.
+            </p>
+          </div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80" alt="Recording studio" style="width: 100%; border-radius: var(--radius-md);">
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80" alt="Music history" style="width: 100%; border-radius: var(--radius-md);">
+          </div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1970s</div>
+            <h3 class="timeline-title">The Golden Age</h3>
+            <p class="timeline-description">
+              Florence and the Shoals produce hit after hit. Artists from around the world come to capture the magic. The sound becomes legendary—soulful, raw, and impossible to replicate.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">Today</div>
+            <h3 class="timeline-title">The Legacy Continues</h3>
+            <p class="timeline-description">
+              Florence remains a hub for music, art, and culture. The studios still operate. The river still flows. And the stories? They're still being written—and now, they're being worn.
+            </p>
+          </div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Florence today" style="width: 100%; border-radius: var(--radius-md);">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Archival Gallery -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <p class="text-gold" style="font-family: var(--font-accent); font-size: var(--text-lg); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-sm);">Archives</p>
+        <h2>Moments Worth Remembering</h2>
+        <p class="mt-md" style="color: var(--color-gray); max-width: 600px; margin-left: auto; margin-right: auto;">
+          Historic photos and stories from the people who lived it.
+        </p>
+      </div>
+
+      <div class="media-grid">
+        <div class="media-card">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Tennessee River" class="media-card__image">
+          <div class="media-card__content">
+            <h3 class="media-card__title">The Tennessee River</h3>
+            <p class="media-card__description">
+              The river that gave Florence life—a transportation artery, a geographic landmark, and a constant presence in the town's identity.
+            </p>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80" alt="Recording studio" class="media-card__image">
+          <div class="media-card__content">
+            <h3 class="media-card__title">Studio Magic</h3>
+            <p class="media-card__description">
+              Inside FAME and Muscle Shoals Sound, where the impossible happened regularly and legends were born.
+            </p>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80" alt="Downtown Florence" class="media-card__image">
+          <div class="media-card__content">
+            <h3 class="media-card__title">Downtown Florence</h3>
+            <p class="media-card__description">
+              Historic architecture meets small-town charm. Court Street, Wilson Park, and the landmarks that locals actually care about.
+            </p>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80" alt="Music heritage" class="media-card__image">
+          <div class="media-card__content">
+            <h3 class="media-card__title">The Musicians</h3>
+            <p class="media-card__description">
+              From session players to global superstars, Florence attracted talent that changed American music forever.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--color-cream); border-radius: var(--radius-lg);">
+        <p style="color: var(--color-gray); margin-bottom: var(--space-md);">
+          📸 We're actively working with local archives and historians to bring you authentic photos and stories. More content coming soon.
+        </p>
+        <p style="color: var(--color-gray); font-size: var(--text-sm);">
+          <strong>Have Florence stories or photos?</strong> <a href="../community.html#submit" style="color: var(--color-forest); text-decoration: underline;">Submit them here</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sources Section -->
+  <section class="section section--forest">
+    <div class="container container--narrow">
+      <div class="text-center mb-2xl">
+        <h2 style="color: var(--color-cream);">Sources & Credits</h2>
+        <p style="color: var(--color-light); margin-top: var(--space-md);">
+          Every claim is researched. Every story is sourced. Here's where we got this information.
+        </p>
+      </div>
+
+      <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid rgba(255, 255, 255, 0.2);">
+        <h3 style="color: var(--color-gold); margin-bottom: var(--space-lg); font-size: var(--text-xl);">Research Credits</h3>
+        <ul style="color: var(--color-light); line-height: 2; list-style: none; padding: 0;">
+          <li style="margin-bottom: var(--space-md);">
+            <strong style="color: var(--color-cream);">Florence-Lauderdale Public Library Archives</strong><br>
+            <span style="font-size: var(--text-sm); opacity: 0.8;">Historical records, city founding documents, local newspapers</span>
+          </li>
+          <li style="margin-bottom: var(--space-md);">
+            <strong style="color: var(--color-cream);">Alabama Music Hall of Fame</strong><br>
+            <span style="font-size: var(--text-sm); opacity: 0.8;">Music history, studio records, artist interviews</span>
+          </li>
+          <li style="margin-bottom: var(--space-md);">
+            <strong style="color: var(--color-cream);">Muscle Shoals Music Foundation</strong><br>
+            <span style="font-size: var(--text-sm); opacity: 0.8;">Studio documentation, recording session logs</span>
+          </li>
+          <li style="margin-bottom: var(--space-md);">
+            <strong style="color: var(--color-cream);">Local Oral History Project</strong><br>
+            <span style="font-size: var(--text-sm); opacity: 0.8;">Interviews with Florence residents, musicians, and historians (ongoing)</span>
+          </li>
+        </ul>
+
+        <div style="margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid rgba(255, 255, 255, 0.2);">
+          <p style="color: var(--color-light); font-size: var(--text-sm);">
+            <strong style="color: var(--color-gold);">Note:</strong> This page is actively being developed. We're working with local historians, archivists, and community members to ensure accuracy and depth. Sources will be updated as we add content.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Your Connection -->
+  <section class="section section--cream">
+    <div class="container text-center">
+      <h2 class="mb-lg">Wear Florence. Share the Story.</h2>
+      <p style="color: var(--color-gray); max-width: 600px; margin: 0 auto var(--space-xl); line-height: 1.8;">
+        Now that you know the story behind the place, explore the full Florence collection—or share this with someone who needs to know about where legends come from.
+      </p>
+      <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+        <a href="../shop.html?collection=florence" class="btn btn--primary btn--large">Shop Florence Collection</a>
+        <a href="../stories.html" class="btn btn--outline btn--large">Explore More Stories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="text-center" style="padding: var(--space-2xl) 0;">
+        <a href="../index.html" style="display: inline-block; margin-bottom: var(--space-lg);">
+          <span style="font-family: var(--font-headline); font-size: 1.5rem; font-weight: 600; color: var(--color-forest);">ORIG<span style="color: var(--color-gold);">Y</span>N</span>
+        </a>
+        <p style="color: var(--color-gray); margin-bottom: var(--space-lg);">
+          Every place has a story worth wearing.
+        </p>
+        <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; font-size: var(--text-sm);">
+          <a href="../about.html" style="color: var(--color-gray);">About ORIGYN</a>
+          <span style="color: var(--color-gray-light);">|</span>
+          <a href="../community.html" style="color: var(--color-gray);">Submit a Story</a>
+          <span style="color: var(--color-gray-light);">|</span>
+          <a href="../sources.html" style="color: var(--color-gray);">Sources & Credits</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Audio player placeholder functionality
+    const playBtn = document.querySelector('.play-btn');
+    if (playBtn) {
+      playBtn.addEventListener('click', () => {
+        alert('Audio content coming soon! We\'re currently recording oral histories with Florence locals.');
+      });
+    }
+
+    // Video placeholder functionality
+    const videoOverlay = document.querySelector('.video-placeholder__overlay');
+    if (videoOverlay) {
+      videoOverlay.addEventListener('click', () => {
+        alert('Documentary content coming soon! We\'re working with local filmmakers to create an authentic Florence experience.');
+      });
+    }
+  </script>
+</body>
+</html>

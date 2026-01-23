@@ -1,0 +1,184 @@
+{
+  "products": [
+    {
+      "id": "florence-heritage-tee",
+      "name": "Florence Heritage Tee",
+      "collection": "the-shoals",
+      "place": "florence",
+      "category": "tees",
+      "price": 45.00,
+      "currency": "USD",
+      "description": "A tribute to Florence, Alabama—where the blues were born and the river still sings. Premium heavyweight cotton blend with hemp fibers.",
+      "storyBehind": "This design captures the soul of Florence: the river that built everything, the music that changed the world, and the quiet pride of a town that never needed to shout to be heard. The coordinates mark the exact spot where W.C. Handy was born.",
+      "materials": "60% organic cotton, 40% hemp blend",
+      "care": "Machine wash cold, tumble dry low. Hemp fibers soften with each wash.",
+      "fit": "Relaxed fit, true to size",
+      "weight": "6.5 oz heavyweight",
+      "images": [
+        {
+          "src": "images/products/florence-heritage-tee-front.jpg",
+          "alt": "Florence Heritage Tee - Front"
+        },
+        {
+          "src": "images/products/florence-heritage-tee-back.jpg",
+          "alt": "Florence Heritage Tee - Back"
+        },
+        {
+          "src": "images/products/florence-heritage-tee-detail.jpg",
+          "alt": "Florence Heritage Tee - Detail"
+        },
+        {
+          "src": "images/products/florence-heritage-tee-lifestyle.jpg",
+          "alt": "Florence Heritage Tee - Lifestyle"
+        }
+      ],
+      "sizes": [
+        { "code": "S", "label": "Small", "inStock": true },
+        { "code": "M", "label": "Medium", "inStock": true },
+        { "code": "L", "label": "Large", "inStock": true },
+        { "code": "XL", "label": "X-Large", "inStock": true },
+        { "code": "2XL", "label": "2X-Large", "inStock": true },
+        { "code": "3XL", "label": "3X-Large", "inStock": false }
+      ],
+      "colors": [
+        { "name": "Vintage Black", "hex": "#1A1A1A", "inStock": true },
+        { "name": "River Stone", "hex": "#8B8B83", "inStock": true },
+        { "name": "Forest", "hex": "#1B4332", "inStock": true }
+      ],
+      "featured": true,
+      "qrDestination": "/places/florence.html",
+      "shopifyProductId": "YOUR_SHOPIFY_PRODUCT_ID"
+    },
+    {
+      "id": "florence-coordinates-tee",
+      "name": "Florence Coordinates Tee",
+      "collection": "the-shoals",
+      "place": "florence",
+      "category": "tees",
+      "price": 42.00,
+      "currency": "USD",
+      "description": "Minimal. Meaningful. The exact coordinates of Florence, Alabama—34.7998° N, 87.6772° W. Know where you're from.",
+      "storyBehind": "Sometimes the most powerful statement is the simplest one. These coordinates pinpoint Florence on the map, but they represent something bigger: a connection to place that can't be replicated or mass-produced.",
+      "materials": "60% organic cotton, 40% hemp blend",
+      "care": "Machine wash cold, tumble dry low.",
+      "fit": "Relaxed fit, true to size",
+      "weight": "6.5 oz heavyweight",
+      "images": [
+        {
+          "src": "images/products/florence-coordinates-tee-front.jpg",
+          "alt": "Florence Coordinates Tee - Front"
+        },
+        {
+          "src": "images/products/florence-coordinates-tee-back.jpg",
+          "alt": "Florence Coordinates Tee - Back"
+        }
+      ],
+      "sizes": [
+        { "code": "S", "label": "Small", "inStock": true },
+        { "code": "M", "label": "Medium", "inStock": true },
+        { "code": "L", "label": "Large", "inStock": true },
+        { "code": "XL", "label": "X-Large", "inStock": true },
+        { "code": "2XL", "label": "2X-Large", "inStock": true }
+      ],
+      "colors": [
+        { "name": "Cream", "hex": "#FEFAE0", "inStock": true },
+        { "name": "Vintage Black", "hex": "#1A1A1A", "inStock": true }
+      ],
+      "featured": true,
+      "qrDestination": "/places/florence.html",
+      "shopifyProductId": "YOUR_SHOPIFY_PRODUCT_ID"
+    },
+    {
+      "id": "florence-river-hoodie",
+      "name": "Florence River Hoodie",
+      "collection": "the-shoals",
+      "place": "florence",
+      "category": "hoodies",
+      "price": 85.00,
+      "currency": "USD",
+      "description": "The Tennessee River has been shaping Florence for centuries. This hoodie carries that story—heavyweight, warm, and built to last.",
+      "storyBehind": "The design features a stylized rendering of the Tennessee River as it bends around Florence. The shoals that gave the region its name forced travelers to stop here—and many never left. This hoodie is for those who understand why.",
+      "materials": "80% organic cotton, 20% hemp blend fleece",
+      "care": "Machine wash cold, tumble dry low.",
+      "fit": "Relaxed fit, slightly oversized",
+      "weight": "12 oz heavyweight fleece",
+      "images": [
+        {
+          "src": "images/products/florence-river-hoodie-front.jpg",
+          "alt": "Florence River Hoodie - Front"
+        },
+        {
+          "src": "images/products/florence-river-hoodie-back.jpg",
+          "alt": "Florence River Hoodie - Back"
+        }
+      ],
+      "sizes": [
+        { "code": "S", "label": "Small", "inStock": true },
+        { "code": "M", "label": "Medium", "inStock": true },
+        { "code": "L", "label": "Large", "inStock": true },
+        { "code": "XL", "label": "X-Large", "inStock": true },
+        { "code": "2XL", "label": "2X-Large", "inStock": false }
+      ],
+      "colors": [
+        { "name": "Vintage Black", "hex": "#1A1A1A", "inStock": true },
+        { "name": "Forest", "hex": "#1B4332", "inStock": true }
+      ],
+      "featured": false,
+      "qrDestination": "/places/florence.html",
+      "shopifyProductId": "YOUR_SHOPIFY_PRODUCT_ID"
+    },
+    {
+      "id": "florence-1818-cap",
+      "name": "Florence 1818 Cap",
+      "collection": "the-shoals",
+      "place": "florence",
+      "category": "hats",
+      "price": 35.00,
+      "currency": "USD",
+      "description": "Founded 1818. A simple nod to Florence's beginnings—embroidered on a classic dad cap.",
+      "storyBehind": "1818 was the year the Cypress Land Company surveyed the area and laid out the town. They named it after Florence, Italy—a grand ambition for a wilderness outpost. This cap honors that original vision.",
+      "materials": "100% organic cotton twill",
+      "care": "Spot clean only. Air dry.",
+      "fit": "Adjustable strap, one size fits most",
+      "images": [
+        {
+          "src": "images/products/florence-1818-cap-front.jpg",
+          "alt": "Florence 1818 Cap - Front"
+        },
+        {
+          "src": "images/products/florence-1818-cap-side.jpg",
+          "alt": "Florence 1818 Cap - Side"
+        }
+      ],
+      "sizes": [
+        { "code": "OS", "label": "One Size", "inStock": true }
+      ],
+      "colors": [
+        { "name": "Vintage Black", "hex": "#1A1A1A", "inStock": true },
+        { "name": "Stone", "hex": "#8B8B83", "inStock": true },
+        { "name": "Forest", "hex": "#1B4332", "inStock": true }
+      ],
+      "featured": false,
+      "qrDestination": "/places/florence.html",
+      "shopifyProductId": "YOUR_SHOPIFY_PRODUCT_ID"
+    }
+  ],
+
+  "collections": [
+    {
+      "id": "the-shoals",
+      "name": "The Shoals Collection",
+      "tagline": "Where the River Sings",
+      "description": "Four towns. One sound. The Shoals—Florence, Muscle Shoals, Sheffield, and Tuscumbia—gave the world some of its most important music. This collection honors the place where Aretha, The Rolling Stones, and countless others came to find the sound they couldn't find anywhere else.",
+      "places": ["florence", "muscle-shoals", "sheffield", "tuscumbia"],
+      "image": "images/collections/the-shoals-hero.jpg"
+    }
+  ],
+
+  "categories": [
+    { "id": "tees", "name": "Tees", "description": "Premium heavyweight tees with hemp blend" },
+    { "id": "hoodies", "name": "Hoodies", "description": "Heavyweight fleece hoodies" },
+    { "id": "hats", "name": "Hats", "description": "Classic caps and beanies" },
+    { "id": "accessories", "name": "Accessories", "description": "Bags, pins, and more" }
+  ]
+}

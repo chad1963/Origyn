@@ -1,459 +1,463 @@
 /**
  * ORIGYN - Main JavaScript
- * Handles navigation, cart, lightbox, forms, and animations
+ * Handles interactivity, cart, mobile menu, and general UI
  */
 
-// Wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', function() {
-  initNavigation();
-  initCartDrawer();
-  initLightbox();
-  initForms();
-  initScrollAnimations();
-  initMapPins();
-  initCategoryFilter();
-  initReadingProgress();
-  initReadingTime();
+// ============================================
+// State Management
+// ============================================
+
+const state = {
+  cart: JSON.parse(localStorage.getItem('origyn_cart')) || [],
+  isMenuOpen: false,
+  isCartOpen: false
+};
+
+// ============================================
+// DOM Ready
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  initHeader();
+  initMobileMenu();
+  initCart();
+  initNewsletterForm();
+  initSmoothScroll();
+  initLazyLoading();
+  initAnimations();
 });
 
-/**
- * Navigation
- */
-function initNavigation() {
-  const nav = document.getElementById('nav');
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
+// ============================================
+// Header Scroll Effect
+// ============================================
 
-  // Mobile menu toggle
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', function() {
-      navToggle.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
+function initHeader() {
+  const header = document.getElementById('header');
+  if (!header) return;
 
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', function() {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-  }
+  let lastScroll = 0;
 
-  // Scroll effect for nav
-  if (nav) {
-    let lastScroll = 0;
-    window.addEventListener('scroll', function() {
-      const currentScroll = window.pageYOffset;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
 
-      if (currentScroll > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+    // Add scrolled class when scrolled past 50px
+    if (currentScroll > 50) {
+      header.classList.add('header--scrolled');
+    } else {
+      header.classList.remove('header--scrolled');
+    }
 
-      lastScroll = currentScroll;
-    });
-  }
+    lastScroll = currentScroll;
+  }, { passive: true });
 }
 
-/**
- * Cart Drawer
- */
-function initCartDrawer() {
-  const cartBtn = document.getElementById('cartBtn');
-  const cartDrawer = document.getElementById('cartDrawer');
-  const cartBackdrop = document.getElementById('cartBackdrop');
-  const cartClose = document.getElementById('cartClose');
+// ============================================
+// Mobile Menu
+// ============================================
 
-  if (cartBtn && cartDrawer && cartBackdrop) {
-    // Open cart
-    cartBtn.addEventListener('click', function() {
-      cartDrawer.classList.add('active');
-      cartBackdrop.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
+function initMobileMenu() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.querySelector('.header__nav-links');
 
-    // Close cart
-    function closeCart() {
-      cartDrawer.classList.remove('active');
-      cartBackdrop.classList.remove('active');
+  if (!menuToggle || !navLinks) return;
+
+  menuToggle.addEventListener('click', () => {
+    state.isMenuOpen = !state.isMenuOpen;
+
+    menuToggle.classList.toggle('is-active', state.isMenuOpen);
+    navLinks.classList.toggle('is-open', state.isMenuOpen);
+
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = state.isMenuOpen ? 'hidden' : '';
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (state.isMenuOpen && !e.target.closest('.header__nav') && !e.target.closest('.header__menu-toggle')) {
+      state.isMenuOpen = false;
+      menuToggle.classList.remove('is-active');
+      navLinks.classList.remove('is-open');
       document.body.style.overflow = '';
     }
+  });
+}
 
-    if (cartClose) {
-      cartClose.addEventListener('click', closeCart);
-    }
+// ============================================
+// Shopping Cart
+// ============================================
 
-    cartBackdrop.addEventListener('click', closeCart);
+function initCart() {
+  updateCartCount();
 
-    // Close on escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && cartDrawer.classList.contains('active')) {
-        closeCart();
+  // Quick add buttons
+  document.querySelectorAll('.product-card__quick-add').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Get product info from parent card
+      const card = btn.closest('.product-card');
+      const productId = card.dataset.productId || 'demo-product';
+      const productName = card.querySelector('.product-card__title')?.textContent || 'Product';
+      const productPrice = card.querySelector('.product-card__price')?.textContent || '$0';
+
+      addToCart({
+        id: productId,
+        name: productName,
+        price: parseFloat(productPrice.replace('$', '')),
+        quantity: 1,
+        size: 'M', // Default size for quick add
+        image: card.querySelector('img')?.src || ''
+      });
+
+      // Visual feedback
+      btn.textContent = 'Added!';
+      btn.style.backgroundColor = 'var(--color-gold)';
+      setTimeout(() => {
+        btn.textContent = 'Quick Add';
+        btn.style.backgroundColor = '';
+      }, 1500);
+    });
+  });
+}
+
+function addToCart(item) {
+  // Check if item already exists
+  const existingIndex = state.cart.findIndex(
+    cartItem => cartItem.id === item.id && cartItem.size === item.size
+  );
+
+  if (existingIndex > -1) {
+    state.cart[existingIndex].quantity += item.quantity;
+  } else {
+    state.cart.push(item);
+  }
+
+  saveCart();
+  updateCartCount();
+}
+
+function removeFromCart(index) {
+  state.cart.splice(index, 1);
+  saveCart();
+  updateCartCount();
+}
+
+function updateCartQuantity(index, quantity) {
+  if (quantity <= 0) {
+    removeFromCart(index);
+  } else {
+    state.cart[index].quantity = quantity;
+    saveCart();
+    updateCartCount();
+  }
+}
+
+function saveCart() {
+  localStorage.setItem('origyn_cart', JSON.stringify(state.cart));
+}
+
+function updateCartCount() {
+  const countEl = document.getElementById('cart-count');
+  if (!countEl) return;
+
+  const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  if (totalItems > 0) {
+    countEl.textContent = totalItems;
+    countEl.style.display = 'flex';
+  } else {
+    countEl.style.display = 'none';
+  }
+}
+
+function getCartTotal() {
+  return state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+}
+
+// ============================================
+// Newsletter Form
+// ============================================
+
+function initNewsletterForm() {
+  const form = document.getElementById('newsletter-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const emailInput = form.querySelector('input[type="email"]');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const email = emailInput.value.trim();
+
+    if (!email) return;
+
+    // Disable form during submission
+    emailInput.disabled = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Subscribing...';
+
+    // Simulate API call (replace with actual newsletter service integration)
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Success state
+    submitBtn.textContent = 'Subscribed!';
+    submitBtn.style.backgroundColor = 'var(--color-forest)';
+    emailInput.value = '';
+
+    // Reset after delay
+    setTimeout(() => {
+      emailInput.disabled = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Subscribe';
+      submitBtn.style.backgroundColor = '';
+    }, 3000);
+  });
+}
+
+// ============================================
+// Smooth Scroll
+// ============================================
+
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
       }
+    });
+  });
+}
+
+// ============================================
+// Lazy Loading Images
+// ============================================
+
+function initLazyLoading() {
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px'
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      imageObserver.observe(img);
     });
   }
 }
 
-/**
- * Lightbox for galleries
- */
-function initLightbox() {
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImage = document.getElementById('lightboxImage');
-  const lightboxCaption = document.getElementById('lightboxCaption');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const galleryItems = document.querySelectorAll('.gallery-item');
+// ============================================
+// Scroll Animations
+// ============================================
 
-  if (!lightbox || !lightboxImage) return;
+function initAnimations() {
+  if ('IntersectionObserver' in window) {
+    const animationObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
 
-  // Open lightbox
-  galleryItems.forEach(item => {
-    item.addEventListener('click', function() {
-      const img = item.querySelector('img');
-      const caption = item.querySelector('.gallery-item-caption');
+    // Observe elements with animation classes
+    document.querySelectorAll('.card, .product-card, .step, .story-section, .story-image, .story-quote').forEach(el => {
+      el.classList.add('animate-ready');
+      animationObserver.observe(el);
+    });
+  }
+}
 
-      if (img) {
-        lightboxImage.src = img.src;
-        lightboxImage.alt = img.alt;
-      }
+// ============================================
+// Product Page Functions
+// ============================================
 
-      if (caption && lightboxCaption) {
-        lightboxCaption.textContent = caption.textContent;
-      }
+function initProductPage() {
+  // Size selector
+  document.querySelectorAll('.size-option').forEach(option => {
+    option.addEventListener('click', function() {
+      if (this.classList.contains('size-option--unavailable')) return;
 
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      document.querySelectorAll('.size-option').forEach(opt => {
+        opt.classList.remove('size-option--selected');
+      });
+      this.classList.add('size-option--selected');
     });
   });
 
-  // Close lightbox
+  // Color selector
+  document.querySelectorAll('.color-option').forEach(option => {
+    option.addEventListener('click', function() {
+      document.querySelectorAll('.color-option').forEach(opt => {
+        opt.classList.remove('color-option--selected');
+      });
+      this.classList.add('color-option--selected');
+    });
+  });
+
+  // Image gallery
+  document.querySelectorAll('.product-gallery__thumb').forEach(thumb => {
+    thumb.addEventListener('click', function() {
+      const mainImage = document.querySelector('.product-gallery__main img');
+      const newSrc = this.querySelector('img').src;
+
+      mainImage.src = newSrc;
+
+      document.querySelectorAll('.product-gallery__thumb').forEach(t => {
+        t.classList.remove('product-gallery__thumb--active');
+      });
+      this.classList.add('product-gallery__thumb--active');
+    });
+  });
+
+  // Add to cart
+  const addToCartBtn = document.querySelector('.add-to-cart__btn');
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', function() {
+      const productInfo = document.querySelector('.product-info');
+      const selectedSize = document.querySelector('.size-option--selected');
+      const selectedColor = document.querySelector('.color-option--selected');
+
+      if (!selectedSize) {
+        alert('Please select a size');
+        return;
+      }
+
+      addToCart({
+        id: productInfo.dataset.productId || 'product',
+        name: productInfo.querySelector('.product-info__title')?.textContent || 'Product',
+        price: parseFloat(productInfo.querySelector('.product-info__price')?.textContent.replace('$', '') || 0),
+        quantity: 1,
+        size: selectedSize.textContent,
+        color: selectedColor?.dataset.color || 'default',
+        image: document.querySelector('.product-gallery__main img')?.src || ''
+      });
+
+      this.textContent = 'Added to Cart!';
+      setTimeout(() => {
+        this.textContent = 'Add to Cart';
+      }, 2000);
+    });
+  }
+}
+
+// ============================================
+// Story Page Functions
+// ============================================
+
+function initStoryPage() {
+  // Audio player
+  document.querySelectorAll('.story-audio').forEach(audioSection => {
+    const playBtn = audioSection.querySelector('.story-audio__play');
+    const audio = audioSection.querySelector('audio');
+
+    if (playBtn && audio) {
+      playBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playBtn.textContent = 'Pause';
+        } else {
+          audio.pause();
+          playBtn.textContent = 'Play';
+        }
+      });
+    }
+  });
+
+  // Image lightbox
+  document.querySelectorAll('.story-image__figure').forEach(figure => {
+    figure.addEventListener('click', () => {
+      const img = figure.querySelector('img');
+      if (img) {
+        openLightbox(img.src, figure.querySelector('.story-image__caption')?.textContent);
+      }
+    });
+  });
+}
+
+function openLightbox(src, caption) {
+  const lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  lightbox.innerHTML = `
+    <div class="lightbox__overlay"></div>
+    <div class="lightbox__content">
+      <button class="lightbox__close">&times;</button>
+      <img src="${src}" alt="${caption || ''}" class="lightbox__image">
+      ${caption ? `<p class="lightbox__caption">${caption}</p>` : ''}
+    </div>
+  `;
+
+  document.body.appendChild(lightbox);
+  document.body.style.overflow = 'hidden';
+
+  lightbox.querySelector('.lightbox__overlay').addEventListener('click', closeLightbox);
+  lightbox.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
+
   function closeLightbox() {
-    lightbox.classList.remove('active');
+    lightbox.remove();
     document.body.style.overflow = '';
   }
-
-  if (lightboxClose) {
-    lightboxClose.addEventListener('click', closeLightbox);
-  }
-
-  lightbox.addEventListener('click', function(e) {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-      closeLightbox();
-    }
-  });
 }
 
-/**
- * Form handling - Now configured for Netlify Forms
- * Forms with data-netlify="true" will be automatically handled by Netlify
- * We keep JS handlers for enhanced UX (success messages)
- */
-function initForms() {
-  // Newsletter form - Netlify handles submission, we show success message
-  const newsletterForms = document.querySelectorAll('#newsletterForm, .newsletter-form');
-  newsletterForms.forEach(form => {
-    // Skip if already configured for Netlify (has action attribute)
-    if (form.hasAttribute('data-netlify')) {
-      form.addEventListener('submit', handleNetlifyFormSubmit);
-      return;
-    }
+// ============================================
+// Shopify Buy Button Integration (Placeholder)
+// ============================================
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = form.querySelector('input[type="email"]');
-      if (email && email.value) {
-        // Simulate success for demo - Netlify will handle actual submission
-        showFormSuccess(form, 'Thanks for subscribing! You\'ll be the first to know about new story drops.');
-        email.value = '';
-      }
-    });
-  });
+// This will be replaced with actual Shopify Buy Button SDK integration
+// when you have your Shopify store set up
 
-  // Contact form
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    if (contactForm.hasAttribute('data-netlify')) {
-      contactForm.addEventListener('submit', handleNetlifyFormSubmit);
-    } else {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        showFormSuccess(contactForm, 'Thanks for reaching out! We\'ll get back to you within 24-48 hours.');
-        contactForm.reset();
-      });
-    }
-  }
+/*
+To integrate Shopify Buy Buttons:
 
-  // Story submission form
-  const storyForm = document.getElementById('storyForm');
-  if (storyForm) {
-    if (storyForm.hasAttribute('data-netlify')) {
-      storyForm.addEventListener('submit', handleNetlifyFormSubmit);
-    } else {
-      storyForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        showFormSuccess(storyForm, 'Thank you for sharing! We\'ll review your submission and reach out if we have questions.');
-        storyForm.reset();
-      });
-    }
-  }
+1. In your Shopify admin, go to Sales channels > Buy Button
+2. Create a Buy Button for each product
+3. Get your Storefront Access Token
+4. Replace the code below with your actual credentials
 
-  // Request town form
-  const requestForm = document.getElementById('requestForm');
-  if (requestForm) {
-    if (requestForm.hasAttribute('data-netlify')) {
-      requestForm.addEventListener('submit', handleNetlifyFormSubmit);
-    } else {
-      requestForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        showFormSuccess(requestForm, 'Thanks for the nomination! We\'ll add it to our list and let you know if we feature it.');
-        requestForm.reset();
-      });
-    }
-  }
-}
-
-/**
- * Handle Netlify form submission with AJAX
- */
-async function handleNetlifyFormSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalText = submitBtn ? submitBtn.textContent : '';
-
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-  }
-
-  try {
-    const formData = new FormData(form);
-    const response = await fetch(form.action || '/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    });
-
-    if (response.ok) {
-      const formName = form.getAttribute('name') || 'form';
-      let message = 'Thanks! Your submission has been received.';
-
-      if (formName.includes('newsletter')) {
-        message = 'Thanks for subscribing! You\'ll be the first to know about new story drops.';
-      } else if (formName.includes('contact')) {
-        message = 'Thanks for reaching out! We\'ll get back to you within 24-48 hours.';
-      } else if (formName.includes('story')) {
-        message = 'Thank you for sharing! We\'ll review your submission and reach out if we have questions.';
-      } else if (formName.includes('request')) {
-        message = 'Thanks for the nomination! We\'ll add it to our list and let you know if we feature it.';
-      }
-
-      showFormSuccess(form, message);
-      form.reset();
-    } else {
-      throw new Error('Form submission failed');
-    }
-  } catch (error) {
-    console.error('Form submission error:', error);
-    showFormError(form, 'Something went wrong. Please try again.');
-  } finally {
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    }
-  }
-}
-
-/**
- * Show form success message
- */
-function showFormSuccess(form, message) {
-  // Remove any existing messages
-  const existingMsg = form.querySelector('.form-message');
-  if (existingMsg) existingMsg.remove();
-
-  const msgEl = document.createElement('div');
-  msgEl.className = 'form-message form-message--success';
-  msgEl.textContent = message;
-  msgEl.style.cssText = 'background: var(--color-sage); color: white; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;';
-  form.appendChild(msgEl);
-
-  // Remove after 5 seconds
-  setTimeout(() => msgEl.remove(), 5000);
-}
-
-/**
- * Show form error message
- */
-function showFormError(form, message) {
-  const existingMsg = form.querySelector('.form-message');
-  if (existingMsg) existingMsg.remove();
-
-  const msgEl = document.createElement('div');
-  msgEl.className = 'form-message form-message--error';
-  msgEl.textContent = message;
-  msgEl.style.cssText = 'background: #c0392b; color: white; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;';
-  form.appendChild(msgEl);
-
-  setTimeout(() => msgEl.remove(), 5000);
-}
-
-/**
- * Scroll animations
- */
-function initScrollAnimations() {
-  const animatedElements = document.querySelectorAll('[data-animate]');
-
-  if (animatedElements.length === 0) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animated');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  animatedElements.forEach(el => {
-    observer.observe(el);
-  });
-}
-
-/**
- * Map pin interactions
- */
-function initMapPins() {
-  const pins = document.querySelectorAll('.map-pin');
-
-  pins.forEach(pin => {
-    // Keyboard accessibility
-    pin.setAttribute('tabindex', '0');
-    pin.setAttribute('role', 'button');
-
-    pin.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        pin.click();
-      }
-    });
-
-    // Click handler for active pins
-    if (pin.classList.contains('active')) {
-      pin.style.cursor = 'pointer';
-    }
-  });
-}
-
-/**
- * Audio Player (for Florence page)
- */
-function initAudioPlayer() {
-  const playBtn = document.getElementById('audioPlayBtn');
-  const playIcon = document.getElementById('playIcon');
-  const pauseIcon = document.getElementById('pauseIcon');
-  const progressBar = document.getElementById('audioProgress');
-  const timeDisplay = document.getElementById('audioTime');
-
-  if (!playBtn) return;
-
-  let isPlaying = false;
-  let currentTime = 0;
-  const duration = 225; // 3:45 in seconds
-
-  playBtn.addEventListener('click', function() {
-    isPlaying = !isPlaying;
-
-    if (isPlaying) {
-      playIcon.style.display = 'none';
-      pauseIcon.style.display = 'block';
-      // In production, this would actually play audio
-      startProgressSimulation();
-    } else {
-      playIcon.style.display = 'block';
-      pauseIcon.style.display = 'none';
-      stopProgressSimulation();
-    }
-  });
-
-  let progressInterval;
-
-  function startProgressSimulation() {
-    progressInterval = setInterval(() => {
-      if (currentTime < duration) {
-        currentTime++;
-        updateProgress();
-      } else {
-        stopProgressSimulation();
-        isPlaying = false;
-        playIcon.style.display = 'block';
-        pauseIcon.style.display = 'none';
-        currentTime = 0;
-        updateProgress();
-      }
-    }, 1000);
-  }
-
-  function stopProgressSimulation() {
-    clearInterval(progressInterval);
-  }
-
-  function updateProgress() {
-    const percent = (currentTime / duration) * 100;
-    if (progressBar) {
-      progressBar.style.width = percent + '%';
-    }
-    if (timeDisplay) {
-      const currentMin = Math.floor(currentTime / 60);
-      const currentSec = currentTime % 60;
-      const durationMin = Math.floor(duration / 60);
-      const durationSec = duration % 60;
-      timeDisplay.textContent = `${currentMin}:${currentSec.toString().padStart(2, '0')} / ${durationMin}:${durationSec.toString().padStart(2, '0')}`;
-    }
-  }
-}
-
-// Initialize audio player if on Florence page
-if (document.getElementById('audioPlayBtn')) {
-  initAudioPlayer();
-}
-
-/**
- * Smooth scroll for anchor links
- */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if (href === '#') return;
-
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      const navHeight = document.getElementById('nav')?.offsetHeight || 0;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  });
+const shopifyClient = ShopifyBuy.buildClient({
+  domain: 'your-store.myshopify.com',
+  storefrontAccessToken: 'your-storefront-access-token'
 });
 
-/**
- * Utility: Debounce function
- */
+// Then you can fetch products, create checkout, etc.
+*/
+
+// ============================================
+// Utility Functions
+// ============================================
+
+function formatPrice(price) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  }).format(price);
+}
+
 function debounce(func, wait) {
   let timeout;
   return function executedFunction(...args) {
@@ -466,122 +470,14 @@ function debounce(func, wait) {
   };
 }
 
-/**
- * Category Filter for Stories
- */
-function initCategoryFilter() {
-  const filterBtns = document.querySelectorAll('.category-filter__btn');
-  const storyCards = document.querySelectorAll('.story-card[data-category]');
+// ============================================
+// Export for use in other scripts
+// ============================================
 
-  if (filterBtns.length === 0 || storyCards.length === 0) return;
-
-  // Check for URL hash on load
-  const hash = window.location.hash.replace('#', '');
-  if (hash) {
-    const matchingBtn = document.querySelector(`.category-filter__btn[data-filter="${hash}"]`);
-    if (matchingBtn) {
-      filterStories(hash, filterBtns, storyCards);
-      matchingBtn.classList.add('active');
-      document.querySelector('.category-filter__btn[data-filter="all"]')?.classList.remove('active');
-    }
-  }
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const filter = this.dataset.filter;
-
-      // Update active state
-      filterBtns.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-
-      // Update URL hash
-      if (filter === 'all') {
-        history.replaceState(null, '', window.location.pathname);
-      } else {
-        history.replaceState(null, '', `#${filter}`);
-      }
-
-      // Filter stories
-      filterStories(filter, filterBtns, storyCards);
-    });
-  });
-}
-
-function filterStories(filter, filterBtns, storyCards) {
-  storyCards.forEach(card => {
-    const categories = card.dataset.category.split(' ');
-
-    if (filter === 'all' || categories.includes(filter)) {
-      card.classList.remove('filtered-out');
-      // Reset position for animation
-      setTimeout(() => {
-        card.style.position = '';
-        card.style.visibility = '';
-      }, 10);
-    } else {
-      card.classList.add('filtered-out');
-    }
-  });
-}
-
-/**
- * Reading Progress Bar
- */
-function initReadingProgress() {
-  const progressBar = document.querySelector('.reading-progress__bar');
-  const article = document.querySelector('.article-body, .place-story');
-
-  if (!progressBar || !article) return;
-
-  function updateProgress() {
-    const articleTop = article.offsetTop;
-    const articleHeight = article.offsetHeight;
-    const windowHeight = window.innerHeight;
-    const scrollPos = window.scrollY;
-
-    // Calculate progress
-    const start = articleTop - windowHeight;
-    const end = articleTop + articleHeight - windowHeight;
-    const progress = Math.min(Math.max((scrollPos - start) / (end - start) * 100, 0), 100);
-
-    progressBar.style.width = `${progress}%`;
-  }
-
-  window.addEventListener('scroll', debounce(updateProgress, 10));
-  updateProgress(); // Initial call
-}
-
-/**
- * Reading Time Calculator
- */
-function initReadingTime() {
-  const article = document.querySelector('.article-body, .place-story');
-  const readingTimeEl = document.querySelector('.reading-time, [data-reading-time]');
-
-  if (!article) return;
-
-  // Get text content and count words
-  const text = article.textContent || article.innerText;
-  const wordCount = text.trim().split(/\s+/).length;
-
-  // Average reading speed: 200-250 words per minute
-  const readingTime = Math.ceil(wordCount / 225);
-
-  // Update all reading time elements
-  const readingTimeEls = document.querySelectorAll('.reading-time, [data-reading-time]');
-  readingTimeEls.forEach(el => {
-    el.textContent = `${readingTime} min read`;
-  });
-
-  // Also update byline reading time if present
-  const bylineReadingTime = document.querySelector('.byline__reading-time');
-  if (bylineReadingTime) {
-    bylineReadingTime.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> ${readingTime} min read`;
-  }
-}
-
-/**
- * Console greeting
- */
-console.log('%cORIGYN', 'font-size: 24px; font-weight: bold; color: #A45A3D;');
-console.log('%cEvery place has a story worth wearing.', 'font-size: 12px; color: #5C4033;');
+window.ORIGYN = {
+  addToCart,
+  removeFromCart,
+  updateCartQuantity,
+  getCartTotal,
+  state
+};

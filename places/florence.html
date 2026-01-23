@@ -3,292 +3,885 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover the rich history of Florence, Alabama. From the Tennessee River to the birthplace of W.C. Handy, explore the stories that shaped this remarkable city.">
-  <meta name="keywords" content="Florence Alabama, history, W.C. Handy, Tennessee River, Rosenbaum House, Frank Lloyd Wright, Muscle Shoals">
-  <meta property="og:title" content="Florence, Alabama - Where the River Sings | ORIGYN">
-  <meta property="og:description" content="Explore the rich musical heritage and cultural legacy of Florence, Alabama through stories, photos, and oral histories.">
+  <meta name="description" content="Florence, Alabama - Where the blues were born and the river still sings. Discover the rich history, culture, and stories of this remarkable place.">
+  <meta property="og:title" content="Florence, Alabama | ORIGYN">
+  <meta property="og:description" content="Where the blues were born and the river still sings. Discover the rich history and culture of Florence, Alabama.">
   <meta property="og:type" content="article">
-  <title>Florence, Alabama - Where the River Sings | ORIGYN</title>
+  <title>Florence, Alabama - Where the River Meets the Renaissance | ORIGYN</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    /* Story page specific styles */
+    .story-page {
+      padding-top: 0;
+    }
+
+    .parallax-section {
+      position: relative;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .parallax-section {
+        background-attachment: scroll;
+      }
+    }
+
+    .story-nav {
+      position: sticky;
+      top: var(--header-height);
+      background-color: rgba(248, 246, 240, 0.98);
+      border-bottom: 1px solid var(--color-light);
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .story-nav__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+      padding: var(--space-md) 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .story-nav__inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .story-nav__link {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-gray);
+      white-space: nowrap;
+      transition: color var(--transition-fast);
+    }
+
+    .story-nav__link:hover,
+    .story-nav__link--active {
+      color: var(--color-forest);
+    }
+
+    .landmark-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    @media (max-width: 768px) {
+      .landmark-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .landmark-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .landmark-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .landmark-card__image {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .landmark-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .landmark-card__content {
+      padding: var(--space-lg);
+    }
+
+    .landmark-card__type {
+      font-size: var(--text-xs);
+      color: var(--color-gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .landmark-card__name {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-sm);
+    }
+
+    .landmark-card__description {
+      font-size: var(--text-sm);
+      color: var(--color-gray);
+      line-height: 1.6;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: var(--space-2xl);
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: var(--color-gold);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: var(--space-xl);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--space-2xl) + 4px);
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      background-color: var(--color-forest);
+      border: 3px solid var(--color-gold);
+      border-radius: 50%;
+    }
+
+    .timeline-item__year {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-gold-dark);
+      margin-bottom: var(--space-xs);
+    }
+
+    .timeline-item__event {
+      font-size: var(--text-base);
+      color: var(--color-charcoal);
+      line-height: 1.6;
+    }
+
+    .sources-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .sources-list a {
+      font-size: var(--text-sm);
+      color: var(--color-forest);
+      text-decoration: underline;
+      transition: color var(--transition-fast);
+    }
+
+    .sources-list a:hover {
+      color: var(--color-gold-dark);
+    }
+
+    .shop-cta {
+      background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-dark) 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--space-3xl);
+      text-align: center;
+    }
+
+    .shop-cta__title {
+      color: var(--color-cream);
+      margin-bottom: var(--space-md);
+    }
+
+    .shop-cta__description {
+      color: var(--color-light);
+      max-width: 500px;
+      margin: 0 auto var(--space-xl);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform var(--transition-base);
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox__overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .lightbox__content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    .lightbox__close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--color-cream);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .lightbox__image {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: var(--radius-md);
+    }
+
+    .lightbox__caption {
+      color: var(--color-light);
+      text-align: center;
+      margin-top: var(--space-md);
+      font-style: italic;
+    }
+
+    /* Audio player custom styles */
+    .audio-player {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background-color: var(--color-gray-dark);
+      border-radius: var(--radius-md);
+    }
+
+    .audio-player__btn {
+      width: 48px;
+      height: 48px;
+      background-color: var(--color-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .audio-player__btn:hover {
+      background-color: var(--color-gold-light);
+    }
+
+    .audio-player__btn svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--color-forest-dark);
+    }
+
+    .audio-player__info {
+      flex: 1;
+    }
+
+    .audio-player__title {
+      color: var(--color-cream);
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+    }
+
+    .audio-player__duration {
+      color: var(--color-gray-light);
+      font-size: var(--text-sm);
+    }
+  </style>
 </head>
-<body>
-  <!-- Reading Progress Bar -->
-  <div class="reading-progress">
-    <div class="reading-progress__bar"></div>
-  </div>
+<body class="story-page">
+  <!-- Header -->
+  <header class="header header--dark" id="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">
+        <svg class="header__logo-tree" viewBox="0 0 50 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 5C25 5 10 15 10 30C10 40 15 45 25 55C35 45 40 40 40 30C40 15 25 5 25 5Z" fill="#FEFAE0"/>
+          <path d="M25 55V60M20 58L25 55L30 58" stroke="#FEFAE0" stroke-width="2"/>
+        </svg>
+        <span style="font-family: var(--font-headline); font-size: 1.5rem; font-weight: 600; color: var(--color-cream);">ORIG<span style="color: var(--color-gold);">Y</span>N</span>
+      </a>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="../index.html" class="nav-logo">ORIG<span>Y</span>N</a>
+      <nav class="header__nav">
+        <ul class="header__nav-links">
+          <li><a href="/stories.html" class="header__nav-link" style="color: var(--color-cream);">Explore</a></li>
+          <li><a href="/stories.html" class="header__nav-link" style="color: var(--color-cream);">Stories</a></li>
+          <li><a href="/community.html" class="header__nav-link" style="color: var(--color-cream);">Community</a></li>
+          <li><a href="/about.html" class="header__nav-link" style="color: var(--color-cream);">About</a></li>
+          <li><a href="/sustainability.html" class="header__nav-link" style="color: var(--color-cream);">Sustainability</a></li>
+        </ul>
 
-      <div class="nav-links" id="navLinks">
-        <a href="../stories.html" class="nav-link active">Stories</a>
-        <a href="../stories.html#culture" class="nav-link">Culture</a>
-        <a href="../stories.html#history" class="nav-link">History</a>
-        <a href="../community.html" class="nav-link">Community</a>
-        <a href="../about.html" class="nav-link">About</a>
-      </div>
+        <div class="header__actions">
+          <a href="/shop.html" class="header__shop-btn">Shop</a>
+          <button class="header__cart-btn" id="cart-btn" aria-label="Shopping cart" style="color: var(--color-cream);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 6h15l-1.5 9h-12z"/>
+              <circle cx="9" cy="20" r="1"/>
+              <circle cx="18" cy="20" r="1"/>
+              <path d="M6 6L5 3H2"/>
+            </svg>
+            <span class="header__cart-count" id="cart-count" style="display: none;">0</span>
+          </button>
+        </div>
 
-      <div class="nav-actions">
-        <button class="nav-cart" id="cartBtn" aria-label="Shopping cart">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-          </svg>
-          <span class="nav-cart-count" id="cartCount" style="display: none;">0</span>
+        <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <span style="background-color: var(--color-cream);"></span>
+          <span style="background-color: var(--color-cream);"></span>
+          <span style="background-color: var(--color-cream);"></span>
         </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Article Header - Full Bleed -->
-  <header class="article-header article-header--full">
-    <div class="article-header__bg">
-      <img src="https://placehold.co/1920x1080/5C4033/E8E2D9?text=Florence+Alabama" alt="Florence, Alabama skyline along the Tennessee River">
-    </div>
-    <div class="article-header__content container">
-      <span class="article-header__category">History & Places</span>
-      <h1 class="article-header__headline">Florence, Alabama</h1>
-      <p class="article-header__deck">Where the Tennessee River shaped a city and a sound that changed music forever.</p>
-      <div class="byline byline--light">
-        <span class="byline__author">ORIGYN Research</span>
-        <span class="byline__separator"></span>
-        <span class="byline__date">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-          January 2024
-        </span>
-        <span class="byline__separator"></span>
-        <span class="byline__reading-time">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 6v6l4 2"/>
-          </svg>
-          <span data-reading-time>12 min read</span>
-        </span>
-      </div>
+      </nav>
     </div>
   </header>
 
-  <!-- Article Body -->
-  <article class="article-body">
-    <p class="lead drop-cap">
-      Nestled along the banks of the Tennessee River in northwest Alabama, Florence is a city that punches far above its weight. With a population of around 40,000, it might look like just another small Southern town on a map. But look closer, and you'll find a place that helped shape American music, architecture, and culture in ways that still resonate today.
-    </p>
+  <!-- Story Hero -->
+  <section class="story-hero">
+    <div class="story-hero__background">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80" alt="Tennessee River near Florence, Alabama" loading="eager">
+    </div>
+    <div class="story-hero__overlay"></div>
 
-    <h2 id="river">A City Born from the River</h2>
-    <p>
-      Florence was founded in 1818, the same year Alabama became a territory. The city's founders chose this spot for a reason: the Tennessee River. At this point, the river drops over a series of shoals - shallow, rocky areas that made navigation treacherous but created incredible hydroelectric potential. These shoals would later give the entire region its name and identity.
-    </p>
-    <p>
-      The original city plan was designed by Ferdinand Sannoner, an Italian surveyor who laid out wide streets in a Renaissance-inspired grid pattern. Today, downtown Florence still follows this original plan, with Court Street serving as the main thoroughfare just as Sannoner intended over 200 years ago.
-    </p>
-
-    <!-- Full-bleed image -->
-    <figure class="article-body__full-image">
-      <img src="https://placehold.co/1920x800/E8E2D9/5C4033?text=Tennessee+River+Florence" alt="The Tennessee River at Florence">
-      <figcaption class="photo-credit container">The Tennessee River at sunset, looking toward Wilson Dam. Photo: ORIGYN Archives</figcaption>
-    </figure>
-
-    <h2 id="handy">The Father of the Blues Was Born Here</h2>
-    <p>
-      On November 16, 1873, William Christopher Handy was born in a log cabin in Florence. He would grow up to become known as the "Father of the Blues" - not because he invented the form, but because he was the first to write it down, publish it, and bring it to the wider world.
-    </p>
-
-    <blockquote class="pull-quote">
-      "The blues? That came from right here. From these fields, from that river, from the souls of people who worked hard and dreamed harder."
-      <cite>W.C. Handy Museum Docent</cite>
-    </blockquote>
-
-    <p>
-      Handy's most famous composition, "St. Louis Blues" (1914), became one of the most recorded songs in history. But his roots were here, in Florence, where he first heard the work songs and spirituals that would later influence his groundbreaking compositions. His birthplace, a humble log cabin on College Street, is now the W.C. Handy Birthplace, Museum and Library - a testament to how a small-town kid changed American music forever.
-    </p>
-
-    <!-- Audio Player with Coming Soon overlay -->
-    <div class="audio-player audio-coming-soon" data-animate>
-      <div class="audio-player-header">
-        <div class="audio-player-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-          </svg>
+    <div class="story-hero__content">
+      <div class="container">
+        <p class="story-hero__coordinates">34.7998° N, 87.6772° W</p>
+        <h1 class="story-hero__title">Florence</h1>
+        <p class="story-hero__subtitle">Where the River Meets the Renaissance</p>
+        <div class="story-hero__meta">
+          <span class="story-hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            Est. 1818
+          </span>
+          <span class="story-hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Population: 40,184
+          </span>
+          <span class="story-hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Alabama, USA
+          </span>
         </div>
-        <div class="audio-player-info">
-          <h4>Oral History: Florence Music Heritage</h4>
-          <p>Local historian shares stories of the city's musical roots</p>
-        </div>
-      </div>
-      <div class="audio-controls">
-        <button class="audio-play-btn" id="audioPlayBtn" disabled>
-          <svg viewBox="0 0 24 24" fill="currentColor" id="playIcon">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </button>
-        <div class="audio-progress">
-          <div class="audio-progress-bar" id="audioProgress"></div>
-        </div>
-        <span class="audio-time" id="audioTime">0:00 / 3:45</span>
-      </div>
-    </div>
-
-    <h2 id="rosenbaum">Frank Lloyd Wright's Southern Masterpiece</h2>
-    <p>
-      In 1939, Stanley and Mildred Rosenbaum commissioned a house from Frank Lloyd Wright. They were a young couple - he was 26, she was 24 - and they wanted something modern for their corner lot in Florence. What they got was a masterpiece.
-    </p>
-    <p>
-      The Rosenbaum House is the only Frank Lloyd Wright-designed structure in Alabama and one of the finest examples of his Usonian style anywhere in the world. Wright believed beautiful, functional homes should be available to middle-class Americans, and the Rosenbaums' house proved it was possible. The family lived there for over 60 years before donating it to the city.
-    </p>
-
-    <figure class="article-body__full-image">
-      <img src="https://placehold.co/1920x800/5C4033/E8E2D9?text=Rosenbaum+House" alt="The Rosenbaum House">
-      <figcaption class="photo-credit container">The Rosenbaum House, Frank Lloyd Wright's only Alabama design. Photo: City of Florence</figcaption>
-    </figure>
-
-    <p>
-      Today, the Rosenbaum House is open for tours and stands as a reminder that great architecture can happen anywhere - even in a small Alabama town.
-    </p>
-
-    <h2>The Indian Mound: 2,000 Years of History</h2>
-    <p>
-      Long before European settlers arrived, this land belonged to the Chickasaw people. And long before them, the Woodland period inhabitants built what we now call the Florence Indian Mound - a ceremonial earthwork that has stood for nearly 2,000 years.
-    </p>
-    <p>
-      At 43 feet tall and covering nearly two acres at its base, it's the largest domiciliary mound in the Tennessee Valley. Archaeologists believe it served as a ceremonial center, with the remains of a structure - possibly a temple - once standing at its peak. Today, it's a National Historic Landmark and a humbling reminder that Florence's history stretches back far beyond 1818.
-    </p>
-
-    <h2>More Than Music</h2>
-    <p>
-      Florence isn't just about the past. The University of North Alabama, founded in 1830, brings thousands of students to the city each year. The downtown district has experienced a renaissance in recent decades, with locally-owned restaurants, boutiques, and galleries filling the historic storefronts along Court Street.
-    </p>
-    <p>
-      The Tennessee River remains central to life here. Wilson Dam, completed in 1924, tamed the shoals that once made the river treacherous and brought electricity to a region that had been in darkness. Today, the river provides recreation, tourism, and a defining sense of place.
-    </p>
-
-    <!-- Timeline -->
-    <h2>Florence Through the Years</h2>
-    <div class="timeline" data-animate>
-      <div class="timeline-item">
-        <div class="timeline-year">~200 AD</div>
-        <h4>Indian Mound Constructed</h4>
-        <p>Woodland period inhabitants build the ceremonial mound that still stands today.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1818</div>
-        <h4>Florence Founded</h4>
-        <p>The city is established along the Tennessee River as Alabama Territory takes shape.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1830</div>
-        <h4>LaGrange College Opens</h4>
-        <p>What would become the University of North Alabama is established.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1873</div>
-        <h4>W.C. Handy Born</h4>
-        <p>The future "Father of the Blues" is born in a log cabin on College Street.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1924</div>
-        <h4>Wilson Dam Completed</h4>
-        <p>The massive hydroelectric dam transforms the region, bringing electricity to rural Alabama.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1939</div>
-        <h4>Rosenbaum House Built</h4>
-        <p>Frank Lloyd Wright designs his only Alabama structure for a young Florence couple.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">Today</div>
-        <h4>A Living Legacy</h4>
-        <p>Florence continues to honor its past while building toward the future.</p>
-      </div>
-    </div>
-
-    <!-- Sources -->
-    <div class="sources" data-animate>
-      <h3>Sources & Further Reading</h3>
-      <ul>
-        <li>Nance, Benjamin. "A History of Lauderdale County, Alabama." Tennessee Valley Historical Society, 1995.</li>
-        <li>W.C. Handy Birthplace, Museum and Library. City of Florence. <a href="https://visitflorenceal.com/listing/wc-handy-birthplace-museum-library" target="_blank" rel="noopener">visitflorenceal.com</a></li>
-        <li>Frank Lloyd Wright's Rosenbaum House. City of Florence. <a href="https://wrightinalabama.com" target="_blank" rel="noopener">wrightinalabama.com</a></li>
-        <li>Florence Indian Mound & Museum. National Register of Historic Places.</li>
-        <li>Tennessee Valley Authority. "Wilson Dam History." <a href="https://tva.gov" target="_blank" rel="noopener">tva.gov</a></li>
-      </ul>
-    </div>
-
-    <!-- Wear This Story CTA -->
-    <div class="wear-story-cta" data-animate>
-      <div class="wear-story-cta__image">
-        <img src="https://placehold.co/120x120/E8E2D9/5C4033?text=Tee" alt="Florence Heritage Tee">
-      </div>
-      <div class="wear-story-cta__content">
-        <h4>Wear This Story</h4>
-        <p>The Florence Heritage Tee features a design inspired by the city's musical legacy. Each shirt includes a QR code linking back to this story.</p>
-        <a href="../shop.html?collection=florence" class="btn btn-primary btn-sm">Shop Florence Collection</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- Related Stories -->
-  <section class="related-stories">
-    <div class="container">
-      <h2 class="related-stories__title">More Stories</h2>
-      <div class="story-cards-grid">
-        <article class="story-card" data-category="culture" data-animate>
-          <a href="#handy">
-            <div class="story-card__image">
-              <img src="https://placehold.co/600x340/A45A3D/E8E2D9?text=W.C.+Handy" alt="W.C. Handy">
-              <span class="story-card__category story-card__category--culture">Culture</span>
-            </div>
-            <div class="story-card__content">
-              <h3 class="story-card__headline">The Father of the Blues</h3>
-              <p class="story-card__deck">How W.C. Handy's Florence roots shaped the sound that became American music.</p>
-            </div>
-          </a>
-        </article>
-
-        <article class="story-card" data-category="history" data-animate>
-          <a href="#rosenbaum">
-            <div class="story-card__image">
-              <img src="https://placehold.co/600x340/5C4033/E8E2D9?text=Rosenbaum+House" alt="Rosenbaum House">
-              <span class="story-card__category story-card__category--history">History</span>
-            </div>
-            <div class="story-card__content">
-              <h3 class="story-card__headline">Frank Lloyd Wright's Southern Masterpiece</h3>
-              <p class="story-card__deck">The only Wright-designed home in Alabama.</p>
-            </div>
-          </a>
-        </article>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter Section -->
-  <section class="newsletter-section section">
+  <!-- Story Navigation -->
+  <nav class="story-nav">
     <div class="container">
-      <div class="newsletter-content">
-        <h2>Get Story Drops</h2>
-        <p>Be the first to know when we launch new places, new stories, and limited releases.</p>
-        <form class="newsletter-form" id="newsletterForm" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="newsletter">
-          <input type="email" name="email" placeholder="Your email address" required>
-          <button type="submit">Subscribe</button>
-        </form>
+      <div class="story-nav__inner">
+        <a href="#intro" class="story-nav__link story-nav__link--active">Introduction</a>
+        <a href="#story" class="story-nav__link">The Story</a>
+        <a href="#landmarks" class="story-nav__link">Landmarks</a>
+        <a href="#timeline" class="story-nav__link">Timeline</a>
+        <a href="#gallery" class="story-nav__link">Gallery</a>
+        <a href="#sources" class="story-nav__link">Sources</a>
+        <a href="#shop" class="story-nav__link">Shop</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Introduction -->
+  <section class="story-content" id="intro">
+    <div class="container">
+      <div class="story-content__intro">
+        <h2 class="story-content__intro-headline">Welcome to Florence</h2>
+        <p class="story-content__intro-text">
+          Nestled along the banks of the Tennessee River, Florence is the kind of place that doesn't announce itself—it reveals itself. To outsiders, it's just another dot on the map of northern Alabama. To those who know, it's where some of the most important American music was born, where architectural masterpieces hide in plain sight, and where the river has been whispering stories for centuries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Story -->
+  <section class="section" id="story" style="background-color: var(--color-off-white);">
+    <div class="container">
+      <!-- Section 1: The River -->
+      <div class="story-section">
+        <h3 class="story-section__title">The River That Built Everything</h3>
+        <div class="story-section__text">
+          <p>
+            Before Florence was Florence, it was the river. The Tennessee River carved this valley, fed the Chickasaw and Cherokee peoples who called it home, and eventually drew settlers who saw opportunity in its power. In 1818, the Cypress Land Company surveyed the area and laid out a town they named after the Italian city—a grand ambition for a wilderness outpost.
+          </p>
+          <p>
+            But Florence wasn't built on ambition alone. It was built on the shoals—the shallow, rocky stretches of river that forced boats to stop, unload, and portage around the rapids. That inconvenience became Florence's first gift: a reason for people to stay.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="story-image">
+        <figure class="story-image__figure">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80" alt="Tennessee River near Florence" class="story-image__img">
+          <figcaption class="story-image__caption">
+            The Tennessee River near Florence. The shoals that gave the region its name forced travelers to stop—and many never left.
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Section 2: W.C. Handy -->
+      <div class="story-section">
+        <h3 class="story-section__title">The Father of the Blues Was Born Here</h3>
+        <div class="story-section__text">
+          <p>
+            On November 16, 1873, in a log cabin on the outskirts of Florence, William Christopher Handy came into the world. His father and grandfather were Methodist ministers who saw music as the devil's work. But young W.C. Handy heard something else in the spirituals, work songs, and folk melodies that filled the air around him.
+          </p>
+          <p>
+            He would go on to write "St. Louis Blues," "Memphis Blues," and dozens of other compositions that laid the foundation for jazz, rock and roll, and modern American music. The cabin where he was born still stands, preserved as a museum. But his real monument is everywhere—in every blues riff, every jazz improvisation, every rock song that traces its DNA back to Florence, Alabama.
+          </p>
+        </div>
+      </div>
+
+      <!-- Quote -->
+      <div class="story-quote">
+        <p class="story-quote__text">
+          "The blues come from the need to live, from want, from desire. The blue notes—the flattened thirds and sevenths—that's the sound of longing."
+        </p>
+        <p class="story-quote__attribution">W.C. Handy</p>
+        <p class="story-quote__context">Father of the Blues, born in Florence, 1873</p>
+      </div>
+
+      <!-- Audio Section -->
+      <div class="story-audio">
+        <div class="audio-player">
+          <button class="audio-player__btn" id="audio-play-btn" aria-label="Play audio">
+            <svg viewBox="0 0 24 24">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+          <div class="audio-player__info">
+            <p class="audio-player__title">Local Voices: The Musical Heritage of Florence</p>
+            <p class="audio-player__duration">3:42 - Oral history excerpt</p>
+          </div>
+        </div>
+        <p style="color: var(--color-gray-light); font-size: var(--text-sm); margin-top: var(--space-md); font-style: italic;">
+          Florence historian shares what the musical heritage means to the community.
+        </p>
+      </div>
+
+      <!-- Section 3: Frank Lloyd Wright -->
+      <div class="story-section">
+        <h3 class="story-section__title">Frank Lloyd Wright's Hidden Masterpiece</h3>
+        <div class="story-section__text">
+          <p>
+            In 1939, Stanley and Mildred Rosenbaum were newlyweds with a plot of land and a dream. They wrote a letter to the most famous architect in America—Frank Lloyd Wright—asking if he would design them a modest home. To their astonishment, he said yes.
+          </p>
+          <p>
+            The Rosenbaum House is the only Frank Lloyd Wright building in Alabama, and one of the purest examples of his Usonian vision: affordable, beautiful homes for middle-class Americans. The Rosenbaums lived there for over 60 years, raising their family in a space where every detail—from the built-in furniture to the way light enters through clerestory windows—was designed by Wright himself.
+          </p>
+          <p>
+            Today, it's open to the public. Walking through it feels like stepping into a philosophy: that beauty and function aren't luxuries, they're rights.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="story-image">
+        <figure class="story-image__figure">
+          <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80" alt="Rosenbaum House architecture" class="story-image__img">
+          <figcaption class="story-image__caption">
+            The Rosenbaum House, designed by Frank Lloyd Wright in 1939. The only Wright building in Alabama.
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Section 4: Indian Mound -->
+      <div class="story-section">
+        <h3 class="story-section__title">The Mound Builders Were Here First</h3>
+        <div class="story-section__text">
+          <p>
+            Long before European settlers arrived, the Tennessee Valley was home to a sophisticated civilization. The Mississippian culture built earthen mounds throughout the region—ceremonial structures, burial sites, and platforms for important buildings.
+          </p>
+          <p>
+            Florence's Indian Mound is one of the largest domiciliary mounds in the Tennessee Valley, standing 42 feet tall. It was built sometime between 100 and 500 AD, predating the Mississippian period. For over a thousand years, it has watched over the river, a reminder that this place has always been significant—that we are not the first to recognize what's special here.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 5: Why It Matters -->
+      <div class="story-section">
+        <h3 class="story-section__title">Why Florence Matters Now</h3>
+        <div class="story-section__text">
+          <p>
+            In an age of sameness—where every downtown looks like every other downtown, where chain stores have replaced local businesses, where places have lost their stories—Florence holds on.
+          </p>
+          <p>
+            The Court Street district still has locally-owned shops. The Shoals Theatre, built in 1936, still shows movies. The Tennessee River still flows past, unhurried and eternal. And people still gather on spring evenings to watch the sunset from McFarland Park, just like they've done for generations.
+          </p>
+          <p>
+            Florence isn't a museum. It's not frozen in time. It's a living place that has figured out how to honor its past while building its future. That's rare. That's worth knowing about. That's worth wearing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax Break -->
+  <section class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1920&q=80');">
+    <div style="position: absolute; inset: 0; background: rgba(10, 10, 10, 0.6);"></div>
+    <div class="container text-center" style="position: relative; z-index: 1;">
+      <p style="font-family: var(--font-accent); font-size: var(--text-2xl); font-style: italic; color: var(--color-cream); max-width: 700px; margin: 0 auto;">
+        "Florence has always been small—never more than 40,000 people. But somehow, this little river town keeps producing things that matter."
+      </p>
+    </div>
+  </section>
+
+  <!-- Landmarks -->
+  <section class="section section--cream" id="landmarks">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <h2>Notable Landmarks</h2>
+        <p style="color: var(--color-gray); max-width: 600px; margin: var(--space-md) auto 0;">
+          Places that tell the Florence story
+        </p>
+      </div>
+
+      <div class="landmark-grid">
+        <div class="landmark-card">
+          <div class="landmark-card__image">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="W.C. Handy Museum" loading="lazy">
+          </div>
+          <div class="landmark-card__content">
+            <p class="landmark-card__type">Museum</p>
+            <h4 class="landmark-card__name">W.C. Handy Birthplace</h4>
+            <p class="landmark-card__description">The log cabin where the "Father of the Blues" was born in 1873, preserved with original artifacts.</p>
+          </div>
+        </div>
+
+        <div class="landmark-card">
+          <div class="landmark-card__image">
+            <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=600&q=80" alt="Rosenbaum House" loading="lazy">
+          </div>
+          <div class="landmark-card__content">
+            <p class="landmark-card__type">Historic Home</p>
+            <h4 class="landmark-card__name">Rosenbaum House</h4>
+            <p class="landmark-card__description">The only Frank Lloyd Wright building in Alabama. A masterpiece of Usonian architecture.</p>
+          </div>
+        </div>
+
+        <div class="landmark-card">
+          <div class="landmark-card__image">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Indian Mound" loading="lazy">
+          </div>
+          <div class="landmark-card__content">
+            <p class="landmark-card__type">Archaeological Site</p>
+            <h4 class="landmark-card__name">Indian Mound</h4>
+            <p class="landmark-card__description">A 42-foot ceremonial mound built between 100-500 AD. One of the largest in the Tennessee Valley.</p>
+          </div>
+        </div>
+
+        <div class="landmark-card">
+          <div class="landmark-card__image">
+            <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=600&q=80" alt="Pope's Tavern" loading="lazy">
+          </div>
+          <div class="landmark-card__content">
+            <p class="landmark-card__type">Historic Site</p>
+            <h4 class="landmark-card__name">Pope's Tavern</h4>
+            <p class="landmark-card__description">Built in 1811 as a stagecoach stop. Served as a hospital during the Civil War.</p>
+          </div>
+        </div>
+
+        <div class="landmark-card">
+          <div class="landmark-card__image">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80" alt="Wilson Dam" loading="lazy">
+          </div>
+          <div class="landmark-card__content">
+            <p class="landmark-card__type">Engineering Landmark</p>
+            <h4 class="landmark-card__name">Wilson Dam</h4>
+            <p class="landmark-card__description">One of the first dams built by the federal government, completed in 1924.</p>
+          </div>
+        </div>
+
+        <div class="landmark-card">
+          <div class="landmark-card__image">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Renaissance Tower" loading="lazy">
+          </div>
+          <div class="landmark-card__content">
+            <p class="landmark-card__type">Landmark</p>
+            <h4 class="landmark-card__name">Renaissance Tower</h4>
+            <p class="landmark-card__description">The tallest building between Birmingham and Nashville. A symbol of Florence's ambition.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section" id="timeline">
+    <div class="container container--narrow">
+      <div class="text-center mb-2xl">
+        <h2>Timeline</h2>
+        <p style="color: var(--color-gray); max-width: 600px; margin: var(--space-md) auto 0;">
+          Key moments in Florence's history
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <p class="timeline-item__year">100-500 AD</p>
+          <p class="timeline-item__event">Woodland period peoples construct the Indian Mound</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-item__year">1818</p>
+          <p class="timeline-item__event">Florence founded by the Cypress Land Company</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-item__year">1830</p>
+          <p class="timeline-item__event">LaGrange College (now UNA) established—first state teacher's college in the South</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-item__year">1873</p>
+          <p class="timeline-item__event">W.C. Handy born in Florence</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-item__year">1911</p>
+          <p class="timeline-item__event">W.C. Handy publishes "Memphis Blues," one of the first blues songs ever written</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-item__year">1924</p>
+          <p class="timeline-item__event">Wilson Dam completed, taming the Tennessee River shoals</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-item__year">1939</p>
+          <p class="timeline-item__event">Frank Lloyd Wright designs the Rosenbaum House</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-item__year">1959</p>
+          <p class="timeline-item__event">FAME Studios opens in Florence, launching the Muscle Shoals Sound</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-item__year">2018</p>
+          <p class="timeline-item__event">Florence celebrates its bicentennial</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section section--cream" id="gallery">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <h2>Gallery</h2>
+        <p style="color: var(--color-gray); max-width: 600px; margin: var(--space-md) auto 0;">
+          Images of Florence past and present
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Tennessee River sunset" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Downtown Florence" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=600&q=80" alt="Historic architecture" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=600&q=80" alt="River view" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80" alt="Music heritage" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Community" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sources -->
+  <section class="section" id="sources">
+    <div class="container container--narrow">
+      <div class="text-center mb-2xl">
+        <h2>Sources & Credits</h2>
+        <p style="color: var(--color-gray); max-width: 600px; margin: var(--space-md) auto 0;">
+          We research, verify, and tell stories respectfully.
+        </p>
+      </div>
+
+      <div class="sources-list">
+        <a href="https://visitflorenceal.com" target="_blank" rel="noopener">Florence-Lauderdale County Tourism</a>
+        <a href="http://encyclopediaofalabama.org/article/h-1580" target="_blank" rel="noopener">Encyclopedia of Alabama: Florence</a>
+        <a href="https://wchandymuseum.org" target="_blank" rel="noopener">W.C. Handy Home, Museum and Library</a>
+        <a href="https://franklloydwright.org/site/rosenbaum-house/" target="_blank" rel="noopener">Frank Lloyd Wright Foundation: Rosenbaum House</a>
+        <a href="https://npgallery.nps.gov/NRHP" target="_blank" rel="noopener">National Register of Historic Places</a>
+      </div>
+
+      <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background-color: var(--color-cream); border-radius: var(--radius-md);">
+        <p style="font-size: var(--text-sm); color: var(--color-gray); line-height: 1.7;">
+          <strong style="color: var(--color-forest);">Editorial note:</strong> This story was researched and written with care, drawing from primary sources, local historians, and community input. If you have corrections, additional information, or personal stories to share, please <a href="/contact.html" style="color: var(--color-forest);">contact us</a>. We believe these stories belong to the community, and we want to get them right.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop CTA -->
+  <section class="section" id="shop">
+    <div class="container">
+      <div class="shop-cta">
+        <h2 class="shop-cta__title">Wear This Story</h2>
+        <p class="shop-cta__description">
+          Every purchase supports the preservation and sharing of local stories like this one. Scan the QR code on any Florence piece to return to this page.
+        </p>
+        <a href="/shop.html?collection=florence" class="btn btn--gold btn--large">Shop Florence Collection</a>
+      </div>
+
+      <!-- Product Preview -->
+      <div class="grid grid-4 gap-lg mt-2xl">
+        <a href="/product/florence-heritage-tee.html" class="product-card">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80" alt="Florence Heritage Tee" loading="lazy">
+            <span class="product-card__badge">New</span>
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__collection">The Shoals</p>
+            <h3 class="product-card__title">Florence Heritage Tee</h3>
+            <p class="product-card__price">$45</p>
+          </div>
+        </a>
+
+        <a href="/product/florence-coordinates-tee.html" class="product-card">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80" alt="Florence Coordinates Tee" loading="lazy">
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__collection">The Shoals</p>
+            <h3 class="product-card__title">Florence Coordinates Tee</h3>
+            <p class="product-card__price">$42</p>
+          </div>
+        </a>
+
+        <a href="/product/florence-river-hoodie.html" class="product-card">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80" alt="Florence River Hoodie" loading="lazy">
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__collection">The Shoals</p>
+            <h3 class="product-card__title">Florence River Hoodie</h3>
+            <p class="product-card__price">$85</p>
+          </div>
+        </a>
+
+        <a href="/product/florence-1818-cap.html" class="product-card">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&q=80" alt="Florence 1818 Cap" loading="lazy">
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__collection">The Shoals</p>
+            <h3 class="product-card__title">Florence 1818 Cap</h3>
+            <p class="product-card__price">$35</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Places -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <h2 style="color: var(--color-cream);">Explore More Stories</h2>
+        <p style="color: var(--color-light); max-width: 600px; margin: var(--space-md) auto 0;">
+          Florence is just the beginning. Discover more places in The Shoals and beyond.
+        </p>
+      </div>
+
+      <div class="grid grid-3 gap-lg">
+        <div class="card" style="opacity: 0.7;">
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80" alt="Muscle Shoals" loading="lazy">
+          </div>
+          <div class="card__content">
+            <span class="card__tag" style="background-color: var(--color-gray);">Coming Soon</span>
+            <h3 class="card__title">Muscle Shoals</h3>
+            <p class="card__description">The hit recording capital of the world.</p>
+          </div>
+        </div>
+
+        <div class="card" style="opacity: 0.7;">
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=600&q=80" alt="Sheffield" loading="lazy">
+          </div>
+          <div class="card__content">
+            <span class="card__tag" style="background-color: var(--color-gray);">Coming Soon</span>
+            <h3 class="card__title">Sheffield</h3>
+            <p class="card__description">Where legends recorded and history was made.</p>
+          </div>
+        </div>
+
+        <div class="card" style="opacity: 0.7;">
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Tuscumbia" loading="lazy">
+          </div>
+          <div class="card__content">
+            <span class="card__tag" style="background-color: var(--color-gray);">Coming Soon</span>
+            <h3 class="card__title">Tuscumbia</h3>
+            <p class="card__description">Home of Helen Keller and the Spring Park.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-2xl">
+        <a href="/community.html#nominate" class="btn btn--secondary">Request Your Town</a>
       </div>
     </div>
   </section>
@@ -296,92 +889,161 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h3>ORIG<span>Y</span>N</h3>
-          <p>Every place has a story worth wearing. We're here to preserve them.</p>
-          <div class="footer-social">
-            <a href="https://instagram.com/origyn" aria-label="Instagram" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo">
+            <svg width="40" height="48" viewBox="0 0 50 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M25 5C25 5 10 15 10 30C10 40 15 45 25 55C35 45 40 40 40 30C40 15 25 5 25 5Z" fill="#1B4332"/>
+              <path d="M25 55V60M20 58L25 55L30 58" stroke="#1B4332" stroke-width="2"/>
+            </svg>
+            <span style="font-family: var(--font-headline); font-size: 1.25rem; font-weight: 600; color: var(--color-cream);">ORIG<span style="color: var(--color-gold);">Y</span>N</span>
+          </a>
+          <p class="footer__tagline">
+            Premium storytelling apparel that connects people to place through clothing that carries real stories.
+          </p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </a>
-            <a href="https://tiktok.com/@origyn" aria-label="TikTok" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <a href="#" class="footer__social-link" aria-label="TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
               </svg>
             </a>
-            <a href="https://youtube.com/@origyn" aria-label="YouTube" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
               </svg>
             </a>
           </div>
         </div>
 
-        <div class="footer-column">
-          <h4>Stories</h4>
-          <ul>
-            <li><a href="../stories.html">All Stories</a></li>
-            <li><a href="../stories.html#culture">Culture</a></li>
-            <li><a href="../stories.html#history">History</a></li>
-            <li><a href="../stories.html#community">Community</a></li>
+        <div>
+          <h4 class="footer__column-title">Explore</h4>
+          <ul class="footer__links">
+            <li><a href="/stories.html" class="footer__link">All Stories</a></li>
+            <li><a href="/places/florence.html" class="footer__link">Florence, AL</a></li>
+            <li><a href="/collections/the-shoals.html" class="footer__link">The Shoals</a></li>
+            <li><a href="/coming-soon.html" class="footer__link">Coming Soon</a></li>
           </ul>
         </div>
 
-        <div class="footer-column">
-          <h4>Shop</h4>
-          <ul>
-            <li><a href="../shop.html">All Products</a></li>
-            <li><a href="../shop.html#tees">T-Shirts</a></li>
-            <li><a href="../shop.html#hoodies">Hoodies</a></li>
-            <li><a href="../shop.html#hats">Hats</a></li>
+        <div>
+          <h4 class="footer__column-title">Shop</h4>
+          <ul class="footer__links">
+            <li><a href="/shop.html" class="footer__link">All Products</a></li>
+            <li><a href="/shop.html?category=tees" class="footer__link">Tees</a></li>
+            <li><a href="/shop.html?category=hoodies" class="footer__link">Hoodies</a></li>
+            <li><a href="/shop.html?category=hats" class="footer__link">Hats</a></li>
           </ul>
         </div>
 
-        <div class="footer-column">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="../about.html">About Us</a></li>
-            <li><a href="../sustainability.html">Sustainability</a></li>
-            <li><a href="../community.html">Community</a></li>
-            <li><a href="../contact.html">Contact</a></li>
+        <div>
+          <h4 class="footer__column-title">About</h4>
+          <ul class="footer__links">
+            <li><a href="/about.html" class="footer__link">Our Story</a></li>
+            <li><a href="/how-it-works.html" class="footer__link">How It Works</a></li>
+            <li><a href="/sustainability.html" class="footer__link">Sustainability</a></li>
+            <li><a href="/community.html" class="footer__link">Community</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__column-title">Support</h4>
+          <ul class="footer__links">
+            <li><a href="/contact.html" class="footer__link">Contact Us</a></li>
+            <li><a href="/faq.html" class="footer__link">FAQ</a></li>
+            <li><a href="/shipping.html" class="footer__link">Shipping</a></li>
+            <li><a href="/returns.html" class="footer__link">Returns</a></li>
           </ul>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <p>&copy; 2024 ORIGYN. All rights reserved.</p>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2025 ORIGYN. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="/privacy.html" class="footer__legal-link">Privacy Policy</a>
+          <a href="/terms.html" class="footer__legal-link">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">&times;</button>
-    <div class="lightbox-content">
-      <img src="" alt="" id="lightboxImage">
-    </div>
-    <div class="lightbox-caption" id="lightboxCaption"></div>
-  </div>
-
-  <!-- Cart Drawer -->
-  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
-  <div class="cart-drawer" id="cartDrawer">
-    <div class="cart-drawer-header">
-      <h3>Your Cart</h3>
-      <button class="cart-drawer-close" id="cartClose">&times;</button>
-    </div>
-    <div class="cart-drawer-content">
-      <p style="text-align: center; color: var(--color-charcoal-light); padding: var(--space-2xl) 0;">Your cart is empty</p>
-    </div>
-    <div class="cart-drawer-footer">
-      <p class="cart-message">Every purchase preserves a story.</p>
-      <a href="../shop.html" class="btn btn-primary" style="width: 100%;">Continue Shopping</a>
-    </div>
-  </div>
-
-  <!-- JavaScript -->
+  <!-- Scripts -->
   <script src="../js/main.js"></script>
+  <script>
+    // Initialize story page specific features
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sticky nav highlight on scroll
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.story-nav__link');
+
+      const observerOptions = {
+        rootMargin: '-20% 0px -80% 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.classList.remove('story-nav__link--active');
+              if (link.getAttribute('href').slice(1) === entry.target.id) {
+                link.classList.add('story-nav__link--active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+
+      // Gallery lightbox
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const img = item.querySelector('img');
+          openLightbox(img.src, img.alt);
+        });
+      });
+
+      // Header color change on scroll
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > window.innerHeight * 0.7) {
+          header.classList.remove('header--dark');
+        } else {
+          header.classList.add('header--dark');
+        }
+      }, { passive: true });
+    });
+
+    function openLightbox(src, caption) {
+      const lightbox = document.createElement('div');
+      lightbox.className = 'lightbox';
+      lightbox.innerHTML = `
+        <div class="lightbox__overlay"></div>
+        <div class="lightbox__content">
+          <button class="lightbox__close">&times;</button>
+          <img src="${src}" alt="${caption || ''}" class="lightbox__image">
+          ${caption ? `<p class="lightbox__caption">${caption}</p>` : ''}
+        </div>
+      `;
+
+      document.body.appendChild(lightbox);
+      document.body.style.overflow = 'hidden';
+
+      lightbox.querySelector('.lightbox__overlay').addEventListener('click', closeLightbox);
+      lightbox.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
+
+      function closeLightbox() {
+        lightbox.remove();
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
 </body>
 </html>
