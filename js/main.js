@@ -22,9 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initCart();
   initNewsletterForm();
+  initContactForm();
+  initCategoryFilters();
   initSmoothScroll();
   initLazyLoading();
   initAnimations();
+  initProductPage();
+  initStoryPage();
 });
 
 // ============================================
@@ -93,6 +97,7 @@ function initMobileMenu() {
 
 function initCart() {
   updateCartCount();
+  initCartDrawer();
 
   // Quick add buttons
   document.querySelectorAll('.product-card__quick-add').forEach(btn => {
@@ -124,6 +129,118 @@ function initCart() {
       }, 1500);
     });
   });
+}
+
+// ============================================
+// Cart Drawer
+// ============================================
+
+function initCartDrawer() {
+  const cartBtn = document.getElementById('cartBtn') || document.getElementById('cart-btn');
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartBackdrop = document.getElementById('cartBackdrop');
+  const cartClose = document.getElementById('cartClose');
+
+  if (cartBtn && cartDrawer) {
+    cartBtn.addEventListener('click', () => {
+      openCartDrawer();
+    });
+  }
+
+  if (cartBackdrop) {
+    cartBackdrop.addEventListener('click', () => {
+      closeCartDrawer();
+    });
+  }
+
+  if (cartClose) {
+    cartClose.addEventListener('click', () => {
+      closeCartDrawer();
+    });
+  }
+}
+
+function openCartDrawer() {
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartBackdrop = document.getElementById('cartBackdrop');
+
+  if (cartDrawer) {
+    cartDrawer.classList.add('active');
+    state.isCartOpen = true;
+  }
+  if (cartBackdrop) {
+    cartBackdrop.classList.add('active');
+  }
+  document.body.style.overflow = 'hidden';
+
+  // Update cart drawer content
+  renderCartDrawer();
+}
+
+function closeCartDrawer() {
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartBackdrop = document.getElementById('cartBackdrop');
+
+  if (cartDrawer) {
+    cartDrawer.classList.remove('active');
+    state.isCartOpen = false;
+  }
+  if (cartBackdrop) {
+    cartBackdrop.classList.remove('active');
+  }
+  document.body.style.overflow = '';
+}
+
+function renderCartDrawer() {
+  const cartContent = document.getElementById('cartContent') || document.querySelector('.cart-drawer-content');
+  const cartFooter = document.querySelector('.cart-drawer-footer');
+
+  if (!cartContent) return;
+
+  if (state.cart.length === 0) {
+    cartContent.innerHTML = `
+      <p style="text-align: center; color: var(--color-charcoal-light); padding: var(--space-2xl) 0;">
+        Your cart is empty
+      </p>
+    `;
+    if (cartFooter) {
+      cartFooter.innerHTML = `
+        <p class="cart-message">Every purchase preserves a story.</p>
+        <a href="shop.html" class="btn btn-primary" style="width: 100%;">Continue Shopping</a>
+      `;
+    }
+  } else {
+    cartContent.innerHTML = state.cart.map((item, index) => `
+      <div class="cart-item">
+        <div class="cart-item-image">
+          <img src="${item.image || 'https://placehold.co/80x80/E8E2D9/5C4033?text=Product'}" alt="${item.name}">
+        </div>
+        <div class="cart-item-details">
+          <h4 class="cart-item-title">${item.name}</h4>
+          <p class="cart-item-variant">Size: ${item.size} | Qty: ${item.quantity}</p>
+          <p class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</p>
+          <button class="cart-item-remove" onclick="removeFromCartAndRender(${index})">Remove</button>
+        </div>
+      </div>
+    `).join('');
+
+    const total = getCartTotal();
+    if (cartFooter) {
+      cartFooter.innerHTML = `
+        <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-md);">
+          <span style="font-weight: 600;">Subtotal</span>
+          <span style="font-weight: 700; font-size: var(--text-lg);">$${total.toFixed(2)}</span>
+        </div>
+        <p class="cart-message">Every purchase preserves a story.</p>
+        <button class="btn btn-primary" style="width: 100%;" onclick="alert('Checkout coming soon!')">Checkout</button>
+      `;
+    }
+  }
+}
+
+function removeFromCartAndRender(index) {
+  removeFromCart(index);
+  renderCartDrawer();
 }
 
 function addToCart(item) {
@@ -163,17 +280,22 @@ function saveCart() {
 }
 
 function updateCartCount() {
-  const countEl = document.getElementById('cart-count');
-  if (!countEl) return;
+  // Support both cart count element IDs
+  const countElements = [
+    document.getElementById('cart-count'),
+    document.getElementById('cartCount')
+  ].filter(el => el !== null);
 
   const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  if (totalItems > 0) {
-    countEl.textContent = totalItems;
-    countEl.style.display = 'flex';
-  } else {
-    countEl.style.display = 'none';
-  }
+  countElements.forEach(countEl => {
+    if (totalItems > 0) {
+      countEl.textContent = totalItems;
+      countEl.style.display = 'flex';
+    } else {
+      countEl.style.display = 'none';
+    }
+  });
 }
 
 function getCartTotal() {
@@ -218,6 +340,95 @@ function initNewsletterForm() {
       submitBtn.style.backgroundColor = '';
     }, 3000);
   });
+}
+
+// ============================================
+// Contact Form
+// ============================================
+
+function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+
+    // Disable form during submission
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // Simulate API call (replace with actual form submission)
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Success state
+    submitBtn.textContent = 'Message Sent!';
+    submitBtn.style.backgroundColor = 'var(--color-forest)';
+    form.reset();
+
+    // Reset after delay
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+      submitBtn.style.backgroundColor = '';
+    }, 3000);
+  });
+}
+
+// ============================================
+// Category Filters (Stories Page)
+// ============================================
+
+function initCategoryFilters() {
+  // Category filter buttons
+  const categoryBtns = document.querySelectorAll('.category-filter__btn:not(.location-filter)');
+  const locationBtns = document.querySelectorAll('.category-filter__btn.location-filter');
+  const storyCards = document.querySelectorAll('.story-card');
+
+  if (categoryBtns.length === 0) return;
+
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      categoryBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      filterStories(filter, 'category');
+    });
+  });
+
+  locationBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      locationBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const location = btn.dataset.location;
+      filterStories(location, 'location');
+    });
+  });
+
+  function filterStories(value, type) {
+    storyCards.forEach(card => {
+      const category = card.dataset.category || '';
+
+      if (value === 'all') {
+        card.style.display = '';
+      } else if (type === 'category') {
+        if (category.includes(value)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      } else if (type === 'location') {
+        // For location filtering, we would need data-location attributes
+        card.style.display = '';
+      }
+    });
+  }
 }
 
 // ============================================
@@ -484,5 +695,11 @@ window.ORIGYN = {
   removeFromCart,
   updateCartQuantity,
   getCartTotal,
+  openCartDrawer,
+  closeCartDrawer,
+  removeFromCartAndRender,
   state
 };
+
+// Make removeFromCartAndRender globally available for onclick handlers
+window.removeFromCartAndRender = removeFromCartAndRender;
