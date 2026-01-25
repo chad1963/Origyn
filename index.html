@@ -196,97 +196,162 @@
   </section>
 
   <!-- Interactive Map Section -->
-
-  <section class="map-section" id="explore">
+  <section class="map-section" id="explore" style="background: var(--color-off-white); padding: var(--space-4xl) 0;">
     <div class="container">
-      <div class="map-section__header">
-        <h2 class="map-section__title">Explore Stories</h2>
-        <p class="map-section__description">
-          Click on a pin to discover the stories, history, and culture of each place. More locations coming soon.
+      <div class="text-center mb-3xl">
+        <p style="color: var(--color-gold); font-family: var(--font-accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: var(--space-sm);">Discover</p>
+        <h2>Explore Stories Across America</h2>
+        <p style="color: var(--color-gray); max-width: 600px; margin: var(--space-md) auto 0;">
+          Click on a highlighted state to discover the stories, history, and culture of each place. More locations coming soon.
         </p>
       </div>
 
-      <div class="us-map-container">
-        <!-- US Map SVG - populated by us-map.js -->
-        <svg class="us-map" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg">
-          <!-- States will be dynamically added by JavaScript -->
-        </svg>
-
-        <!-- Map Pins -->
-        <a href="places/florence.html" class="map-pin map-pin--active" style="left: 65%; top: 58%;"
-          data-place="florence">
-          <svg class="map-pin__icon" viewBox="0 0 24 32" fill="currentColor">
-            <path
-              d="M12 0C5.4 0 0 5.4 0 12c0 7.2 12 20 12 20s12-12.8 12-20c0-6.6-5.4-12-12-12zm0 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z" />
+      <!-- Clean US Map - Matching Reference Image Style -->
+      <div style="position: relative; max-width: 900px; margin: 0 auto; padding: var(--space-xl);">
+        <div class="us-map-container" style="background: linear-gradient(180deg, #f8f8f8 0%, #f0f0f0 100%); border-radius: var(--radius-xl); padding: var(--space-2xl); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+          <!-- US Map SVG - Clean minimal style matching reference -->
+          <svg class="us-map" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; display: block;">
+            <!-- States will be dynamically added by JavaScript -->
           </svg>
-          <span class="map-pin__tooltip">Florence, AL</span>
-        </a>
 
-        <a href="#" class="map-pin map-pin--coming-soon" style="left: 66%; top: 57%;" data-place="muscle-shoals">
-          <svg class="map-pin__icon" viewBox="0 0 24 32" fill="currentColor">
-            <path
-              d="M12 0C5.4 0 0 5.4 0 12c0 7.2 12 20 12 20s12-12.8 12-20c0-6.6-5.4-12-12-12zm0 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z" />
-          </svg>
-          <span class="map-pin__tooltip">Muscle Shoals - Coming Soon</span>
-        </a>
+          <!-- Map Pins positioned on Alabama -->
+          <a href="places/florence.html" class="map-pin map-pin--active" style="position: absolute; left: 66%; top: 65%; transform: translate(-50%, -100%); z-index: 10;">
+            <svg width="24" height="32" viewBox="0 0 24 32" fill="#2D5F4F">
+              <path d="M12 0C5.4 0 0 5.4 0 12c0 7.2 12 20 12 20s12-12.8 12-20c0-6.6-5.4-12-12-12zm0 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"/>
+            </svg>
+            <span style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: var(--color-forest); color: white; padding: 4px 10px; border-radius: 4px; font-size: 11px; white-space: nowrap; opacity: 0; transition: opacity 0.2s; pointer-events: none;">Florence, AL</span>
+          </a>
+        </div>
 
-        <!-- ORIGYN Logo Watermark -->
-        <img src="images/logo/origyn_tree_logo_transparent.png" alt="ORIGYN" class="map-logo">
+        <!-- Map Legend -->
+        <div style="display: flex; justify-content: center; gap: var(--space-xl); margin-top: var(--space-lg);">
+          <div style="display: flex; align-items: center; gap: var(--space-sm);">
+            <span style="width: 16px; height: 16px; background: #2D5F4F; border-radius: 3px;"></span>
+            <span style="font-size: var(--text-sm); color: var(--color-gray);">Available Now</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-sm);">
+            <span style="width: 16px; height: 16px; background: #D4D4D4; border-radius: 3px;"></span>
+            <span style="font-size: var(--text-sm); color: var(--color-gray);">Coming Soon</span>
+          </div>
+        </div>
       </div>
 
-
-      <!-- Place Cards -->
-      <div class="grid grid-4 gap-lg mt-2xl" style="max-width: 1200px; margin-left: auto; margin-right: auto;">
-        <a href="/places/florence.html" class="card">
+      <!-- Place Cards - Now with 6 cards -->
+      <div class="grid grid-3 gap-lg mt-3xl" style="max-width: 1000px; margin-left: auto; margin-right: auto;">
+        <a href="places/florence.html" class="card" style="text-decoration: none;">
           <div class="card__image">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Florence, Alabama"
-              loading="lazy">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Florence, Alabama" loading="lazy">
+            <span style="position: absolute; top: 12px; right: 12px; background: var(--color-forest); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;">AVAILABLE</span>
           </div>
           <div class="card__content">
-            <span class="card__tag">Alabama</span>
+            <span class="card__tag">Alabama • The Shoals</span>
             <h3 class="card__title">Florence</h3>
-            <p class="card__description">Where the blues were born and the river still sings.</p>
+            <p class="card__description">Birthplace of W.C. Handy, home to Frank Lloyd Wright's only Alabama building, and where the blues began.</p>
             <div class="card__meta">
               <span>Est. 1818</span>
-              <span>4 Stories</span>
+              <span>12+ Stories</span>
             </div>
           </div>
         </a>
 
-        <div class="card" style="opacity: 0.6;">
+        <a href="places/tuscumbia.html" class="card" style="text-decoration: none;">
           <div class="card__image">
-            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80" alt="Muscle Shoals"
-              loading="lazy">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Tuscumbia, Alabama" loading="lazy">
+            <span style="position: absolute; top: 12px; right: 12px; background: var(--color-forest); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;">AVAILABLE</span>
           </div>
           <div class="card__content">
-            <span class="card__tag" style="background-color: var(--color-gray);">Coming Soon</span>
-            <h3 class="card__title">Muscle Shoals</h3>
-            <p class="card__description">The hit recording capital of the world.</p>
-          </div>
-        </div>
-
-        <div class="card" style="opacity: 0.6;">
-          <div class="card__image">
-            <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=600&q=80" alt="Sheffield"
-              loading="lazy">
-          </div>
-          <div class="card__content">
-            <span class="card__tag" style="background-color: var(--color-gray);">Coming Soon</span>
-            <h3 class="card__title">Sheffield</h3>
-            <p class="card__description">Where legends recorded and history was made.</p>
-          </div>
-        </div>
-
-        <div class="card" style="opacity: 0.6;">
-          <div class="card__image">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Tuscumbia"
-              loading="lazy">
-          </div>
-          <div class="card__content">
-            <span class="card__tag" style="background-color: var(--color-gray);">Coming Soon</span>
+            <span class="card__tag">Alabama • The Shoals</span>
             <h3 class="card__title">Tuscumbia</h3>
-            <p class="card__description">Home of Helen Keller and the Spring Park.</p>
+            <p class="card__description">Birthplace of Helen Keller and home to Ivy Green, where the miracle at the water pump changed history.</p>
+            <div class="card__meta">
+              <span>Est. 1820</span>
+              <span>8+ Stories</span>
+            </div>
           </div>
+        </a>
+
+        <div class="card" style="opacity: 0.7;">
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80" alt="Muscle Shoals" loading="lazy">
+            <span style="position: absolute; top: 12px; right: 12px; background: var(--color-gray); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;">COMING SOON</span>
+          </div>
+          <div class="card__content">
+            <span class="card__tag">Alabama • The Shoals</span>
+            <h3 class="card__title">Muscle Shoals</h3>
+            <p class="card__description">Where Aretha, The Stones, and 500+ hit records were made. The sound that changed music forever.</p>
+          </div>
+        </div>
+
+        <div class="card" style="opacity: 0.7;">
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=600&q=80" alt="Sheffield" loading="lazy">
+            <span style="position: absolute; top: 12px; right: 12px; background: var(--color-gray); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;">COMING SOON</span>
+          </div>
+          <div class="card__content">
+            <span class="card__tag">Alabama • The Shoals</span>
+            <h3 class="card__title">Sheffield</h3>
+            <p class="card__description">Home of Muscle Shoals Sound Studio at 3614 Jackson Highway—the coffin factory turned recording legend.</p>
+          </div>
+        </div>
+
+        <div class="card" style="opacity: 0.7;">
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1569974507005-6dc61f97fb5c?w=600&q=80" alt="Memphis" loading="lazy">
+            <span style="position: absolute; top: 12px; right: 12px; background: var(--color-gray); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;">COMING SOON</span>
+          </div>
+          <div class="card__content">
+            <span class="card__tag">Tennessee</span>
+            <h3 class="card__title">Memphis</h3>
+            <p class="card__description">Sun Studio, Beale Street, and the birthplace of rock and roll. Where Elvis, Johnny Cash, and Jerry Lee Lewis got their start.</p>
+          </div>
+        </div>
+
+        <div class="card" style="opacity: 0.7;">
+          <div class="card__image">
+            <img src="https://images.unsplash.com/photo-1580137189272-c9379f8864fd?w=600&q=80" alt="Nashville" loading="lazy">
+            <span style="position: absolute; top: 12px; right: 12px; background: var(--color-gray); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;">COMING SOON</span>
+          </div>
+          <div class="card__content">
+            <span class="card__tag">Tennessee</span>
+            <h3 class="card__title">Nashville</h3>
+            <p class="card__description">Music City USA. The Grand Ole Opry, RCA Studio B, and 100 years of country music history.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wilson Dam & TVA Section - New -->
+  <section class="section" style="background: var(--color-charcoal);">
+    <div class="container">
+      <div class="grid grid-2 gap-2xl" style="align-items: center;">
+        <div>
+          <p style="color: var(--color-gold); font-family: var(--font-accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: var(--space-sm);">Engineering Marvel</p>
+          <h2 style="color: var(--color-cream); margin-bottom: var(--space-lg);">Wilson Dam: Power for a Nation</h2>
+          <p style="color: var(--color-light); line-height: 1.8; margin-bottom: var(--space-lg);">
+            Built during World War I to produce nitrates for explosives, Wilson Dam became the cornerstone of the Tennessee Valley Authority in 1933. At 4,541 feet long and 137 feet high, it was the largest hydroelectric installation in the world at the time.
+          </p>
+          <p style="color: var(--color-light); line-height: 1.8; margin-bottom: var(--space-lg);">
+            During construction, over 18,000 workers turned the site into a temporary city with 1,700 buildings. Today, it powers homes across the region and is a National Historic Landmark.
+          </p>
+          <div style="display: flex; gap: var(--space-lg); flex-wrap: wrap;">
+            <div>
+              <span style="display: block; font-family: var(--font-headline); font-size: var(--text-3xl); color: var(--color-gold); font-weight: 700;">1924</span>
+              <span style="color: var(--color-light); font-size: var(--text-sm);">Completed</span>
+            </div>
+            <div>
+              <span style="display: block; font-family: var(--font-headline); font-size: var(--text-3xl); color: var(--color-gold); font-weight: 700;">663</span>
+              <span style="color: var(--color-light); font-size: var(--text-sm);">Megawatts</span>
+            </div>
+            <div>
+              <span style="display: block; font-family: var(--font-headline); font-size: var(--text-3xl); color: var(--color-gold); font-weight: 700;">18,000</span>
+              <span style="color: var(--color-light); font-size: var(--text-sm);">Workers</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1558492426-df14e290aefa?w=800&q=80" alt="Wilson Dam"
+            style="border-radius: var(--radius-lg); box-shadow: var(--shadow-xl);" loading="lazy">
         </div>
       </div>
     </div>
