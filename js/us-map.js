@@ -74,6 +74,14 @@ const PLACE_PINS = {
     y: 62.2,
     url: "#",
     status: "coming-soon"
+  },
+  tuscumbia: {
+    name: "Tuscumbia, AL",
+    state: "AL",
+    x: 56.5,
+    y: 61.8,
+    url: "places/tuscumbia.html",
+    status: "active"
   }
 };
 
@@ -91,20 +99,20 @@ function initUSMap() {
   // Add hover effects to states
   const states = document.querySelectorAll('.us-map path[id]');
   states.forEach(state => {
-    state.addEventListener('mouseenter', function() {
+    state.addEventListener('mouseenter', function () {
       if (!this.classList.contains('active')) {
-        this.style.fill = '#4A8C6F'; // Lighter forest on hover
+        this.style.fill = '#BEBEBE'; // Slightly darker gray on hover
       }
     });
 
-    state.addEventListener('mouseleave', function() {
+    state.addEventListener('mouseleave', function () {
       if (!this.classList.contains('active')) {
-        this.style.fill = '#E8E8E8'; // Back to default
+        this.style.fill = '#D4D4D4'; // Back to soft gray
       }
     });
 
     // Add click handler for active states
-    state.addEventListener('click', function() {
+    state.addEventListener('click', function () {
       if (this.classList.contains('active')) {
         const stateId = this.getAttribute('id');
         const pin = Object.values(PLACE_PINS).find(p => p.state === stateId && p.status === 'active');
@@ -137,20 +145,24 @@ function buildMap() {
       pin => pin.state === stateId && pin.status === 'active'
     );
 
-    // Apply clean minimalist styling matching reference image
+    // Apply clean minimalist styling matching reference image exactly
+    // Soft gray with subtle shadows, white borders
     if (hasActivePins) {
       path.classList.add('active');
       path.style.fill = '#2D5F4F'; // Forest green for active states
       path.style.cursor = 'pointer';
     } else {
-      path.style.fill = '#D8D8D8'; // Light gray matching reference
+      path.style.fill = '#D4D4D4'; // Soft light gray matching reference
       path.style.cursor = 'default';
     }
 
-    // White borders for clean look
+    // Clean white borders like reference image
     path.style.stroke = '#FFFFFF';
-    path.style.strokeWidth = '2';
+    path.style.strokeWidth = '2.5';
+    path.style.strokeLinejoin = 'round';
     path.style.transition = 'fill 0.3s ease';
+    // Subtle inner shadow effect
+    path.style.filter = 'drop-shadow(1px 1px 1px rgba(0,0,0,0.08))';
 
     svg.appendChild(path);
   });

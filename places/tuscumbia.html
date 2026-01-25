@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Tuscumbia, Alabama - The First Frontier. Discover the birthplace of Helen Keller, the Alabama Music Hall of Fame, and the oldest town in the Shoals.">
+  <meta property="og:title" content="Tuscumbia, Alabama - The First Frontier | ORIGYN">
+  <meta property="og:description"
+    content="Discover the birthplace of Helen Keller and the deep musical roots of the Shoals.">
+  <meta property="og:type" content="article">
+  <title>Tuscumbia, Alabama - The First Frontier | ORIGYN</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    /* Story page specific styles */
+    .story-page {
+      padding-top: 0;
+    }
+
+    .parallax-section {
+      position: relative;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .parallax-section {
+        background-attachment: scroll;
+      }
+    }
+
+    .story-nav {
+      position: sticky;
+      top: var(--header-height);
+      background-color: rgba(248, 246, 240, 0.98);
+      border-bottom: 1px solid var(--color-light);
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .story-nav__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+      padding: var(--space-md) 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .story-nav__inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .story-nav__link {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-gray);
+      white-space: nowrap;
+      transition: color var(--transition-fast);
+    }
+
+    .story-nav__link:hover,
+    .story-nav__link--active {
+      color: var(--color-forest);
+    }
+
+    .landmark-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    @media (max-width: 768px) {
+      .landmark-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .landmark-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .landmark-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .landmark-card__image {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .landmark-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .landmark-card__content {
+      padding: var(--space-lg);
+    }
+
+    .landmark-card__type {
+      font-size: var(--text-xs);
+      color: var(--color-gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .landmark-card__name {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-sm);
+    }
+
+    .landmark-card__description {
+      font-size: var(--text-sm);
+      color: var(--color-gray);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body class="story-page">
+  <!-- Header -->
+  <header class="header header--dark" id="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">
+        <img src="../images/logo/origyn_tree_logo_transparent.png" alt="ORIGYN Tree Logo" class="header__logo-tree"
+          style="filter: brightness(0) invert(1);">
+        <span
+          style="font-family: var(--font-headline); font-size: 1.5rem; font-weight: 600; color: var(--color-cream);">ORIG<span
+            style="color: var(--color-gold);">Y</span>N</span>
+      </a>
+
+      <nav class="header__nav">
+        <ul class="header__nav-links">
+          <li><a href="/stories.html" class="header__nav-link" style="color: var(--color-cream);">Explore</a></li>
+          <li><a href="/stories.html" class="header__nav-link" style="color: var(--color-cream);">Stories</a></li>
+          <li><a href="/community.html" class="header__nav-link" style="color: var(--color-cream);">Community</a></li>
+          <li><a href="/about.html" class="header__nav-link" style="color: var(--color-cream);">About</a></li>
+          <li><a href="/sustainability.html" class="header__nav-link"
+              style="color: var(--color-cream);">Sustainability</a></li>
+        </ul>
+
+        <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <span style="background-color: var(--color-cream);"></span>
+          <span style="background-color: var(--color-cream);"></span>
+          <span style="background-color: var(--color-cream);"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Story Hero -->
+  <section class="story-hero">
+    <div class="story-hero__background">
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?w=1920&q=80" alt="Tuscumbia Spring Park"
+        loading="eager">
+    </div>
+    <div class="story-hero__overlay"></div>
+
+    <div class="story-hero__content">
+      <div class="container">
+        <p class="story-hero__coordinates">34.7312° N, 87.7020° W</p>
+        <h1 class="story-hero__title">Tuscumbia</h1>
+        <p class="story-hero__subtitle">The First Frontier</p>
+        <div class="story-hero__meta">
+          <span class="story-hero__meta-item">
+            Est. 1817 (Inc. 1820)
+          </span>
+          <span class="story-hero__meta-item">
+            Population: ~9,000
+          </span>
+          <span class="story-hero__meta-item">
+            Alabama, USA
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Navigation -->
+  <nav class="story-nav">
+    <div class="container">
+      <div class="story-nav__inner">
+        <a href="#intro" class="story-nav__link story-nav__link--active">Introduction</a>
+        <a href="#keller" class="story-nav__link">Helen Keller</a>
+        <a href="#music" class="story-nav__link">Music Hall of Fame</a>
+        <a href="#landmarks" class="story-nav__link">Landmarks</a>
+        <a href="#shop" class="story-nav__link">Shop</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Introduction -->
+  <section class="story-content" id="intro">
+    <div class="container">
+      <div class="story-content__intro">
+        <h2 class="story-content__intro-headline">The Oldest Town in the Shoals</h2>
+        <p class="story-content__intro-text">
+          Before Florence or Muscle Shoals existed, there was Tuscumbia. Founded near the banks of the Tennessee River,
+          it began as a Chickasaw trading post and became the commercial hub of North Alabama. It is a place where
+          visual darkness led to spiritual light for one famous resident, and where the history of Southern music is
+          famously preserved.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Story -->
+  <section class="section" id="story" style="background-color: var(--color-off-white);">
+    <div class="container">
+
+      <!-- Section 1: Helen Keller -->
+      <div class="story-section" id="keller">
+        <h3 class="story-section__title">The Miracle at Ivy Green</h3>
+        <div class="story-section__text">
+          <p>
+            In 1880, Helen Keller was born at Ivy Green, a white clapboard house on 600 acres. An illness at 19 months
+            left her blind and deaf, trapping her in a dark, silent world. For years, she was "phantom," as she
+            described herself—wild and unreachable.
+          </p>
+          <p>
+            That changed on April 5, 1887. Her teacher, Anne Sullivan, pumped cool water over Helen's hand while
+            spelling W-A-T-E-R into the other. The connection sparked. "That living word awakened my soul, gave it
+            light, hope, joy, set it free," Keller later wrote.
+          </p>
+          <p>
+            Today, the pump still stands at Ivy Green. Every summer, "The Miracle Worker" play is performed on the
+            grounds, reminding the world that communication is the essence of humanity.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="story-image">
+        <figure class="story-image__figure">
+          <img src="https://placehold.co/1200x600/E8E2D9/5C4033?text=Ivy+Green:+Home+of+Helen+Keller"
+            alt="Ivy Green Main House" class="story-image__img">
+          <figcaption class="story-image__caption">
+            Ivy Green, the childhood home of Helen Keller where the "Miracle" took place.
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Section 2: Alabama Music Hall of Fame -->
+      <div class="story-section" id="music">
+        <h3 class="story-section__title">A Temple of Sound</h3>
+        <div class="story-section__text">
+          <p>
+            Just down the road from Ivy Green lies another kind of shrine: the Alabama Music Hall of Fame. While Muscle
+            Shoals made the hits, Tuscumbia honors the heritage.
+          </p>
+          <p>
+            From the "Father of the Blues" W.C. Handy to country legends like Hank Williams and the chart-topping group
+            Alabama, this state has produced an uncanny number of musical giants. The Hall of Fame doesn't just display
+            gold records; it traces the invisible lines connecting gospel, blues, country, and soul.
+          </p>
+
+          <div
+            style="margin-top: var(--space-xl); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg);">
+            <iframe style="border-radius:12px"
+              src="https://open.spotify.com/embed/playlist/37i9dQZF1EQqatj9G47oFq?utm_source=generator" width="100%"
+              height="152" frameBorder="0" allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Spring Park -->
+      <div class="story-section">
+        <h3 class="story-section__title">Cold Water Falls</h3>
+        <div class="story-section__text">
+          <p>
+            The heart of Tuscumbia is Spring Park. The town was originally built around this massive natural spring,
+            which pumps millions of gallons of water a day.
+          </p>
+          <p>
+            Dominating the park is Cold Water Falls, the largest man-made natural stone waterfall in the world. It was
+            built as part of a WPA project, a testament to the town's history of public works. At night, a light and
+            water show brings the park to life—a tradition for generations of Tuscumbia families.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Landmarks -->
+  <section class="section section--cream" id="landmarks">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <h2>Notable Landmarks</h2>
+        <p style="color: var(--color-gray); max-width: 600px; margin: var(--space-md) auto 0;">
+          Places that tell the Tuscumbia story
+        </p>
+      </div>
+
+      <div class="landmark-grid">
+        <div class="landmark-card">
+          <div class="landmark-card__image">
+            <img src="https://placehold.co/600x400/E8E2D9/5C4033?text=Ivy+Green" alt="Ivy Green" loading="lazy">
+          </div>
+          <div class="landmark-card__content">
+            <p class="landmark-card__type">Historic Home</p>
+            <h4 class="landmark-card__name">Ivy Green</h4>
+            <p class="landmark-card__description">Birthplace of Helen Keller and site of the "Miracle Worker" play.</p>
+          </div>
+        </div>
+
+        <div class="landmark-card">
+          <div class="landmark-card__image">
+            <img src="https://placehold.co/600x400/E8E2D9/5C4033?text=Music+Hall+of+Fame"
+              alt="Alabama Music Hall of Fame" loading="lazy">
+          </div>
+          <div class="landmark-card__content">
+            <p class="landmark-card__type">Museum</p>
+            <h4 class="landmark-card__name">AL Music Hall of Fame</h4>
+            <p class="landmark-card__description">Honoring the musical achievers from the state of Alabama.</p>
+          </div>
+        </div>
+
+        <div class="landmark-card">
+          <div class="landmark-card__image">
+            <img src="https://placehold.co/600x400/E8E2D9/5C4033?text=Spring+Park" alt="Spring Park" loading="lazy">
+          </div>
+          <div class="landmark-card__content">
+            <p class="landmark-card__type">Park</p>
+            <h4 class="landmark-card__name">Spring Park</h4>
+            <p class="landmark-card__description">Featuring Cold Water Falls and the massive natural spring.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop CTA -->
+  <section class="section" id="shop">
+    <div class="container">
+      <div class="shop-cta">
+        <h2 class="shop-cta__title">Wear the Story</h2>
+        <p class="shop-cta__description">
+          Support the preservation of authentic Alabama history with our premium apparel.
+        </p>
+        <a href="../shop.html" class="btn btn--gold">Shop the Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 style="color: var(--color-cream);">ORIG<span style="color: var(--color-gold);">Y</span>N</h3>
+          <p>Every place has a story worth wearing.</p>
+        </div>
+        <div>
+          <h4 style="color: var(--color-cream);">Explore</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li><a href="../stories.html" style="color: var(--color-light);">All Stories</a></li>
+            <li><a href="florence.html" style="color: var(--color-light);">Florence</a></li>
+            <li><a href="tuscumbia.html" style="color: var(--color-light);">Tuscumbia</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--color-cream);">Links</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li><a href="../shop.html" style="color: var(--color-light);">Shop</a></li>
+            <li><a href="../about.html" style="color: var(--color-light);">About</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 ORIGYN. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

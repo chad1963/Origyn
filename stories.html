@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore stories from places across America. Discover the rich history and culture that makes each community unique.">
+  <meta name="description"
+    content="Explore stories from places across America. Discover the rich history and culture that makes each community unique.">
   <title>Stories | ORIGYN</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+    rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <!-- Header -->
   <header class="header" id="header">
     <div class="header__inner">
       <a href="index.html" class="header__logo">
         <img src="images/logo/origyn_tree_logo_transparent.png" alt="ORIGYN Tree Logo" class="header__logo-tree">
-        <span style="font-family: var(--font-headline); font-size: 1.5rem; font-weight: 600; color: var(--color-forest);">ORIG<span style="color: var(--color-gold);">Y</span>N</span>
+        <span
+          style="font-family: var(--font-headline); font-size: 1.5rem; font-weight: 600; color: var(--color-forest);">ORIG<span
+            style="color: var(--color-gold);">Y</span>N</span>
       </a>
 
       <nav class="header__nav">
@@ -37,10 +44,10 @@
           <a href="shop.html" class="header__shop-btn">Shop</a>
           <button class="header__cart-btn" id="cartBtn" aria-label="Shopping cart">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 6h15l-1.5 9h-12z"/>
-              <circle cx="9" cy="20" r="1"/>
-              <circle cx="18" cy="20" r="1"/>
-              <path d="M6 6L5 3H2"/>
+              <path d="M6 6h15l-1.5 9h-12z" />
+              <circle cx="9" cy="20" r="1" />
+              <circle cx="18" cy="20" r="1" />
+              <path d="M6 6L5 3H2" />
             </svg>
             <span class="header__cart-count" id="cartCount" style="display: none;">0</span>
           </button>
@@ -66,7 +73,9 @@
   <section style="background: var(--color-cream); border-bottom: 1px solid #ddd;">
     <div class="container">
       <div style="padding: var(--space-lg) 0;">
-        <p style="font-size: var(--text-sm); font-weight: 600; color: var(--color-gray); margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 0.05em;">Filter by Category</p>
+        <p
+          style="font-size: var(--text-sm); font-weight: 600; color: var(--color-gray); margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 0.05em;">
+          Filter by Category</p>
         <div class="category-filter">
           <button class="category-filter__btn active" data-filter="all">All Stories</button>
           <button class="category-filter__btn" data-filter="music">Music</button>
@@ -75,7 +84,9 @@
           <button class="category-filter__btn" data-filter="legends">Legends</button>
         </div>
 
-        <p style="font-size: var(--text-sm); font-weight: 600; color: var(--color-gray); margin: var(--space-xl) 0 var(--space-md); text-transform: uppercase; letter-spacing: 0.05em;">Filter by Location</p>
+        <p
+          style="font-size: var(--text-sm); font-weight: 600; color: var(--color-gray); margin: var(--space-xl) 0 var(--space-md); text-transform: uppercase; letter-spacing: 0.05em;">
+          Filter by Location</p>
         <div class="category-filter">
           <button class="category-filter__btn location-filter active" data-location="all">All Locations</button>
           <button class="category-filter__btn location-filter" data-location="florence">Florence</button>
@@ -98,7 +109,8 @@
           </div>
           <div class="story-card__content">
             <h2 class="story-card__headline">Florence, Alabama</h2>
-            <p class="story-card__deck">Where the Tennessee River shaped a city and a sound that changed music forever. From W.C. Handy's blues to Frank Lloyd Wright's only Alabama masterpiece.</p>
+            <p class="story-card__deck">Where the Tennessee River shaped a city and a sound that changed music forever.
+              From W.C. Handy's blues to Frank Lloyd Wright's only Alabama masterpiece.</p>
             <div class="story-card__byline">
               <span>ORIGYN Research</span>
               <span class="byline__separator"></span>
@@ -123,7 +135,8 @@
             </div>
             <div class="story-card__content">
               <h3 class="story-card__headline">Florence, Alabama</h3>
-              <p class="story-card__deck">Where the Tennessee River shaped a city and a sound that changed music forever.</p>
+              <p class="story-card__deck">Where the Tennessee River shaped a city and a sound that changed music
+                forever.</p>
               <div class="story-card__byline">
                 <span>ORIGYN Research</span>
                 <span class="byline__separator"></span>
@@ -133,16 +146,38 @@
           </a>
         </article>
 
+        <!-- Tuscumbia Story -->
+        <article class="story-card" data-category="history culture" data-animate>
+          <a href="places/tuscumbia.html">
+            <div class="story-card__image">
+              <img src="https://placehold.co/600x340/5C4033/E8E2D9?text=Tuscumbia" alt="Tuscumbia, Alabama">
+              <span class="story-card__category story-card__category--history">History</span>
+            </div>
+            <div class="story-card__content">
+              <h3 class="story-card__headline">Tuscumbia: The First Frontier</h3>
+              <p class="story-card__deck">Oldest town in the Shoals. Birthplace of Helen Keller and home to the Alabama
+                Music Hall of Fame.</p>
+              <div class="story-card__byline">
+                <span>ORIGYN Research</span>
+                <span class="byline__separator"></span>
+                <span>10 min read</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
         <!-- W.C. Handy Story (Culture) -->
         <article class="story-card" data-category="culture history" data-animate>
           <a href="places/florence.html#handy">
             <div class="story-card__image">
-              <img src="https://placehold.co/600x340/A45A3D/E8E2D9?text=W.C.+Handy" alt="W.C. Handy - Father of the Blues">
+              <img src="https://placehold.co/600x340/A45A3D/E8E2D9?text=W.C.+Handy"
+                alt="W.C. Handy - Father of the Blues">
               <span class="story-card__category story-card__category--culture">Culture</span>
             </div>
             <div class="story-card__content">
               <h3 class="story-card__headline">The Father of the Blues</h3>
-              <p class="story-card__deck">How W.C. Handy's Florence roots shaped the sound that became American music.</p>
+              <p class="story-card__deck">How W.C. Handy's Florence roots shaped the sound that became American music.
+              </p>
               <div class="story-card__byline">
                 <span>ORIGYN Research</span>
                 <span class="byline__separator"></span>
@@ -161,7 +196,8 @@
             </div>
             <div class="story-card__content">
               <h3 class="story-card__headline">Frank Lloyd Wright's Southern Masterpiece</h3>
-              <p class="story-card__deck">The only Wright-designed home in Alabama and a landmark of Usonian architecture.</p>
+              <p class="story-card__deck">The only Wright-designed home in Alabama and a landmark of Usonian
+                architecture.</p>
               <div class="story-card__byline">
                 <span>ORIGYN Research</span>
                 <span class="byline__separator"></span>
@@ -189,12 +225,190 @@
             </div>
           </a>
         </article>
+
+        <!-- Helen Keller Story -->
+        <article class="story-card" data-category="people history" data-animate>
+          <a href="places/tuscumbia.html#helen-keller">
+            <div class="story-card__image">
+              <img src="https://placehold.co/600x340/3D5C4A/E8E2D9?text=Helen+Keller" alt="Helen Keller">
+              <span class="story-card__category story-card__category--people">People</span>
+            </div>
+            <div class="story-card__content">
+              <h3 class="story-card__headline">Helen Keller: The Miracle at Ivy Green</h3>
+              <p class="story-card__deck">Born deaf and blind, she became an author, activist, and global inspiration. Her story began at a water pump in Tuscumbia.</p>
+              <div class="story-card__byline">
+                <span>ORIGYN Research</span>
+                <span class="byline__separator"></span>
+                <span>9 min read</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Muscle Shoals Sound Story -->
+        <article class="story-card" data-category="music culture" data-animate>
+          <a href="places/florence.html#music">
+            <div class="story-card__image">
+              <img src="https://placehold.co/600x340/8B5A2B/E8E2D9?text=FAME+Studios" alt="FAME Studios">
+              <span class="story-card__category story-card__category--music">Music</span>
+            </div>
+            <div class="story-card__content">
+              <h3 class="story-card__headline">FAME Studios: Where Soul Was Born</h3>
+              <p class="story-card__deck">In 1959, Rick Hall built a studio in Muscle Shoals that would attract Aretha Franklin, Wilson Pickett, and change music forever.</p>
+              <div class="story-card__byline">
+                <span>ORIGYN Research</span>
+                <span class="byline__separator"></span>
+                <span>11 min read</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- The Swampers Story -->
+        <article class="story-card" data-category="music legends" data-animate>
+          <a href="places/florence.html#swampers">
+            <div class="story-card__image">
+              <img src="https://placehold.co/600x340/2D4A3E/E8E2D9?text=The+Swampers" alt="The Swampers">
+              <span class="story-card__category story-card__category--legends">Legends</span>
+            </div>
+            <div class="story-card__content">
+              <h3 class="story-card__headline">The Swampers: Sweet Home Alabama</h3>
+              <p class="story-card__deck">The session musicians who created the "Muscle Shoals Sound" and were immortalized by Lynyrd Skynyrd.</p>
+              <div class="story-card__byline">
+                <span>ORIGYN Research</span>
+                <span class="byline__separator"></span>
+                <span>8 min read</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Tennessee River Story -->
+        <article class="story-card" data-category="landmarks history" data-animate>
+          <a href="places/florence.html#river">
+            <div class="story-card__image">
+              <img src="https://placehold.co/600x340/5C7A6B/E8E2D9?text=Singing+River" alt="Tennessee River">
+              <span class="story-card__category story-card__category--landmarks">Landmarks</span>
+            </div>
+            <div class="story-card__content">
+              <h3 class="story-card__headline">The Singing River: 1,500 Years of History</h3>
+              <p class="story-card__deck">The Chickasaw called it the "Singing River." Its rocky shoals shaped civilizations and gave the region its name.</p>
+              <div class="story-card__byline">
+                <span>ORIGYN Research</span>
+                <span class="byline__separator"></span>
+                <span>7 min read</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Indian Mound Story -->
+        <article class="story-card" data-category="landmarks history" data-animate>
+          <a href="places/florence.html#mound">
+            <div class="story-card__image">
+              <img src="https://placehold.co/600x340/6B5344/E8E2D9?text=Indian+Mound" alt="Florence Indian Mound">
+              <span class="story-card__category story-card__category--history">History</span>
+            </div>
+            <div class="story-card__content">
+              <h3 class="story-card__headline">The Florence Indian Mound</h3>
+              <p class="story-card__deck">Standing 43 feet high, this ceremonial mound predates Columbus by a thousand years—the largest on the Tennessee River.</p>
+              <div class="story-card__byline">
+                <span>ORIGYN Research</span>
+                <span class="byline__separator"></span>
+                <span>5 min read</span>
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historic Timeline Section -->
+  <section class="section section--light">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="text-label mb-sm d-block">Timeline</span>
+        <h3>Moments That Made The Shoals</h3>
       </div>
 
-      <!-- More Stories Coming Banner -->
+      <div style="max-width: 800px; margin: 0 auto;">
+        <!-- Timeline Item 1 -->
+        <div style="display: flex; gap: var(--space-xl); margin-bottom: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--color-light);">
+          <div style="min-width: 80px; text-align: right;">
+            <span style="font-family: var(--font-headline); font-size: var(--text-2xl); color: var(--color-gold); font-weight: 700;">1000</span>
+            <span style="display: block; font-size: var(--text-xs); color: var(--color-gray);">AD</span>
+          </div>
+          <div>
+            <h4 style="margin-bottom: var(--space-sm);">Florence Indian Mound Built</h4>
+            <p style="color: var(--color-gray); line-height: 1.7;">Indigenous peoples construct the largest domiciliary mound on the Tennessee River, 43 feet high. It would serve as a ceremonial center for the Mississippi culture.</p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div style="display: flex; gap: var(--space-xl); margin-bottom: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--color-light);">
+          <div style="min-width: 80px; text-align: right;">
+            <span style="font-family: var(--font-headline); font-size: var(--text-2xl); color: var(--color-gold); font-weight: 700;">1873</span>
+          </div>
+          <div>
+            <h4 style="margin-bottom: var(--space-sm);">W.C. Handy Born in Florence</h4>
+            <p style="color: var(--color-gray); line-height: 1.7;">William Christopher Handy is born in a log cabin built by his grandfather. He would grow up to codify the blues and be known as the "Father of the Blues."</p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div style="display: flex; gap: var(--space-xl); margin-bottom: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--color-light);">
+          <div style="min-width: 80px; text-align: right;">
+            <span style="font-family: var(--font-headline); font-size: var(--text-2xl); color: var(--color-gold); font-weight: 700;">1880</span>
+          </div>
+          <div>
+            <h4 style="margin-bottom: var(--space-sm);">Helen Keller Born at Ivy Green</h4>
+            <p style="color: var(--color-gray); line-height: 1.7;">Helen Adams Keller is born in Tuscumbia. After losing her sight and hearing at 19 months, she would become one of history's most inspiring figures.</p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 4 -->
+        <div style="display: flex; gap: var(--space-xl); margin-bottom: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--color-light);">
+          <div style="min-width: 80px; text-align: right;">
+            <span style="font-family: var(--font-headline); font-size: var(--text-2xl); color: var(--color-gold); font-weight: 700;">1939</span>
+          </div>
+          <div>
+            <h4 style="margin-bottom: var(--space-sm);">Frank Lloyd Wright Designs Rosenbaum House</h4>
+            <p style="color: var(--color-gray); line-height: 1.7;">Architect Frank Lloyd Wright designs Alabama's only Wright building—called "the purest example of Usonian architecture"—for $12,000.</p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 5 -->
+        <div style="display: flex; gap: var(--space-xl); margin-bottom: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--color-light);">
+          <div style="min-width: 80px; text-align: right;">
+            <span style="font-family: var(--font-headline); font-size: var(--text-2xl); color: var(--color-gold); font-weight: 700;">1959</span>
+          </div>
+          <div>
+            <h4 style="margin-bottom: var(--space-sm);">FAME Studios Founded</h4>
+            <p style="color: var(--color-gray); line-height: 1.7;">Rick Hall establishes FAME (Florence Alabama Music Enterprises), creating the birthplace of the legendary "Muscle Shoals Sound."</p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 6 -->
+        <div style="display: flex; gap: var(--space-xl);">
+          <div style="min-width: 80px; text-align: right;">
+            <span style="font-family: var(--font-headline); font-size: var(--text-2xl); color: var(--color-gold); font-weight: 700;">1967</span>
+          </div>
+          <div>
+            <h4 style="margin-bottom: var(--space-sm);">Aretha Franklin Records at FAME</h4>
+            <p style="color: var(--color-gray); line-height: 1.7;">Aretha Franklin arrives to record "I Never Loved a Man (The Way I Love You)" with The Swampers—launching her to superstardom and cementing Muscle Shoals' legend.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More Stories Coming Banner -->
+  <section class="section pt-0">
+    <div class="container">
       <div class="more-stories-banner" data-animate>
         <h3>More Stories Coming</h3>
-        <p>We're researching and writing new stories every month. Muscle Shoals, Sheffield, and Tuscumbia are next.</p>
+        <p>We're researching and writing new stories every month. Muscle Shoals and Sheffield are next.</p>
         <a href="#request" class="btn btn-white">Nominate Your Town</a>
       </div>
     </div>
@@ -206,20 +420,26 @@
       <div class="text-center mb-2xl">
         <p class="text-label mb-md">Explore</p>
         <h2>Stories on the Map</h2>
-        <p class="mt-md" style="max-width: 600px; margin-left: auto; margin-right: auto; color: var(--color-charcoal-light);">
+        <p class="mt-md"
+          style="max-width: 600px; margin-left: auto; margin-right: auto; color: var(--color-charcoal-light);">
           Click on a pin to explore each location's story.
         </p>
       </div>
 
-      <div class="map-container" style="background: var(--color-cream); border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-lg); max-width: 800px; margin: 0 auto;">
+      <div class="map-container"
+        style="background: var(--color-cream); border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-lg); max-width: 800px; margin: 0 auto;">
         <!-- US Map SVG -->
-        <svg class="map-svg" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+        <svg class="map-svg" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg"
+          style="width: 100%; height: auto;">
           <!-- Simplified US Map outline -->
           <g id="us-map">
             <!-- Main US outline - simplified -->
-            <path d="M150,180 Q200,150 300,160 L400,150 Q500,140 600,155 L700,160 Q800,170 850,200 L860,300 Q870,400 850,480 L750,500 Q650,510 550,505 L450,500 Q350,495 250,490 L180,470 Q130,400 140,300 Z" fill="#E8E2D9" stroke="#5C4033" stroke-width="1"/>
+            <path
+              d="M150,180 Q200,150 300,160 L400,150 Q500,140 600,155 L700,160 Q800,170 850,200 L860,300 Q870,400 850,480 L750,500 Q650,510 550,505 L450,500 Q350,495 250,490 L180,470 Q130,400 140,300 Z"
+              fill="#E8E2D9" stroke="#5C4033" stroke-width="1" />
             <!-- Alabama state highlight -->
-            <path id="alabama" d="M620,380 L660,378 L665,420 L668,460 L665,490 L625,495 L620,460 L618,420 Z" fill="#D4C4B5" stroke="#5C4033" stroke-width="1.5"/>
+            <path id="alabama" d="M620,380 L660,378 L665,420 L668,460 L665,490 L625,495 L620,460 L618,420 Z"
+              fill="#D4C4B5" stroke="#5C4033" stroke-width="1.5" />
           </g>
         </svg>
 
@@ -248,11 +468,11 @@
           </div>
         </div>
 
-        <div class="map-pin coming-soon" style="left: 65%; top: 73%;">
+        <div class="map-pin active" style="left: 65%; top: 73%;" onclick="window.location.href='places/tuscumbia.html'">
           <div class="map-pin-icon"></div>
           <div class="map-pin-tooltip">
             <h4>Tuscumbia, AL</h4>
-            <p>Coming Soon</p>
+            <p>Available Now</p>
           </div>
         </div>
       </div>
@@ -264,7 +484,8 @@
             Available Now
           </span>
           <span style="display: inline-flex; align-items: center; gap: var(--space-sm);">
-            <span style="width: 12px; height: 12px; background: var(--color-charcoal-light); border-radius: 50%; opacity: 0.5;"></span>
+            <span
+              style="width: 12px; height: 12px; background: var(--color-charcoal-light); border-radius: 50%; opacity: 0.5;"></span>
             Coming Soon
           </span>
         </p>
@@ -279,10 +500,12 @@
         <p class="text-label mb-md" style="color: var(--color-rust-light);">Help Us Grow</p>
         <h2 style="color: var(--color-cream);">Request Your Town</h2>
         <p class="mt-md" style="color: var(--color-cream-dark);">
-          We can't cover every place at once, but your nominations help us prioritize. Tell us about your hometown and why its story deserves to be told.
+          We can't cover every place at once, but your nominations help us prioritize. Tell us about your hometown and
+          why its story deserves to be told.
         </p>
 
-        <form class="mt-2xl" style="text-align: left;" id="requestForm" name="town-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="mt-2xl" style="text-align: left;" id="requestForm" name="town-request" method="POST"
+          data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="town-request">
           <p style="display: none;">
             <label>Don't fill this out: <input name="bot-field"></label>
@@ -297,7 +520,8 @@
           </div>
           <div class="form-group">
             <label class="form-label" style="color: var(--color-cream);">Why This Place Matters</label>
-            <textarea name="reason" class="form-textarea" placeholder="Tell us what makes this place special. What stories should people know?"></textarea>
+            <textarea name="reason" class="form-textarea"
+              placeholder="Tell us what makes this place special. What stories should people know?"></textarea>
           </div>
           <div class="form-group">
             <label class="form-label" style="color: var(--color-cream);">Your Email (optional)</label>
@@ -315,7 +539,8 @@
       <div class="newsletter-content">
         <h2>Get Story Drops</h2>
         <p>Be the first to know when we launch new places, new stories, and limited releases.</p>
-        <form class="newsletter-form" id="newsletterForm" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="newsletter-form" id="newsletterForm" name="newsletter" method="POST" data-netlify="true"
+          netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="newsletter">
           <input type="email" name="email" placeholder="Your email address" required>
           <button type="submit">Subscribe</button>
@@ -334,17 +559,20 @@
           <div class="footer-social">
             <a href="https://instagram.com/origyn" aria-label="Instagram" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
               </svg>
             </a>
             <a href="https://tiktok.com/@origyn" aria-label="TikTok" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
               </svg>
             </a>
             <a href="https://youtube.com/@origyn" aria-label="YouTube" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
               </svg>
             </a>
           </div>
@@ -395,7 +623,8 @@
       <button class="cart-drawer-close" id="cartClose">&times;</button>
     </div>
     <div class="cart-drawer-content">
-      <p style="text-align: center; color: var(--color-charcoal-light); padding: var(--space-2xl) 0;">Your cart is empty</p>
+      <p style="text-align: center; color: var(--color-charcoal-light); padding: var(--space-2xl) 0;">Your cart is empty
+      </p>
     </div>
     <div class="cart-drawer-footer">
       <p class="cart-message">Every purchase preserves a story.</p>
@@ -406,4 +635,5 @@
   <!-- JavaScript -->
   <script src="js/main.js"></script>
 </body>
+
 </html>
