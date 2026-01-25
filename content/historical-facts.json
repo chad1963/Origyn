@@ -1,0 +1,174 @@
+{
+    "facts": [
+        {
+            "id": "muscle-shoals-sound",
+            "category": "music",
+            "title": "The Muscle Shoals Sound",
+            "fact": "In the late 1970s, Muscle Shoals produced more hit singles per capita than any other city in the world—including New York, Los Angeles, and Nashville.",
+            "source": "University of North Alabama Archives",
+            "relatedStory": "/places/florence.html#music"
+        },
+        {
+            "id": "fame-studios",
+            "category": "music",
+            "title": "FAME Studios",
+            "fact": "FAME Studios opened in 1959 and became one of the first places in the American South where Black and white musicians recorded together during the Civil Rights era.",
+            "source": "Alabama Department of Archives and History",
+            "relatedStory": "/places/florence.html#music"
+        },
+        {
+            "id": "wwc-handy",
+            "category": "music",
+            "title": "Father of the Blues",
+            "fact": "W.C. Handy, known as the 'Father of the Blues,' was born in Florence in 1873. His 'Memphis Blues' (1912) is considered one of the first published blues songs.",
+            "source": "W.C. Handy Birthplace Museum",
+            "relatedStory": "/places/florence.html#handy"
+        },
+        {
+            "id": "wilson-dam",
+            "category": "history",
+            "title": "Wilson Dam",
+            "fact": "Wilson Dam was the largest dam in the world when completed in 1924. It became the first dam administered by the Tennessee Valley Authority in 1933.",
+            "source": "TVA Historical Archives",
+            "relatedStory": "/places/florence.html#timeline"
+        },
+        {
+            "id": "indian-mound",
+            "category": "history",
+            "title": "Florence Indian Mound",
+            "fact": "The Florence Indian Mound is the tallest domiciliary mound in the Tennessee Valley at 43 feet. It was built by the Copena culture between 100-500 CE—over 1,500 years ago.",
+            "source": "Florence Indian Mound Museum",
+            "relatedStory": "/places/florence.html#story"
+        },
+        {
+            "id": "helen-keller",
+            "category": "people",
+            "title": "Helen Keller",
+            "fact": "Helen Keller was born at Ivy Green in Tuscumbia in 1880. The famous 'miracle' where Anne Sullivan taught her to communicate happened at the well pump on the property.",
+            "source": "Helen Keller Birthplace Foundation",
+            "relatedStory": "/places/tuscumbia.html"
+        },
+        {
+            "id": "the-swampers",
+            "category": "music",
+            "title": "The Swampers",
+            "fact": "The Muscle Shoals Rhythm Section, known as 'The Swampers,' were among the first musicians to own their own studio and control their own publishing. They're mentioned in Lynyrd Skynyrd's 'Sweet Home Alabama.'",
+            "source": "Muscle Shoals Music Foundation",
+            "relatedStory": "/places/florence.html#music"
+        },
+        {
+            "id": "singing-river",
+            "category": "history",
+            "title": "The Singing River",
+            "fact": "Native Americans called the Tennessee River 'the Singing River.' Local legend says that's the source of the musical magic in the Shoals.",
+            "source": "University of North Alabama",
+            "relatedStory": "/places/florence.html"
+        }
+    ],
+    "legends": [
+        {
+            "id": "wc-handy",
+            "name": "W.C. Handy",
+            "title": "Father of the Blues",
+            "years": "1873-1958",
+            "birthplace": "Florence, Alabama",
+            "contribution": "Composed 'Memphis Blues' and 'St. Louis Blues,' transforming folk music into the blues genre that birthed jazz and rock & roll.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/WC_Handy_1941.jpg/440px-WC_Handy_1941.jpg"
+        },
+        {
+            "id": "helen-keller",
+            "name": "Helen Keller",
+            "title": "Author, Activist, Lecturer",
+            "years": "1880-1968",
+            "birthplace": "Tuscumbia, Alabama",
+            "contribution": "Overcame blindness and deafness to become a world-famous author, lecturer, and advocate for people with disabilities.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Helen_KellerA.jpg/440px-Helen_KellerA.jpg"
+        },
+        {
+            "id": "rick-hall",
+            "name": "Rick Hall",
+            "title": "Founder of FAME Studios",
+            "years": "1932-2018",
+            "birthplace": "Franklin County, Alabama",
+            "contribution": "Founded FAME Studios in 1959 and produced countless hit records that defined the Muscle Shoals Sound.",
+            "image": null
+        },
+        {
+            "id": "sam-phillips",
+            "name": "Sam Phillips",
+            "title": "Founder of Sun Records",
+            "years": "1923-2003",
+            "birthplace": "Florence, Alabama",
+            "contribution": "Founded Sun Records in Memphis and discovered Elvis Presley, Johnny Cash, Jerry Lee Lewis, and other rock & roll pioneers.",
+            "image": null
+        }
+    ],
+    "locations": [
+        {
+            "id": "florence",
+            "name": "Florence",
+            "state": "Alabama",
+            "established": 1818,
+            "population": 40184,
+            "coordinates": {
+                "lat": 34.7998,
+                "lng": -87.6772
+            },
+            "highlights": [
+                "Birthplace of W.C. Handy",
+                "FAME Studios",
+                "Rosenbaum House (Frank Lloyd Wright)",
+                "Florence Indian Mound"
+            ],
+            "status": "active"
+        },
+        {
+            "id": "muscle-shoals",
+            "name": "Muscle Shoals",
+            "state": "Alabama",
+            "established": 1923,
+            "population": 14922,
+            "coordinates": {
+                "lat": 34.7448,
+                "lng": -87.6675
+            },
+            "highlights": [
+                "FAME Studios (current location)",
+                "Hit Recording Capital of the World"
+            ],
+            "status": "coming-soon"
+        },
+        {
+            "id": "tuscumbia",
+            "name": "Tuscumbia",
+            "state": "Alabama",
+            "established": 1820,
+            "population": 8657,
+            "coordinates": {
+                "lat": 34.7317,
+                "lng": -87.7036
+            },
+            "highlights": [
+                "Helen Keller Birthplace (Ivy Green)",
+                "Alabama Music Hall of Fame"
+            ],
+            "status": "coming-soon"
+        },
+        {
+            "id": "sheffield",
+            "name": "Sheffield",
+            "state": "Alabama",
+            "established": 1885,
+            "population": 9040,
+            "coordinates": {
+                "lat": 34.7650,
+                "lng": -87.6986
+            },
+            "highlights": [
+                "Muscle Shoals Sound Studio (3614 Jackson Highway)",
+                "W.C. Handy Festival"
+            ],
+            "status": "coming-soon"
+        }
+    ]
+}

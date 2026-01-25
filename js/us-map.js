@@ -125,7 +125,7 @@ function buildMap() {
   const existingPaths = svg.querySelectorAll('path');
   existingPaths.forEach(path => path.remove());
 
-  // Add all states
+  // Add all states with clean minimalist styling
   Object.entries(US_MAP_PATHS).forEach(([stateId, pathData]) => {
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute('id', stateId);
@@ -137,21 +137,25 @@ function buildMap() {
       pin => pin.state === stateId && pin.status === 'active'
     );
 
+    // Apply clean minimalist styling matching reference image
     if (hasActivePins) {
       path.classList.add('active');
       path.style.fill = '#2D5F4F'; // Forest green for active states
       path.style.cursor = 'pointer';
     } else {
-      path.style.fill = '#E8E8E8'; // Light gray for inactive states
+      path.style.fill = '#D8D8D8'; // Light gray matching reference
+      path.style.cursor = 'default';
     }
 
+    // White borders for clean look
     path.style.stroke = '#FFFFFF';
-    path.style.strokeWidth = '1.5';
+    path.style.strokeWidth = '2';
     path.style.transition = 'fill 0.3s ease';
 
     svg.appendChild(path);
   });
 }
+
 
 // Add pins to the map container
 function addPins(container) {
