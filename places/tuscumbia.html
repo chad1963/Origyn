@@ -209,6 +209,9 @@
         <a href="#keller" class="story-nav__link">Helen Keller</a>
         <a href="#music" class="story-nav__link">Music Hall of Fame</a>
         <a href="#landmarks" class="story-nav__link">Landmarks</a>
+        <a href="#timeline" class="story-nav__link">Timeline</a>
+        <a href="#community-stories" class="story-nav__link">Community</a>
+        <a href="#learn-more" class="story-nav__link">Learn More</a>
         <a href="#shop" class="story-nav__link">Shop</a>
       </div>
     </div>
@@ -579,6 +582,315 @@
     </div>
   </section>
 
+  <!-- Community Stories -->
+  <section class="section" id="community-stories">
+    <div class="container container--narrow">
+      <div class="community-stories">
+        <div class="community-stories__header">
+          <div class="community-stories__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h2 class="community-stories__title">Share Your Tuscumbia Story</h2>
+          <p class="community-stories__subtitle">
+            Did you grow up here? Visit Ivy Green as a child? Have a connection to Helen Keller's legacy?
+            Your stories are what make Tuscumbia real. Share a memory, a photo, or a piece of history we might have missed.
+          </p>
+        </div>
+
+        <!-- Story Type Selector -->
+        <div class="story-type-selector">
+          <div class="story-type-option">
+            <input type="radio" id="type-memory" name="story-type" value="memory" checked>
+            <label for="type-memory">
+              <span class="story-type-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </span>
+              <span class="story-type-name">Memory</span>
+            </label>
+          </div>
+          <div class="story-type-option">
+            <input type="radio" id="type-photo" name="story-type" value="photo">
+            <label for="type-photo">
+              <span class="story-type-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </span>
+              <span class="story-type-name">Photo</span>
+            </label>
+          </div>
+          <div class="story-type-option">
+            <input type="radio" id="type-history" name="story-type" value="history">
+            <label for="type-history">
+              <span class="story-type-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+              </span>
+              <span class="story-type-name">History</span>
+            </label>
+          </div>
+          <div class="story-type-option">
+            <input type="radio" id="type-correction" name="story-type" value="correction">
+            <label for="type-correction">
+              <span class="story-type-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </span>
+              <span class="story-type-name">Correction</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submission Form -->
+        <form class="community-form" name="tuscumbia-stories" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+          <input type="hidden" name="form-name" value="tuscumbia-stories">
+          <input type="hidden" name="place" value="Tuscumbia, Alabama">
+          <input type="hidden" name="story-type" id="hidden-story-type" value="memory">
+          <p style="display: none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+          <div class="community-form__row">
+            <div class="form-group">
+              <label class="form-label">Your Name <span class="required">*</span></label>
+              <input type="text" name="name" class="form-input" placeholder="How should we credit you?" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Your Email <span class="required">*</span></label>
+              <input type="email" name="email" class="form-input" placeholder="We'll only use this to follow up" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Story Title</label>
+            <input type="text" name="title" class="form-input" placeholder="Give your story a title (optional)">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Your Story <span class="required">*</span></label>
+            <textarea name="story" class="form-textarea" placeholder="Tell us about a memory, a family story, a visit to Ivy Green, your connection to Helen Keller's legacy, or something you think we should know about Tuscumbia..." required></textarea>
+            <p class="form-hint">Include as much detail as you'd like—names, dates, locations all help preserve the story.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Add a Photo (Optional)</label>
+            <div class="file-upload">
+              <input type="file" name="photo" accept="image/*">
+              <div class="file-upload__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+              </div>
+              <p class="file-upload__text"><strong>Click to upload</strong> or drag and drop</p>
+              <p class="file-upload__hint">PNG, JPG up to 10MB. Historic photos especially welcome!</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Time Period (if applicable)</label>
+            <select name="era" class="form-select">
+              <option value="">When did this take place?</option>
+              <option value="pre-1900">Before 1900</option>
+              <option value="1900-1950">1900-1950</option>
+              <option value="1950-1980">1950-1980</option>
+              <option value="1980-2000">1980-2000</option>
+              <option value="2000-present">2000-Present</option>
+              <option value="ongoing">Ongoing / Timeless</option>
+            </select>
+          </div>
+
+          <button type="submit" class="community-form__submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+            Share Your Story
+          </button>
+
+          <div class="community-form__disclaimer">
+            <strong>How we use your story:</strong> Submitted stories may be featured on this page (with your permission)
+            and may be lightly edited for clarity. We never share your email. You retain ownership of your story and photos.
+            By submitting, you confirm this is your story to share or you have permission to share it.
+          </div>
+        </form>
+
+        <!-- Featured Community Stories -->
+        <div class="featured-stories">
+          <h3 class="featured-stories__title">Stories From the Community</h3>
+          <div class="featured-stories__grid">
+            <div class="featured-story-card">
+              <span class="featured-story-card__type">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                </svg>
+                Memory
+              </span>
+              <p class="featured-story-card__content">
+                "My grandmother took me to Ivy Green when I was seven. Standing at that water pump, she made me
+                close my eyes and put my hands under the water. 'Now imagine,' she said, 'that this is how Helen
+                understood the whole world.' I never forgot that moment."
+              </p>
+              <div class="featured-story-card__author">
+                <div class="featured-story-card__avatar">RK</div>
+                <div class="featured-story-card__meta">
+                  <p class="featured-story-card__name">Rebecca K.</p>
+                  <p class="featured-story-card__date">Visited from Georgia, 1984</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="featured-story-card">
+              <span class="featured-story-card__type">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+                History
+              </span>
+              <p class="featured-story-card__content">
+                "My great-great-aunt was a cook for the Keller family in the 1890s. The stories passed down say
+                Helen would come to the kitchen and 'talk' to her by tracing letters on her arm. She said Helen
+                had the most determined spirit she'd ever seen."
+              </p>
+              <div class="featured-story-card__author">
+                <div class="featured-story-card__avatar">TW</div>
+                <div class="featured-story-card__meta">
+                  <p class="featured-story-card__name">Teresa W.</p>
+                  <p class="featured-story-card__date">Family history, passed down</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p style="text-align: center; margin-top: var(--space-xl); font-size: var(--text-sm); color: var(--color-gray);">
+            Want to see your story here? Submit above and we'll review it for the community page.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sources (Hub Model) -->
+  <section class="section section--cream" id="learn-more">
+    <div class="container container--narrow">
+      <div class="best-sources">
+        <h3 class="best-sources__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+          Learn More From These Sources
+        </h3>
+        <p style="color: var(--color-gray); margin-bottom: var(--space-xl); line-height: 1.7;">
+          We're not trying to reinvent the wheel. These organizations have been preserving Tuscumbia's history
+          for decades. If you want to go deeper, start here:
+        </p>
+        <div class="best-sources__grid">
+          <a href="https://www.helenkellerbirthplace.org" target="_blank" rel="noopener" class="source-card">
+            <div class="source-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="source-card__content">
+              <p class="source-card__name">Ivy Green</p>
+              <p class="source-card__description">Visit Helen Keller's birthplace—tour the house, see the water pump, experience the history</p>
+            </div>
+            <svg class="source-card__external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+
+          <a href="http://encyclopediaofalabama.org/article/h-1052" target="_blank" rel="noopener" class="source-card">
+            <div class="source-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+            </div>
+            <div class="source-card__content">
+              <p class="source-card__name">Encyclopedia of Alabama</p>
+              <p class="source-card__description">Comprehensive scholarly articles on Helen Keller and Tuscumbia history</p>
+            </div>
+            <svg class="source-card__external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+
+          <a href="https://www.afb.org/about-afb/history/helen-keller" target="_blank" rel="noopener" class="source-card">
+            <div class="source-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/>
+              </svg>
+            </div>
+            <div class="source-card__content">
+              <p class="source-card__name">American Foundation for the Blind</p>
+              <p class="source-card__description">Detailed biography, photos, and archival materials on Helen Keller's life</p>
+            </div>
+            <svg class="source-card__external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+
+          <a href="https://www.alamhof.org" target="_blank" rel="noopener" class="source-card">
+            <div class="source-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+              </svg>
+            </div>
+            <div class="source-card__content">
+              <p class="source-card__name">Alabama Music Hall of Fame</p>
+              <p class="source-card__description">Plan a visit to experience Alabama's rich musical heritage</p>
+            </div>
+            <svg class="source-card__external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+
+          <a href="https://www.loc.gov/collections/helen-keller-archive/" target="_blank" rel="noopener" class="source-card">
+            <div class="source-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div class="source-card__content">
+              <p class="source-card__name">Library of Congress Archive</p>
+              <p class="source-card__description">Primary documents, letters, and photographs from Helen Keller's life</p>
+            </div>
+            <svg class="source-card__external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+
+          <a href="https://www.colbertcountytourism.org" target="_blank" rel="noopener" class="source-card">
+            <div class="source-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="source-card__content">
+              <p class="source-card__name">Colbert County Tourism</p>
+              <p class="source-card__description">Local events, attractions, and visitor information for the area</p>
+            </div>
+            <svg class="source-card__external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Sources Section -->
   <section class="section section--light" id="sources">
     <div class="container" style="max-width: 800px;">
@@ -663,6 +975,90 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Story type selector functionality
+      const storyTypeInputs = document.querySelectorAll('input[name="story-type"]');
+      const hiddenStoryType = document.getElementById('hidden-story-type');
+
+      storyTypeInputs.forEach(input => {
+        input.addEventListener('change', () => {
+          if (hiddenStoryType) {
+            hiddenStoryType.value = input.value;
+          }
+        });
+      });
+
+      // File upload drag and drop
+      const fileUpload = document.querySelector('.file-upload');
+      if (fileUpload) {
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+          fileUpload.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          });
+        });
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+          fileUpload.addEventListener(eventName, () => {
+            fileUpload.classList.add('drag-over');
+          });
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+          fileUpload.addEventListener(eventName, () => {
+            fileUpload.classList.remove('drag-over');
+          });
+        });
+
+        fileUpload.addEventListener('drop', (e) => {
+          const files = e.dataTransfer.files;
+          if (files.length > 0) {
+            const fileInput = fileUpload.querySelector('input[type="file"]');
+            fileInput.files = files;
+            fileUpload.querySelector('.file-upload__text').innerHTML = `<strong>${files[0].name}</strong> selected`;
+          }
+        });
+
+        // Update text when file is selected via click
+        const fileInput = fileUpload.querySelector('input[type="file"]');
+        if (fileInput) {
+          fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+              fileUpload.querySelector('.file-upload__text').innerHTML = `<strong>${fileInput.files[0].name}</strong> selected`;
+            }
+          });
+        }
+      }
+
+      // Form submission handling
+      const storyForm = document.querySelector('form[name="tuscumbia-stories"]');
+      if (storyForm) {
+        storyForm.addEventListener('submit', (e) => {
+          const submitBtn = storyForm.querySelector('.community-form__submit');
+          submitBtn.innerHTML = `
+            <svg class="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" stroke-dasharray="30 70"/>
+            </svg>
+            Sending...
+          `;
+          submitBtn.disabled = true;
+        });
+      }
+
+      // Header color change on scroll
+      const header = document.getElementById('header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > window.innerHeight * 0.7) {
+            header.classList.remove('header--dark');
+          } else {
+            header.classList.add('header--dark');
+          }
+        }, { passive: true });
+      }
+    });
+  </script>
 </body>
 
 </html>
